@@ -10,14 +10,14 @@
     background: #061529;
     color: #e5e7eb;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
-    font-size: 20px;
-    line-height: 1.6;
-    padding: 32px 24px;
+    font-size: 17px;
+    line-height: 1.7;
+    padding: 36px 24px;
   }
-  .container { max-width: 960px; margin: 0 auto; }
+  .container { max-width: 980px; margin: 0 auto; }
   h1 {
     color: #f5c542;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 800;
     text-align: center;
     margin-bottom: 6px;
@@ -26,7 +26,7 @@
   .subtitle {
     text-align: center;
     color: #cbd5e1;
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 28px;
   }
   .card {
@@ -34,7 +34,7 @@
     border: 1px solid #1e3a5f;
     border-radius: 12px;
     padding: 20px 24px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   }
   .card:hover {
@@ -44,56 +44,42 @@
   }
   .card h2 {
     color: #f5c542;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 12px;
   }
-  .grid-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
-  }
-  .grid-5 .box {
-    background: #0b1f3a;
-    border: 1px solid #1e3a5f;
-    border-radius: 10px;
-    padding: 14px 12px;
-    text-align: center;
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  }
-  .grid-5 .box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(245,197,66,.10);
-    border-color: #f5c542;
-  }
-  .grid-5 .label { color: #94a3b8; font-size: 14px; margin-bottom: 6px; }
-  .grid-5 .value { color: #f5c542; font-size: 20px; font-weight: 700; }
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 20px;
+    font-size: 17px;
   }
   th, td {
     text-align: left;
-    padding: 10px 8px;
+    padding: 10px 10px;
     border-bottom: 1px solid #1e3a5f;
   }
   th { color: #f5c542; font-weight: 700; }
   tr:hover td { background: rgba(245,197,66,.04); }
-  .up { color: #f59e0b; }
-  .down { color: #22c55e; }
+  .up { color: #f59e0b; font-weight: 700; }
+  .down { color: #22c55e; font-weight: 700; }
   .flat { color: #e5e7eb; }
-  .fund-section { margin-top: 18px; }
-  .fund-section h3 { color: #f5c542; font-size: 22px; margin-bottom: 10px; }
+  .risk { padding: 10px 14px; border-radius: 8px; margin: 8px 0; font-size: 16px; line-height: 1.6; }
+  .risk-red { background: rgba(239,68,68,.12); border-left: 4px solid #ef4444; color: #fca5a5; }
+  .risk-yellow { background: rgba(234,179,8,.12); border-left: 4px solid #eab308; color: #fde047; }
+  .risk-green { background: rgba(34,197,94,.12); border-left: 4px solid #22c55e; color: #86efac; }
+  .highlight { color: #f5c542; font-weight: 700; }
+  .section-title { color: #f5c542; font-size: 20px; font-weight: 700; margin: 14px 0 8px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
   .pill {
     display: inline-block;
     background: #122842;
     color: #e5e7eb;
     border: 1px solid #1e3a5f;
     border-radius: 999px;
-    padding: 6px 12px;
+    padding: 5px 11px;
     margin: 4px 4px 0 0;
-    font-size: 16px;
+    font-size: 15px;
     transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
   }
   .pill:hover {
@@ -111,7 +97,7 @@
     background: #0b1f3a;
     border-radius: 0 8px 8px 0;
     color: #94a3b8;
-    font-size: 16px;
+    font-size: 15px;
   }
   .fmt { color: #94a3b8; font-size: 12px; text-align: center; margin-top: 24px; }
 </style>
@@ -121,133 +107,144 @@
   <h1>每日市場情報 Daily Brief</h1>
   <div class="subtitle">2026-07-28 | 恒生銀行投資顧問市場情報整合</div>
 
-  <div class="grid-5">
-    <div class="box"><div class="label">市場決議</div><div class="value">暫停攻擊</div></div>
-    <div class="box"><div class="label">今日定調</div><div class="value">震盪偏穩</div></div>
-    <div class="box"><div class="label">風險天平</div><div class="value">地緣降溫</div></div>
-    <div class="box"><div class="label">市場定價</div><div class="value">7月按兵不動</div></div>
-    <div class="box"><div class="label">一句話</div><div class="value">油價回落支撐風險情緒，美股分歧、港股穩中向好</div></div>
-  </div>
-
-  <div class="card" style="margin-top:24px;">
-    <h2>📊 昨日/隔晚收市數據</h2>
+  <div class="card">
+    <h2>一、五格摘要表</h2>
     <table>
-      <tr><th>指數/資產</th><th>最新價</th><th>變動</th></tr>
-      <tr><td>恒生指數</td><td>25,207.18</td><td class="up">+0.98%</td></tr>
-      <tr><td>道瓊斯</td><td>52,210.08</td><td class="up">+0.51%</td></tr>
-      <tr><td>S&amp;P 500</td><td>7,413.18</td><td class="up">+0.02%</td></tr>
-      <tr><td>納斯達克</td><td>24,932.08</td><td class="down">-0.18%</td></tr>
-      <tr><td>費城半導體</td><td>11,554.88</td><td class="down">-2.28%</td></tr>
-      <tr><td>布蘭特原油</td><td>87.94</td><td class="down">-9.16%</td></tr>
-      <tr><td>黃金</td><td>4,074.60</td><td class="flat">-0.03%</td></tr>
-      <tr><td>美國10年期國債息</td><td>4.641%</td><td class="down">-0.81%</td></tr>
-      <tr><td>美國5年期國債息</td><td>4.397%</td><td class="flat">0.00%</td></tr>
-      <tr><td>美元指數</td><td>101.47</td><td class="up">+0.02%</td></tr>
+      <tr><th>維度</th><th>內容</th></tr>
+      <tr><td>市場決議</td><td>聯儲局本周議息，市場普遍預期維持利率不變，但加息聲音浮現</td></tr>
+      <tr><td>今日定調</td><td>中性偏審慎——油價急跌紓緩通脹憂慮，惟半導體板塊持續受壓</td></tr>
+      <tr><td>風險天平</td><td>美伊暫停互攻（利好）vs 中美關稅博弈＋AI循環融資泡沫（利淡）</td></tr>
+      <tr><td>市場定價</td><td>10年期國債息 4.641%、2年期 4.32%、VIX 18.67、美元指數 101.50</td></tr>
+      <tr><td>一句話</td><td>油價回落令市場短暫喘穩，但半導體弱勢與AI融資泡沫仍是隱患，宜守不宜攻</td></tr>
     </table>
   </div>
 
   <div class="card">
-    <h2>⚠️ 風險提示</h2>
+    <h2>二、隔晚收市數據表（7月27日）</h2>
+    <table>
+      <tr><th>指數/資產</th><th>收市</th><th>變動</th></tr>
+      <tr><td>恒生指數</td><td>25,207.18</td><td class="up">+0.98%</td></tr>
+      <tr><td>道瓊斯</td><td>52,210.08</td><td class="up">+0.51%</td></tr>
+      <tr><td>S&amp;P 500</td><td>7,413.35</td><td class="up">+0.02%</td></tr>
+      <tr><td>納斯達克</td><td>24,932.08</td><td class="down">-0.18%</td></tr>
+      <tr><td>費城半導體</td><td>11,554.88</td><td class="down">-2.24%</td></tr>
+      <tr><td>布蘭特原油</td><td>US$87.94</td><td class="down">-9.1%</td></tr>
+      <tr><td>黃金</td><td>US$4,074.60</td><td class="up">+0.17%</td></tr>
+      <tr><td>美10年期國債息</td><td>4.641%</td><td class="down">-0.038厘</td></tr>
+      <tr><td>美2年期國債息</td><td>4.32%</td><td class="down">-0.011厘</td></tr>
+      <tr><td>美元指數 DXY</td><td>101.50</td><td class="up">+0.23%</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>三、風險提示</h2>
+    <div class="risk risk-red">🔴 <strong>半導體板塊續弱</strong>：費半跌逾2.2%，ASML急挫8.4%，中國國企傳量產DUV光刻機，威脅荷蘭龍頭地位</div>
+    <div class="risk risk-yellow">🟡 <strong>AI循環融資泡沫升溫</strong>：Nvidia新一輪AI交易總額超7,500億美元，與SK集團合作逾5,000億，為OpenAI擔保2,500億，Goldman Sachs及Michael Burry同示警</div>
+    <div class="risk risk-yellow">🟡 <strong>中美關稅博弈</strong>：中國稱美方承諾將替代關稅封頂20%，但仍警告若美方制裁中國AI企業將採「一切必要措施」</div>
+    <div class="risk risk-green">🟢 <strong>地緣降溫</strong>：美伊暫停互相攻擊，特朗普稱達成伊朗協議「機會很大」，油價應聲急跌</div>
+    <div class="risk risk-yellow">🟡 <strong>胡塞持續滋擾</strong>：胡塞武裝對沙特實施海上封鎖，紅海航運風險未除</div>
+  </div>
+
+  <div class="card">
+    <h2>四、最新市況解讀</h2>
+    <p class="section-title">【Macro】全球大市與宏觀環境</p>
     <ul>
-      <li>美國與伊朗暫停攻擊，但協議未落實，油價單日急挫後仍高波動。</li>
-      <li>費城半導體單日跌逾2.2%，ASML因中國DUV機器量產消息受壓。</li>
-      <li>Nvidia $750億AI循環融資交易引發泡沫憂慮，科技股估值敏感。</li>
-      <li>今日美股重磅數據：耐用品訂單、達拉斯聯儲製造業指數。</li>
+      <li>美股週一表現分歧：道指升262點撐市，標指微升，納指及費半下跌</li>
+      <li>油價急挫為通脹降溫帶來曙光，<span class="highlight">10年期債息回落至4.641%</span></li>
+      <li>中國稱美方承諾替代關稅封頂20%（現12.5%基礎上最多再加7.5個百分點），利好中美貿易氣氛</li>
+      <li>日本首相高市民調下滑，GPIF強調以受益人利益為先管理1.8萬億美元資產，日圓及日債存隱憂</li>
+      <li>本周聯儲局議息為焦點，利率期貨顯示維持不變機率高，但部分聲音開始討論加息可能性</li>
+    </ul>
+
+    <p class="section-title">【Sector】關鍵板塊動態</p>
+    <ul>
+      <li><strong>半導體</strong>：費半跌2.24%，連日走弱；中國國企（上海某公司）傳今年產5台浸潤式DUV、明年20台，直接挑戰ASML</li>
+      <li><strong>能源</strong>：布蘭特急跌9%至88美元水平，油組成員國關注霍爾木茲海峽復航談判</li>
+      <li><strong>AI概念</strong>：Nvidia再推7,500億美元規模AI交易計劃，Big Tech加槓桿融資建數據中心，行業互相纏繞、系統性風險升溫</li>
+      <li><strong>黃金/避險</strong>：金價於4,070美元附近整固，中東局勢反覆支撐避險需求</li>
+    </ul>
+
+    <p class="section-title">【Company】關鍵個股與事件</p>
+    <ul>
+      <li><strong>ASML（-8.4%）</strong>：中國DUV設備國產化傳聞打擊最大，相關供應鏈留意台積電、三星動向</li>
+      <li><strong>Nvidia（+0.88%）</strong>：雖然股價微升，但「循環融資」質疑升溫，與SK集團及OpenAI的巨額合作引發估值爭議</li>
+      <li><strong>CXMT（長鑫存儲）</strong>：100億美元IPO表現失色，創辦人卻承諾56億美元員工獎金</li>
+      <li><strong>Samsung Galaxy Z Fold 8</strong>：新摺機評價一般，屏幕變短變寬，未能突破</li>
+    </ul>
+
+    <p class="section-title">【Sentiment】市場情緒</p>
+    <ul>
+      <li>VIX <span class="highlight">18.67</span>，情緒大致穩定但未算亢奮</li>
+      <li>恐慌貪婪指數中性，資金於績前觀望（Google、Tesla即將公布業績）</li>
+      <li>胡塞封鎖沙特航道消息一度令資金流入防禦性板塊</li>
+      <li>港股恒指25,207點，連日反覆，短線缺乏方向</li>
+    </ul>
+
+    <p class="section-title">【Micro】金價解讀（每日必備）</p>
+    <ul>
+      <li>現貨金價報4,074.60美元，日內波幅4,072-4,085美元</li>
+      <li>油價回落理應利淡黃金，但中東局勢未完全降溫（胡塞仍活躍、伊朗拒絕停火提案）令金價企穩</li>
+      <li>美元指數升至101.50，輕微壓抑金價上行空間</li>
+      <li>後市關鍵：聯儲局議息結果、美伊「深度談判」進展，破4,100美元則上看4,150</li>
+    </ul>
+
+    <p class="section-title">📌 總結</p>
+    <ul>
+      <li>油價急跌短暫紓緩市場通脹憂慮，但半導體弱勢＋AI泡沫隱患未除，資金態度審慎</li>
+      <li>中美關稅若落實封頂20%屬實質利好，留意本周聯儲局措辭有否轉向</li>
+      <li>港股25,200點附近拉鋸，RM宜主動聯絡收息型客戶推廣短債及多元資產基金</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>📰 最新市況解讀</h2>
-    <p><strong>【Macro】全球大市與宏觀環境</strong></p>
-    <ul>
-      <li>美國與伊朗宣布暫停互相攻擊，市場風險情緒明顯改善，油價從高位回落。</li>
-      <li>美國貿易代表署確認中國同意將替代關稅上限設定於20%，聯儲局本周利率決議備受矚目。</li>
-      <li>日本GPIF重申僅以受益人長期利益管理資產，對國內資產配置呼聲低調回應。</li>
-    </ul>
+    <h2>五、今日策略</h2>
+    <p class="section-title">(1) 基金表格（16隻，RM銷售直接用）</p>
+    <table>
+      <tr><th>基金</th><th>代號</th><th>分類</th><th>特性/派息</th></tr>
+      <tr><td>HSBC貨幣</td><td>U45193</td><td>現金</td><td>流動性極高，現金管理首選</td></tr>
+      <tr><td>HSBC超短債</td><td>U45242</td><td>極短債</td><td>低利率風險，適合避險資金</td></tr>
+      <tr><td>安聯浮動息</td><td>U45707</td><td>浮息債</td><td>抗加息，息率隨市場調整</td></tr>
+      <tr><td>PIMCO收益II</td><td>U50021</td><td>核心收息</td><td>月派息，環球多元債券</td></tr>
+      <tr><td>法巴環球債券</td><td>U45838</td><td>核心收息</td><td>環球投資級債，穩定收益</td></tr>
+      <tr><td>法巴新興債</td><td>U45817</td><td>核心收息</td><td>新興市場高息，博取較高收益</td></tr>
+      <tr><td>東方匯理收益機遇</td><td>U45769</td><td>多元資產</td><td>股債靈活配置，抗波動</td></tr>
+      <tr><td>宏利多元入息10%派</td><td>U45660</td><td>多元資產</td><td>年化派息約10%，高息策略</td></tr>
+      <tr><td>普徠仕多元收益</td><td>U45679</td><td>多元資產</td><td>多元收益來源，分散風險</td></tr>
+      <tr><td>PIMCO收益增長</td><td>U45553</td><td>多元資產</td><td>收益＋增長並重</td></tr>
+      <tr><td>恒生亞洲增長收益</td><td>U45090</td><td>多元資產</td><td>聚焦亞洲增長動力</td></tr>
+      <tr><td>恒生高息股30 ETF</td><td>U45624</td><td>股票主題</td><td>派息率約7.52%，港股高息</td></tr>
+      <tr><td>貝萊德系統分析高息股</td><td>U44950</td><td>股票主題</td><td>8-10%＋期權增強收益</td></tr>
+      <tr><td>鄧普頓亞太入息</td><td>U45722</td><td>股票主題</td><td>亞太區入息策略</td></tr>
+      <tr><td>法巴科技創新</td><td>U45816</td><td>股票主題</td><td>科技創新主題，增長潛力高</td></tr>
+    </table>
+    <p style="margin-top:10px;color:#94a3b8;font-size:15px;">**RM重點推介**：油價跌＋債息回落環境下，<span class="highlight">PIMCO收益II（U50021）</span>及<span class="highlight">宏利多元入息10%派（U45660）</span>為收息客首選；保守型客戶主推<span class="highlight">HSBC超短債（U45242）</span>。</p>
 
-    <p><strong>【Sector】關鍵板塊動態</strong></p>
-    <ul>
-      <li>能源板塊因油價急挫跑輸，金融與必需消費相對受惠。</li>
-      <li>科技股內部分化：大型科技股多升，半導體設備與晶片股逆勢下跌。</li>
-    </ul>
+    <p class="section-title" style="margin-top:18px;">(2) ELN 表格</p>
+    <table>
+      <tr><th>標的</th><th>邏輯</th><th>接貨機會</th></tr>
+      <tr><td>騰訊（0700.HK）</td><td>績前波動，短線支撐約420-440，ELN接貨吸引</td><td>中</td></tr>
+      <tr><td>阿里巴巴（9988.HK）</td><td>AI概念反覆，跌至接貨區博反彈</td><td>中高</td></tr>
+      <tr><td>美團（3690.HK）</td><td>消費復甦主題，160-170為合理接貨水平</td><td>中</td></tr>
+      <tr><td>匯豐（0005.HK）</td><td>高息藍籌，90-92港元接貨後收息</td><td>高</td></tr>
+    </table>
 
-    <p><strong>【Company】關鍵個股與事件</strong></p>
+    <p class="section-title" style="margin-top:18px;">(3) MXI / 定存建議</p>
     <ul>
-      <li>ASML受中國DUV機器量產消息衝擊，單日跌8.4%。</li>
-      <li>Nvidia $750億AI交易引發泡沫討論，SK集團合作過500億美元，OpenAI數據中心融資達250億美元。</li>
-      <li>CXMT $100億IPO表現失利。</li>
-    </ul>
-
-    <p><strong>【Sentiment】市場情緒</strong></p>
-    <ul>
-      <li>VIX維持18.85，市場恐慌指數未見急升，風險偏好尚算穩定。</li>
-      <li>港股ADR普遍上升，恒指夜期升約242點，今日高開機會高。</li>
-    </ul>
-
-    <p><strong>【Micro】金價解讀</strong></p>
-    <ul>
-      <li>黃金現貨報4,076.40美元/盎司，日升0.60%。地緣降溫後金價未見大跌，通脹保值與避險需求雙重支持下仍受支持。</li>
-      <li>中東局勢：美國與伊朗暫停攻擊，胡塞組織表示僅針對沙特阿拉伯封鎖，未完全封鎖曼德海峽。油價單日急挫9%至87.94美元，地緣溢價快速消退。</li>
-    </ul>
-
-    <p><strong>📌 總結</strong></p>
-    <ul>
-      <li>地緣風險降溫帶動油價回落，市場風險偏好改善，美股道瓊、標普靠穩，港股預料高開。</li>
-      <li>半導體板塊仍受中國產能與AI估值泡沫擔憂壓制，能源板塊短期受油價拖累。</li>
-      <li>今日聚焦耐用品訂單數據與聯儲局利率決議，市場預期維持利率不變。</li>
+      <li><strong>美元定存</strong>：3個月期約4.2-4.4厘，6個月期約4.0-4.2厘，窗口仍開放</li>
+      <li><strong>港元定存</strong>：3個月期約3.8-4.0厘</li>
+      <li><strong>MXI結構性存款</strong>：掛鈎黃金或美股指數，潛在年化回報5-7%</li>
+      <li>建議：油價波動期間，資金短泊優先鎖定3個月美元定存，待聯儲局議息後再評估</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>🎯 今日策略</h2>
-    <div class="fund-section">
-      <h3>(1) 基金數據表</h3>
-      <div class="pill">HSBC貨幣(U45193)</div>
-      <div class="pill">HSBC超短債(U45242)</div>
-      <div class="pill">安聯浮動息(U45707)</div>
-      <div class="pill">PIMCO收益II(U50021)</div>
-      <div class="pill">法巴環球債券(U45838)</div>
-      <div class="pill">法巴新興債(U45817)</div>
-      <div class="pill">東方匯理收益機遇(U45769)</div>
-      <div class="pill">宏利多元入息10%派(U45660)</div>
-      <div class="pill">普徠仕多元收益(U45679)</div>
-      <div class="pill">PIMCO收益增長(U45553)</div>
-      <div class="pill">恒生亞洲增長收益(U45090)</div>
-      <div class="pill">恒生高息股30 ETF(U45624, 7.52%)</div>
-      <div class="pill">貝萊德系統分析高息股(U44950, 8-10%+期權)</div>
-      <div class="pill">鄧普頓亞太入息(U45722)</div>
-      <div class="pill">法巴科技創新(U45816)</div>
-      <p style="margin-top:10px;color:#94a3b8;font-size:16px;">* 上述基金僅供參考，RM可按客戶風險偏好揀選。派息數據以基金公司最新公布為準。</p>
-    </div>
-
-    <div class="fund-section" style="margin-top:18px;">
-      <h3>(2) ELN 表格</h3>
-      <table>
-        <tr><th>標的</th><th>邏輯</th><th>接貨機會</th></tr>
-        <tr><td>港股龍頭</td><td>地緣風險降溫，港股ADR升，今日高開</td><td>留意恒指25000支持，短線 sell put 接貨</td></tr>
-        <tr><td>美股科技</td><td>大型科技股跑贏，半導體逆勢</td><td>Nvidia/Aurora structured note 機會</td></tr>
-        <tr><td>黃金主題</td><td>金價維持4,076美元高位</td><td>金礦股 ELN 或黃金掛鈎票據</td></tr>
-      </table>
-    </div>
-
-    <div class="fund-section" style="margin-top:18px;">
-      <h3>(3) MXI / 定存建議</h3>
-      <ul>
-        <li>美元債/浮動息仍合適，2-3個月短定存先觀望聯儲局議息後訂價。</li>
-        <li>短端國債回落，Money market yield 約 4.3%-4.5%，適合現金管理。</li>
-        <li>MXI 掛鈎產品：注意油價波動未完全消除，能源相關分母 exposure 要審視。</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>📌 今日關注 Watchlist</h2>
-    <div class="watch-item"><strong>聯儲局利率決議</strong> — 市場預期7月維持利率不變，關注點陣圖與主席講話。</div>
-    <div class="watch-item"><strong>耐用品訂單 (8:30 AM)</strong> — 6月數據，預測 0.3%，前值 2.5%。</div>
-    <div class="watch-item"><strong>達拉斯聯儲製造業指數 (10:30 AM)</strong> — 地區製造業景氣度指標。</div>
-    <div class="watch-item"><strong>油價走勢</strong> — 布蘭特原油單日跌9%後能否企穩87美元。</div>
-    <div class="watch-item"><strong>ASML/半導體板塊</strong> — 中國DUV機器量產消息後續發展。</div>
-    <div class="watch-item"><strong>黃金破4,100美元機會</strong> — 若地緣降溫延續，黃金短線或受壓。</div>
+    <h2>六、今日關注 Watchlist</h2>
+    <div class="watch-item"><strong>聯儲局議息（7月29-30日）</strong>：利率決議＋聲明措辭，鮑威爾記者會為本周重中之重</div>
+    <div class="watch-item"><strong>中美關稅後續</strong>：20%封頂若落實，利好中港股市及出口股</div>
+    <div class="watch-item"><strong>Google／Tesla業績</strong>：科技巨頭績效直接影響納指及AI板塊情緒</div>
+    <div class="watch-item"><strong>ASML及半導體設備股</strong>：中國DUV國產化傳聞後續，留意台積電、三星供應鏈</div>
+    <div class="watch-item"><strong>美伊談判進展</strong>：霍爾木茲海峽復航與否，直接影響油價及通脹預期</div>
+    <div class="watch-item"><strong>恒指25,000點保衛戰</strong>：失守則下試24,500，企穩則上望25,500</div>
   </div>
 
   <div class="disclaimer">
@@ -257,4 +254,3 @@
 </div>
 </body>
 </html>
-<!-- trigger rebuild -->
