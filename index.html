@@ -6,16 +6,19 @@
 <title>恒生銀行每日市場情報｜2026年7月30日</title>
 <style>
   :root {
-    --bg: #0a1e3a;
-    --gold: #f0c040;
-    --text: #e8eef6;
-    --muted: #a8b8d0;
-    --card: #0e2a52;
-    --border: #1a3a6a;
-    --up: #ff4d4d;      /* 紅=升（港式） */
-    --down: #00d68f;    /* 綠=跌（港式） */
-    --amber: #f0a030;   /* 橙=警示/中性 */
-    --accent: #7dd3fc;  /* subheader 高亮色 */
+    --bg: #f4f1ea;
+    --gold: #b8860b;
+    --text: #2d2419;
+    --muted: #7a6f5a;
+    --card: #ffffff;
+    --border: #d9cfb8;
+    --up: #d12b2b;      /* 紅=升（港式） */
+    --down: #1a9e6f;    /* 綠=跌（港式） */
+    --amber: #c8701a;   /* 橙=警示/中性 */
+    --accent: #8a6d3b;  /* subheader 高亮色 */
+    --eln-bg: #fff8e8;
+    --eln-border: #d4a017;
+    --eln-head: #a0781f;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -90,7 +93,7 @@
     margin-bottom: 8px;
     line-height: 1.6;
   }
-  .risk-red { background: rgba(255,77,77,0.10); border: 1px solid rgba(255,77,77,0.35); color: #f0a0a0; }
+  .risk-red { background: rgba(255,77,77,0.10); border: 1px solid rgba(255,77,77,0.35); color: #c0392b; }
   .risk-red strong { color: var(--up); }
   .risk-amber { background: rgba(240,160,48,0.10); border: 1px solid rgba(240,160,48,0.35); color: #e8cfa0; }
   .risk-amber strong { color: var(--amber); }
@@ -119,7 +122,7 @@
   .market-item .chg { font-size: 0.82em; font-weight: 700; }
   .market-item .bar-wrap {
     margin-top: 6px;
-    background: rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.04);
     border-radius: 4px;
     height: 5px;
     overflow: hidden;
@@ -161,7 +164,7 @@
     background: #fff;
     border-radius: 3px;
     transform: translateX(-50%);
-    box-shadow: 0 0 8px rgba(255,255,255,0.7);
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
   }
   .gauge-labels { display: flex; justify-content: space-between; width: 85%; font-size: 0.76em; color: var(--muted); }
   .gauge-center { font-size: 1.05em; color: var(--gold); font-weight: 700; margin-top: 6px; }
@@ -170,7 +173,7 @@
 
   /* 市況解讀 */
   .uncle-box {
-    background: linear-gradient(135deg, #0c2448 0%, #122d55 100%);
+    background: linear-gradient(135deg, #fdf6e3 0%, #f5e9c8 100%);
     border-left: 4px solid var(--gold);
     border-radius: 10px;
     padding: 18px 20px;
@@ -197,7 +200,7 @@
 
   .eln-table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 8px; }
   .eln-table th {
-    background: #0c2448;
+    background: #fdf6e3;
     color: var(--accent);
     padding: 7px 9px;
     text-align: left;
@@ -222,7 +225,7 @@
   }
 
   .mxi-box {
-    background: linear-gradient(135deg, #0c2448, #122d55);
+    background: linear-gradient(135deg, #fdf6e3, #f5e9c8);
     border-left: 4px solid var(--gold);
     border-radius: 10px;
     padding: 14px 16px;
@@ -232,6 +235,34 @@
   .watchlist { font-size: 0.86em; color: var(--muted); margin-bottom: 8px; line-height: 2; }
   .watchlist strong { color: var(--gold); }
   .watchlist .wl-hot { color: var(--amber); }
+
+  /* Quant → ELN 專區 */
+  .eln-quant {
+    background: var(--eln-bg);
+    border: 1px solid var(--eln-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .eln-quant .eq-title {
+    color: var(--eln-head);
+    font-size: 1.0em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .eln-quant .eq-pick {
+    background: rgba(77,163,255,0.12);
+    border-left: 3px solid var(--eln-head);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.88em;
+  }
+  .eln-quant table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 6px; }
+  .eln-quant th { background: #fdf6e3; color: var(--eln-head); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--eln-border); font-weight: 700; }
+  .eln-quant td { padding: 6px 8px; border-bottom: 1px solid var(--eln-border); color: var(--text); }
+  .eln-quant .stars { color: var(--eln-head); letter-spacing: 1px; }
+  .eln-quant .avoid { color: var(--up); font-weight: 600; }
 
   .footer {
     text-align: center;
@@ -466,6 +497,22 @@
       <tr><td>中國海洋石油（0883.HK）</td><td>油價飆升＋中東風險溢價，短線受惠但注意地緣反覆</td><td>中</td></tr>
     </table>
   </div>
+</div>
+
+<div class="eln-quant">
+  <div class="eq-title">🏦 Quant Model → ELN 策略專區（4-Factor System）</div>
+  <div class="eq-pick">
+    <b>⭐ 首選：ADBE（Adobe）</b> <span class="stars">★★★★★</span><br>
+    Q=98 · Decel=0（無減速）· Vol30=50% · 分析員目標 $290（+20%）<br>
+    <b>方案</b>：3個月期 ELN，strike 打 85-90%（$206-218），coupon 預期 6-9%。最穩陣，基本面強、動量平穩、波幅低。
+  </div>
+  <table>
+    <tr><th>股票</th><th>評分</th><th>質素</th><th>價值</th><th>Decel</th><th>Vol30</th><th>分析員目標</th><th>推薦</th></tr>
+    <tr><td>ADBE</td><td>57</td><td style="color:var(--down)">98</td><td>50</td><td style="color:var(--down)">0</td><td>50%</td><td>$290 (+20%)</td><td class="stars">★★★★★</td></tr>
+    <tr><td>NOW</td><td>53</td><td>72</td><td>0</td><td style="color:var(--down)">0</td><td>64%</td><td>$140 (+29%)</td><td class="stars">★★</td></tr>
+  </table>
+  <div class="avoid" style="margin-top:8px;font-size:0.85em;">🚫 不建議掛 ELN（Decel≤-3 動量崩塌）：SNDK · MU · CRDO · LRCX · INTC · AMAT · AMD · KLAC · MRVL · BE · GLW · DELL</div>
+  <div style="margin-top:6px;font-size:0.8em;color:var(--muted);">選股原則：Decel≥-1（動量無崩塌）+ Quality≥70（基本面穩健）+ Vol30≤65%（低波幅）。建議 3 個月期、strike 85-90%。</div>
 </div>
 
 <div class="strategy-block">
