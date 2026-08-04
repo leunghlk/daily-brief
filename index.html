@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>恒生銀行每日市場情報｜2026年8月4日</title>
+<title>每日市場情報 · leungkathy</title>
 <style>
   :root {
     --bg: #f4f1ea;
@@ -19,6 +19,10 @@
     --eln-bg: #fff8e8;
     --eln-border: #d4a017;
     --eln-head: #a0781f;
+    /* leungkathy brand bar */
+    --brand: #5b3fd6;
+    --brand-dark: #4329a8;
+    --brand-light: #f0ecfe;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -31,18 +35,36 @@
     margin: 0 auto;
     font-size: 15px;
   }
-  h1 {
-    color: var(--gold);
-    font-size: 1.7em;
-    text-align: center;
-    margin-bottom: 4px;
-    letter-spacing: 1px;
+
+  /* ── leungkathy brand top bar (matches all-in-one suite) ── */
+  .lk-header {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+    padding: 16px 22px;
+    margin: -20px -20px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
-  .subtitle {
-    color: var(--muted);
-    text-align: center;
-    font-size: 0.88em;
-    margin-bottom: 12px;
+  .lk-logo {
+    width: 40px; height: 40px;
+    background: #fff; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 300; font-style: italic;
+    color: var(--brand);
+    transform: rotate(-6deg);
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .lk-brand-text { line-height: 1; color: #fff; }
+  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
+  .lk-doc-title {
+    margin-left: auto; text-align: right; color: #fff;
+  }
+  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
+  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
   }
   .date-badge {
     display: inline-block;
@@ -281,8 +303,17 @@
 </head>
 <body>
 
-<h1>恒生銀行每日市場情報</h1>
-<div class="subtitle">Hang Seng Bank Daily Market Intelligence</div>
+<div class="lk-header">
+  <div class="lk-logo">k</div>
+  <div class="lk-brand-text">
+    <div class="lk-name">leungkathy</div>
+    <div class="lk-sub">All-in-One Financial Dashboard Suite</div>
+  </div>
+  <div class="lk-doc-title">
+    <div class="t1">每日市場情報</div>
+    <div class="t2">Daily Market Briefing</div>
+  </div>
+</div>
 <div style="text-align:center;"><span class="date-badge">2026年8月4日 星期二</span></div>
 
 <!-- 五格 -->
@@ -529,7 +560,8 @@
 
 <div class="footer">
   以上內容純屬市場情報整合，不構成投資建議。<br>
-  今日焦點：道指創歷史新高53,178｜科技巨頭反撲扭轉7月殺估值｜Palantir業績超預期上調展望｜中東降溫布蘭特油價急跌近8%｜金價穩守$4,100｜港股突破26,000點
+  今日焦點：道指創歷史新高53,178｜科技巨頭反撲扭轉7月殺估值｜Palantir業績超預期上調展望｜中東降溫布蘭特油價急跌近8%｜金價穩守$4,100｜港股突破26,000點<br>
+  <span style="color:var(--brand);font-weight:700;">leungkathy</span> · All-in-One Financial Dashboard Suite
 </div>
 
 </body>
