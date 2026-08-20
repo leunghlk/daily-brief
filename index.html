@@ -1,182 +1,314 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日晨間簡報 - 2026年8月20日</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .header { text-align: center; margin-bottom: 30px; padding: 20px; background: linear-gradient(135deg, #1a73e8 0%, #185abc 100%); color: white; border-radius: 10px; }
-        .date-badge { font-size: 18px; font-weight: 500; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; display: inline-block; }
-        .section { margin-bottom: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #1a73e8; }
-        .section h2 { margin-top: 0; color: #1a73e8; font-size: 24px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .card h3 { margin-top: 0; color: #1a73e8; font-size: 18px; }
-        .highlight { background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin-bottom: 20px; }
-        .stock-move { font-weight: bold; }
-        .positive { color: #28a745; }
-        .negative { color: #dc3545; }
-        .neutral { color: #6c757d; }
-        ul { margin-bottom: 0; }
-        li { margin-bottom: 8px; }
-        .footer { text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; color: #6c757d; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>HSBC RM Morning Daily Brief</h1>
-            <div class="date-badge">2026年8月20日 星期三（晨間更新）</div>
-        </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日市場情報 · leungkathy</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --gold: #b8860b;
+    --text: #2d2419;
+    --muted: #7a6f5a;
+    --card: #ffffff;
+    --border: #d9cfb8;
+    --up: #d12b2b;      /* 紅=升（港式） */
+    --down: #1a9e6f;    /* 綠=跌（港式） */
+    --amber: #c8701a;   /* 橙=警示/中性 */
+    --accent: #8a6d3b;  /* subheader 高亮色 */
+    --eln-bg: #fff8e8;
+    --eln-border: #d4a017;
+    --eln-head: #a0781f;
+    /* leungkathy brand bar */
+    --brand: #1a73e8;
+    --brand-dark: #1557b0;
+    --brand-light: #e8f0fe;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
 
-        <div class="highlight">
-            <h2>🔥 重點摘要</h2>
-            <ul>
-                <li><strong>美股續升</strong> - S&P 500漲0.21%至7707.98，納指漲0.56%至26331.09</li>
-                <li><strong>黃金大漲</strong> - 金價漲4.6%至4567.50，創近期新高</li>
-                <li><strong>比特幣反彈</strong> - 漲7.4%至69,452，以太坊大漲18.2%至2,265</li>
-                <li><strong>美元轉弱</strong> - 美元指數跌0.8%，日圓走強至158.309</li>
-            </ul>
-        </div>
+  /* ── leungkathy brand top bar (matches all-in-one suite) ── */
+  .lk-header {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+    padding: 16px 22px;
+    margin: -20px -20px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .lk-logo {
+    width: 40px; height: 40px;
+    background: #fff; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 300; font-style: italic;
+    color: var(--brand);
+    transform: rotate(-6deg);
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .lk-brand-text { line-height: 1; color: #fff; }
+  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
+  .lk-doc-title {
+    margin-left: auto; text-align: right; color: #fff;
+  }
+  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
+  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
+  }
+  .date-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 0.85em;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+  }
 
-        <div class="section">
-            <h2>📈 市場概覽</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>美股指數</h3>
-                    <p>S&P 500: <span class="stock-move positive">7707.98 (+0.21%)</span></p>
-                    <p>Nasdaq: <span class="stock-move positive">26331.09 (+0.56%)</span></p>
-                    <p>Dow Jones: <span class="stock-move positive">53463.05</span></p>
-                </div>
-                <div class="card">
-                    <h3>亞洲市場</h3>
-                    <p>日經指數: 待更新</p>
-                    <p>滬指: 待更新</p>
-                    <p>恒指: 待更新</p>
-                </div>
-            </div>
-        </div>
+  /* 五格 summary */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .summary-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: var(--gold); }
+  .summary-box .label {
+    font-size: 0.74em;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  .summary-box .value {
+    font-size: 0.92em;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1.35;
+  }
 
-        <div class="section">
-            <h2>📊 商品市場</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>原油</h3>
-                    <p>布蘭特原油: <span class="negative">84.51 (-0.5%)</span></p>
-                    <p>近期地緣政治風險支撐，但需求憂慮抑制漲幅</p>
-                </div>
-                <div class="card">
-                    <h3>貴金屬</h3>
-                    <p>黃金: <span class="stock-move positive">4567.50 (+4.6%)</span></p>
-                    <p>白銀: <span class="stock-move positive">67.23 (+5.1%)</span></p>
-                    <p>避險需求大增，創近期新高</p>
-                </div>
-                <div class="card">
-                    <h3>工業金屬</h3>
-                    <p>銅: <span class="stock-move positive">6.50 (+0.3%)</span></p>
-                    <p>工業需求穩定，漲幅相對溫和</p>
-                </div>
-            </div>
-        </div>
+  /* 風險燈 */
+  .risk-item {
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 0.86em;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .risk-red { background: rgba(255,77,77,0.10); border: 1px solid rgba(255,77,77,0.35); color: #c0392b; }
+  .risk-red strong { color: var(--up); }
+  .risk-amber { background: rgba(240,160,48,0.10); border: 1px solid rgba(240,160,48,0.35); color: #e8cfa0; }
+  .risk-amber strong { color: var(--amber); }
+  .risk-green { background: rgba(0,214,143,0.10); border: 1px solid rgba(0,214,143,0.35); color: #a0e8cf; }
+  .risk-green strong { color: var(--down); }
 
-        <div class="section">
-            <h2>🌐 匯率市場</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>美元指數</h3>
-                    <p>DX-Y.NYB: <span class="negative">98.837 (-0.8%)</span></p>
-                    <p>美元轉弱，非美貨幣普遍走強</p>
-                </div>
-                <div class="card">
-                    <h3>主要貨幣對</h3>
-                    <p>USD/JPY: <span class="negative">158.309 (-0.8%)</span></p>
-                    <p>EUR/USD: <span class="positive">1.168 (+0.9%)</span></p>
-                </div>
-            </div>
-        </div>
+  /* 市場數據行 */
+  .market-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .market-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 0.86em;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .market-item:hover { transform: translateY(-2px); border-color: var(--gold); }
+  .market-item .name { color: var(--accent); font-size: 0.75em; font-weight: 700; margin-bottom: 3px; }
+  .market-item .val { color: var(--gold); font-weight: 800; font-size: 1.08em; margin: 2px 0; }
+  .market-item .chg { font-size: 0.82em; font-weight: 700; }
+  .market-item .bar-wrap {
+    margin-top: 6px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 4px;
+    height: 5px;
+    overflow: hidden;
+  }
+  .market-item .bar-fill { height: 100%; border-radius: 4px; }
+  .up { color: var(--up); }
+  .down { color: var(--down); }
+  .warn { color: var(--amber); }
 
-        <div class="section">
-            <h2>🌐 加密貨幣</h2>
-            <div class="card">
-                <p>Bitcoin (BTC): <span class="stock-move positive">$69,452 (+7.4%)</span></p>
-                <p>Ethereum (ETH): <span class="stock-move positive">$2,265 (+18.2%)</span></p>
-                <p>總市值: 約 $1,627 萬億</p>
-                <p>市場情緒：積極（大盤走強帶動風險資產）</p>
-            </div>
-        </div>
+  /* 利率期貨 gauge */
+  .gauge-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .gauge-block h2 {
+    color: var(--gold);
+    font-size: 1.02em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .gauge-wrap { display: flex; flex-direction: column; align-items: center; padding: 10px 0; }
+  .gauge-bar {
+    width: 85%;
+    height: 30px;
+    background: linear-gradient(90deg, var(--down) 0%, var(--down) 15%, var(--gold) 15%, var(--gold) 80%, var(--up) 80%, var(--up) 100%);
+    border-radius: 15px;
+    position: relative;
+    margin: 10px 0;
+  }
+  .gauge-marker {
+    position: absolute;
+    top: -8px;
+    width: 5px;
+    height: 46px;
+    background: #fff;
+    border-radius: 3px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  }
+  .gauge-labels { display: flex; justify-content: space-between; width: 85%; font-size: 0.76em; color: var(--muted); }
+  .gauge-center { font-size: 1.05em; color: var(--gold); font-weight: 700; margin-top: 6px; }
+  .gauge-sub { font-size: 0.84em; color: var(--muted); margin-top: 2px; }
+  .gauge-comment { font-size: 0.82em; color: var(--text); margin-top: 6px; line-height: 1.6; text-align: center; }
 
-        <div class="section">
-            <h2>📅 今日經濟數據</h2>
-            <ul>
-                <li><strong>09:30 ET</strong> - 美國房屋開工及建許可 (7月)</li>
-                <li><strong>10:00 ET</strong> - 聯準會官員Bullard演講</li>
-                <li><strong>14:00 ET</strong> - 費城製造業指數 (8月)</li>
-                <li><strong>20:00 ET</strong> - EIA原油庫存數據</li>
-            </ul>
-        </div>
+  /* 市況解讀 */
+  .uncle-box {
+    background: linear-gradient(135deg, #fdf6e3 0%, #f5e9c8 100%);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .uncle-box .tag { font-size: 0.78em; color: var(--gold); font-weight: 700; letter-spacing: 1px; }
+  .uncle-box .dim { color: var(--accent); font-weight: 700; font-size: 0.9em; margin-top: 12px; }
+  .uncle-box ul { padding-left: 20px; margin-top: 4px; }
+  .uncle-box li { color: var(--text); font-size: 0.88em; margin: 4px 0; line-height: 1.75; }
+  .hl { color: var(--gold); font-weight: 700; }
+  .hl-red { color: var(--up); font-weight: 700; }
+  .hl-green { color: var(--down); font-weight: 700; }
 
-        <div class="section">
-            <h2>🔮 市場展望</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>技術分析</h3>
-                    <p>S&P 500: 阻力 7750 / 支撐 7650</p>
-                    <p>Nasdaq: 阻力 26500 / 支撐 26000</p>
-                    <p>整體呈現橫盤整理趨勢</p>
-                </div>
-                <div class="card">
-                    <h3>投資主題</h3>
-                    <p>1. 貴金屬避險需求持續（黃金、白銀）</p>
-                    <p>2. 加密貨幣反彈（Bitcoin、Ethereum）</p>
-                    <p>3. 美股穩步上行（科技股領先）</p>
-                    <p>4. 原油市場分化（地緣政治 vs 需求憂慮）</p>
-                </div>
-            </div>
-        </div>
+  /* 策略 blocks */
+  .strategy-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .strategy-block .stitle { font-size: 1.0em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .strategy-block .sbody { color: var(--text); font-size: 0.88em; line-height: 1.7; }
 
-        <div class="section">
-            <h2>⚠️ 風險因素</h2>
-            <ul>
-                <li>地緣政治緊張（中東、東亞）</li>
-                <li>聯準會政策不確定性</li>
-                <li>全球經濟增長放緩憂慮</li>
-                <li>加密貨幣波動性較大</li>
-            </ul>
-        </div>
+  .eln-table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 8px; }
+  .eln-table th {
+    background: #fdf6e3;
+    color: var(--accent);
+    padding: 7px 9px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-weight: 700;
+  }
+  .eln-table td { padding: 7px 9px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .eln-table tr:hover td { background: rgba(240,192,64,0.06); }
+  .eln-table .coupon { color: var(--down); font-weight: 700; }
+  .pick td { background: rgba(240,192,64,0.10); }
+  .pick td:first-child { border-left: 3px solid var(--gold); }
+  .pick-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.72em;
+    font-weight: 800;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
 
-        <div class="section">
-            <h2>💼 交易建議</h2>
-            <ul>
-                <li>貴金屬配置建議（黃金、白銀ETF）</li>
-                <li>觀察加密貨幣突破後走勢</li>
-                <li>美股科技股繼續持有</li>
-                <li>原油短線波動較大，謹慎操作</li>
-            </ul>
-        </div>
+  .mxi-box {
+    background: linear-gradient(135deg, #fdf6e3, #f5e9c8);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
 
-        <div class="section">
-            <h2>📈 年初至今表現</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>指數表現</h3>
-                    <p>S&P 500: +18.2%</p>
-                    <p>Nasdaq: +22.8%</p>
-                    <p>Dow Jones: +12.5%</p>
-                </div>
-                <div class="card">
-                    <h3>商品表現</h3>
-                    <p>黃金: +15.3%</p>
-                    <p>原油: +8.7%</p>
-                    <p>白銀: +22.5%</p>
-                </div>
-            </div>
-        </div>
+  .watchlist { font-size: 0.86em; color: var(--muted); margin-bottom: 8px; line-height: 2; }
+  .watchlist strong { color: var(--gold); }
+  .watchlist .wl-hot { color: var(--amber); }
 
-        <div class="footer">
-            <p>© 2026 HSBC RM | 晨間簡報 | 免責聲明：以上資料仅供参考，投資有風險，請審慎評估</p>
-        </div>
-    </div>
-</body>
-</html>
+  /* Quant → ELN 專區 */
+  .eln-quant {
+    background: var(--eln-bg);
+    border: 1px solid var(--eln-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .eln-quant .eq-title {
+    color: var(--eln-head);
+    font-size: 1.0em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .eln-quant .eq-pick {
+    background: rgba(77,163,255,0.12);
+    border-left: 3px solid var(--eln-head);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.88em;
+  }
+  .eln-quant table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 6px; }
+  .eln-quant th { background: #fdf6e3; color: var(--eln-head); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--eln-border); font-weight: 700; }
+  .eln-quant td { padding: 6px 8px; border-bottom: 1px solid var(--eln-border); color: var(--text); }
+  .eln-quant .stars { color: var(--eln-head); letter-spacing: 1px; }
+  .eln-quant .avoid { color: var(--up); font-weight: 600; }
+
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.74em;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    .market-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<div class="lk-header">
+  <div class="lk-logo">k</div>
+  <div class="lk-brand-text">
+    <div class="lk-name">leungkathy</div>
+    <div class="lk-sub">All-in-One Financial Dashboard Suite</div>
+  </div>
+  <div class="lk-doc-title">
+    <div class="t1">每日市場情報</div>
+    <div class="t2">Daily Market Briefing</div>
+  </div>
+</div>
+<div style="text-align:center;"><span class="date-badge">2026年8月20日 星期二（晨間更新）</span></div>
