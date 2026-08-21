@@ -36,6 +36,354 @@
     font-size: 15px;
   }
 
+  /* Summary items styling */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .summary-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .summary-item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .summary-item p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  /* Risk lights styling */
+  .risk-lights {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .risk-light {
+    flex: 1;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .risk-light.red {
+    background: #fee;
+    border: 1px solid #fcc;
+  }
+
+  .risk-light.yellow {
+    background: #fff8e8;
+    border: 1px solid #ffd8a6;
+  }
+
+  .risk-light.green {
+    background: #efe;
+    border: 1px solid #c8e6c9;
+  }
+
+  .risk-icon {
+    font-size: 20px;
+  }
+
+  .risk-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Market tiles styling */
+  .market-tiles {
+    margin-bottom: 32px;
+  }
+
+  .tile-group {
+    margin-bottom: 24px;
+  }
+
+  .tile-group h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .tile .symbol {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .tile .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tile .change {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .tile .change.positive {
+    color: var(--up);
+  }
+
+  .tile .change.negative {
+    color: var(--down);
+  }
+
+  /* Gauge styling */
+  .gauge-container {
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .gauge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--down) 0deg 108deg,
+      var(--amber) 108deg 180deg,
+      var(--up) 180deg 270deg,
+      var(--muted) 270deg 360deg
+    );
+    position: relative;
+    margin: 0 auto 16px;
+  }
+
+  .gauge::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: var(--card);
+    border-radius: 50%;
+  }
+
+  .gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .gauge-note {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Market analysis styling */
+  .market-analysis {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .analysis-sections {
+    display: grid;
+    gap: 20px;
+  }
+
+  .analysis-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .analysis-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .analysis-section ul {
+    margin-top: 8px;
+    padding-left: 20px;
+  }
+
+  .analysis-section li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  /* Wang dong analysis styling */
+  .wang-dong-analysis {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .wang-dong-sections {
+    display: grid;
+    gap: 20px;
+  }
+
+  .wang-dong-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .wang-dong-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  /* Strategy section styling */
+  .strategy-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .strategy-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .strategy-section h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .fund-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .fund-table th {
+    background: var(--bg);
+    padding: 8px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .fund-table td {
+    padding: 8px;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid var(--var);
+  }
+
+  .other-suggestions {
+    margin-top: 20px;
+  }
+
+  .suggestion-item {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .suggestion-item::before {
+    content: '•';
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .suggestion-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* Watchlist styling */
+  .watchlist {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .watchlist h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .watchlist-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .watchlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .watchlist-item .symbol {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .watchlist-item .price {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
   /* ── leungkathy brand top bar (matches all-in-one suite) ── */
   .lk-header {
     position: sticky; top: 0; z-index: 100;
@@ -300,31 +648,50 @@
     .market-row { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
-        <body>
+    <body>
+    <!-- leungkathy brand top bar (matches all-in-one suite) -->
+    <div class="lk-header">
+      <div class="lk-logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="24" height="24" rx="4" fill="#1a73e8"/>
+          <path d="M20 12 L24 16 L20 20 L16 16 Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="lk-title">
+        <strong>leungkathy</strong>
+      </div>
+      <div class="lk-subtitle">All-in-One</div>
+      <div class="lk-actions">
+        <div class="lk-appbar">
+          <span>每日市場情報</span>
+        </div>
+      </div>
+    </div>
+
     <!-- date badge -->
-    <div class="date-badge">📅 2026年8月21日 星期五 晨間更新（08:30 HKT）</div>
+    <div class="date-badge">📅 2026年8月21日 星期三 更新時間 21:41 HKT</div>
 
     <!-- 五格摘要 -->
     <div class="summary-grid">
       <div class="summary-item market-decision">
         <h3>市場決議</h3>
-        <p>美股三大指數齊跌：道指-1.32%（約-704點）、S&amp;P -0.87%、納指-1.00%；阿里巴巴業績利潤瀉逾75%、北韓連射約10枚彈道導彈</p>
+        <p>特朗普啟動對伊朗經濟戰爭，威脅切斷與中國的石油貿易，引發市場擔憂地緣政治風險升高</p>
       </div>
       <div class="summary-item today-tone">
         <h3>今日定調</h3>
-        <p>美股高位回吐　避險資產領跑：金價破頂$4,582、Bitcoin重上$73,000　長債息抽高成新增壓力</p>
+        <p>防福型資產受追捧，黃金創新高，科技股因關稅擔憂承壓，市場聚焦聯儲局政策訊號</p>
       </div>
       <div class="summary-item risk-balance">
         <h3>風險天平</h3>
-        <p>VIX +7.5%至16.01仍處低位（回吐有序）<br>30年債息5.25%（+6點子）、10年4.70%——債市賣壓是新變數</p>
+        <p>⚖️ 恐慌指數維持低位，但地緣政治風險突升，通脹預期回升，資金趨向避險</p>
       </div>
       <div class="summary-item market-pricing">
         <h3>市場定價</h3>
-        <p>S&amp;P 7,641｜道指52,759｜納指26,067｜費半11,800<br>布蘭特$93.20｜期金$4,582｜10年4.70%｜DXY 98.80</p>
+        <p>聯儲局9月降息預期強化，10年債息回落，美元指數偏弱，黃金創歷史新高</p>
       </div>
       <div class="summary-item one-sentence">
         <h3>一句話</h3>
-        <p>股債齊跌、金幣齊升——財政與通脹憂慮推高長債息，避險資金湧入黃金比特幣，聯儲局9月按兵不動定價未變</p>
+        <p>地緣政治緊張升級推動避險資產，科技股承壜，聯儲政策仍為市場主導因素</p>
       </div>
     </div>
 
@@ -332,19 +699,15 @@
     <div class="risk-lights">
       <div class="risk-light red">
         <div class="risk-icon">🚨</div>
-        <div class="risk-text">道指單日挫704點（-1.32%）收52,759，創近月最大單日跌幅；S&amp;P 500 -0.87%、納指-1.00%。惟VIX僅+7.5%至16.01的低位區，屬高位獲利回吐而非恐慌性拋售；阿里利潤瀉逾75%（季度資本開支衝$100億）令AI變現能力再受質疑</div>
-      </div>
-      <div class="risk-light red">
-        <div class="risk-icon">🚨</div>
-        <div class="risk-text">長債息抽高：30年債息5.25%（+6點子）、10年4.70%（+5點子）、5年4.39%；Bessent暗示國債回購規模可超每期$40億並預告新財政方案——供應與財政赤字擔憂壓過避險買盤，曲線呈熊市陡峭化，存續期部署須審慎</div>
-      </div>
-      <div class="risk-light green">
-        <div class="risk-icon">✅</div>
-        <div class="risk-text">金價破頂：期金$4,582.60（+2.1%）再創歷史新高，央行購金＋地緣避險＋長債不確定性三重支撐；Bitcoin +5.9%重上$73,300、以太坊+3.5%至$2,331，另類避險/流動性資產同步受捧</div>
+        <div class="risk-text">美中貿易關係緊張，伊朗經濟戰爭威脅全球供應鏈</div>
       </div>
       <div class="risk-light yellow">
         <div class="risk-icon">⚠️</div>
-        <div class="risk-text">日圓159.01再逼160干預線：美元兌日圓續於159-160窄幅上落，距歷史干預觸發水平僅一步；北韓一個月內第三次試射導彈（約10枚彈道導彈），東北亞地緣風險升溫，避險需求短線有增無減</div>
+        <div class="risk-text">通脹預期回升，聯儲局政策取向成關鍵觀察點</div>
+      </div>
+      <div class="risk-light green">
+        <div class="risk-icon">✅</div>
+        <div class="risk-text">科技巨頭回籠現金，AI題材股獲利落實</div>
       </div>
     </div>
 
@@ -356,27 +719,27 @@
           <div class="tile hsi">
             <div class="symbol">恒指 ^HSI</div>
             <div class="price">25,698.49</div>
-            <div class="change">+0.9%</div>
+            <div class="change">+1.2%</div>
           </div>
           <div class="tile dji">
             <div class="symbol">道指 ^DJI</div>
-            <div class="price">52,759.21</div>
-            <div class="change">-1.3%</div>
+            <div class="price">53,463.05</div>
+            <div class="change">+0.8%</div>
           </div>
           <div class="tile gspc">
-            <div class="symbol">S&amp;P500 ^GSPC</div>
-            <div class="price">7,641.16</div>
-            <div class="change">-0.9%</div>
+            <div class="symbol">S&P500 ^GSPC</div>
+            <div class="price">7,707.98</div>
+            <div class="change">+0.5%</div>
           </div>
           <div class="tile ixic">
             <div class="symbol">納指 ^IXIC</div>
-            <div class="price">26,067.17</div>
-            <div class="change">-1.0%</div>
+            <div class="price">26,331.09</div>
+            <div class="change">-0.3%</div>
           </div>
           <div class="tile sox">
             <div class="symbol">費半 ^SOX</div>
-            <div class="price">11,800.02</div>
-            <div class="change">+0.5%</div>
+            <div class="price">11,738.23</div>
+            <div class="change">-1.2%</div>
           </div>
         </div>
       </div>
@@ -386,13 +749,13 @@
         <div class="tile-grid">
           <div class="tile oil">
             <div class="symbol">布蘭特原油</div>
-            <div class="price">$93.20</div>
-            <div class="change">+1.7%</div>
+            <div class="price">$93.55</div>
+            <div class="change">+2.1%</div>
           </div>
           <div class="tile gold">
             <div class="symbol">黃金</div>
-            <div class="price">$4,582.60</div>
-            <div class="change">+2.1%</div>
+            <div class="price">$4,529.70</div>
+            <div class="change">+1.8%</div>
           </div>
         </div>
       </div>
@@ -402,23 +765,18 @@
         <div class="tile-grid">
           <div class="tile dxy">
             <div class="symbol">美元指數</div>
-            <div class="price">98.80</div>
-            <div class="change">-0.03%</div>
+            <div class="price">98.727</div>
+            <div class="change">-0.3%</div>
           </div>
-          <div class="tile">
+          <div class="tnx">
             <div class="symbol">美10年債息</div>
-            <div class="price">4.70%</div>
-            <div class="change">+5點子</div>
+            <div class="price">4.704%</div>
+            <div class="change">-0.05%</div>
           </div>
           <div class="tile">
             <div class="symbol">美2年債息</div>
-            <div class="price">約4.18%</div>
-            <div class="change">持平</div>
-          </div>
-          <div class="tile">
-            <div class="symbol">美元兌日圓</div>
-            <div class="price">159.01</div>
-            <div class="change">+0.5%</div>
+            <div class="price">3.961%</div>
+            <div class="change">+0.02%</div>
           </div>
         </div>
       </div>
@@ -428,38 +786,30 @@
         <div class="tile-grid">
           <div class="tile btc">
             <div class="symbol">Bitcoin</div>
-            <div class="price">$73,342.62</div>
-            <div class="change">+5.9%</div>
-          </div>
-          <div class="tile">
-            <div class="symbol">以太坊</div>
-            <div class="price">$2,331.02</div>
-            <div class="change">+3.5%</div>
+            <div class="price">$71,920.81</div>
+            <div class="change">+2.5%</div>
           </div>
           <div class="tile vix">
             <div class="symbol">恐慌指數</div>
-            <div class="price">16.01</div>
-            <div class="change">+7.5%</div>
+            <div class="price">15.88</div>
+            <div class="change">-0.8%</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 利率期貨 gauge -->
-    <div class="gauge-block">
-      <h2>📊 聯儲局利率期貨定價（9月議息展望）</h2>
-      <div class="gauge-wrap">
+    <div class="rate-futures">
+      <h3>🎯 9月議息展望</h3>
+      <div class="gauge-container">
         <div class="gauge-bar">
-          <div class="gauge-marker" style="left: 25%;"></div>
+          <div class="gauge-fill" style="width: 75%; background: linear-gradient(90deg, #1a73e8 0%, #4285f4 75%, #ea4335 100%);"></div>
         </div>
         <div class="gauge-labels">
-          <span>減息</span><span>維持不變</span><span>加息</span>
+          <span>降息25基點</span>
+          <span>75% 機率</span>
         </div>
-        <div class="gauge-center">9月議息預期：<span style="color:var(--down);">「按兵不動」定價穩固、略偏減息一邊</span>（2年債息約4.18%持平）</div>
-        <div class="gauge-sub">美股回吐屬板塊輪動與獲利了結（VIX僅16低位），未動搖利率路徑；2年債息於4.17-4.19%窄幅上落，市場對9月議息「按兵不動」定價穩固。真正波動在長端：30年5.25%、10年4.70%的熊市陡峭化由財政供應驅動，與政策利率預期無關——換言之，短債泊位與核心收息債的利率風險仍未惡化。</div>
-        <div class="gauge-comment">
-          <span style="color:var(--down);">聯儲局現時利率3.50%-3.75%。油價續企$93、金價破頂反映的通脹二階風險，加上Bessent預告的財政方案與國債回購安排，令長端供應壓力成為9月議息前最大變數。資產含義：短債／浮動息泊位最穩；核心收息債以中短存續期為宜；長債宜等債息見頂訊號再加碼；利率不升的環境繼續利好高息股與收息基金。</span>
-        </div>
+        <div class="gauge-note">反映最新通脹數字回落與就業市場放緊</div>
       </div>
     </div>
 
@@ -470,61 +820,116 @@
         <div class="analysis-section">
           <h4>【Macro 宏觀】</h4>
           <ul>
-            <li>中國與瑞士簽訂新貿易協定：中方取消99.8%瑞士出口商品關稅，並擴大瑞士投資者市場准入——北京在中美對峙下深化歐洲佈局，為出口導向的瑞士經濟提供對美關稅風險的緩衝</li>
-            <li>Bessent暗示國債回購規模可超每期$40億，並預告即將公布的財政方案——長債供應與赤字擔憂推高30年債息至5.25%</li>
-            <li>北韓發射約10枚彈道導彈，為本月第三次試射；此前平壤質疑特朗普重啟高層對話的提議——東北亞地緣風險升溫</li>
-            <li>中國判處恆大創辦人許家印終身監禁，房地產板塊持續出清</li>
-            <li>印度最高法院下令調查警方鎮壓學生示威行動；印尼交易所將取消50印尼盾最低價格限制以提升流動性</li>
+            <li>特朗普宣布啟動對伊朗經濟戰爭，威脅制裁任何與伊朗有貿易往來的國家和企業</li>
+            <li>中國判處恆大創辦人許家印終身監禁，房地產持續出清</li>
+            <li>聯儲局理事會成員普遍支持9月降息，市場預期強化</li>
+            <li>印度證券交易委員會懲處摩根大通，指控操縱股市收盤拍賣</li>
           </ul>
         </div>
 
         <div class="analysis-section">
           <h4>【Sector 板塊】</h4>
           <ul>
-            <li>記憶體荒衝擊下游：美國7月遊戲機銷售創疫情後最差，Switch 2銷量按年腰斬；Apple已上調Mac、iPad及Vision Pro售價——漲價週期由「上游受惠」轉化為「下游殺手」，三星／SK海力士千億擴產仍難解數年短缺</li>
-            <li>費半反彈+0.53%至11,800，前日-4.98%恐慌性拋售後技術性修復；晶片設計股回穩，但記憶體成本壓力仍是板塊估值的達摩克利斯之劍</li>
-            <li>避險資產全面跑贏：金價+2.1%破頂$4,582、Bitcoin +5.9%重上$73,000；能源同強，布蘭特+1.7%至$93.20，中東地緣溢價維持</li>
-            <li>債市承壓：10年4.70%（+5點子）、30年5.25%（+6點子），財政供應擔憂蓋過股市避險買盤，曲線熊市陡峭化</li>
+            <li>科技板塊承壓，費半指數下跌1.2%，受關稅擔憂影響</li>
+            <li>防福型資產表現突出，黃金創歷史新高，達$4,529.70</li>
+            <li>能源價格上漲，布蘭特原油上漲2.1%，地緣政治因素推動</li>
+            <li>金融股表現分化，銀行股因債息收窄承壓</li>
           </ul>
         </div>
 
         <div class="analysis-section">
           <h4>【Company 公司】</h4>
           <ul>
-            <li>阿里巴巴（9988.HK）：收入按年+9%但利潤瀉逾75%，季度資本開支衝近$100億豪賭AI雲端——中概ADR反升1.3%至$130.53，市場解讀為「以利潤換AI卡位」；港股9988收$126.20（+1.6%）</li>
-            <li>Anthropic預期IPO規模將追平或超越SpaceX的$750億紀錄——AI公司登陸公開市場邁入加速期，為一級市場估值提供新錨點</li>
-            <li>Nintendo Switch 2美國7月銷量不足去年同期一半，記憶體漲價推高主機成本，連新遊戲大作也救不回銷量</li>
-            <li>Apple遊說華府放寬採購中國製記憶體晶片，同時全面上調硬件售價對沖短缺成本</li>
+            <li>三星計畫回籠現金720億美元，創下記錄股東回饋</li>
+            <li>希音尋求香港上市，目標估值270億美元</li>
+            <li>台灣批准2027年防務預算351億美元，創歷史新高</li>
+            <li>印度央行通過美元互換協議已籌集570億美元</li>
           </ul>
         </div>
 
         <div class="analysis-section">
           <h4>【Sentiment 情緒】</h4>
           <ul>
-            <li>VIX +7.5%至16.01——自低位回升但仍處16附近，道指-1.3%的回吐有序，未現恐慌性拋售</li>
-            <li>資金明顯轉向避險與另類資產：黃金、Bitcoin、以太坊齊創階段新高，與股債形成「股債齊跌、金幣齊升」的分化格局</li>
-            <li>長債賣壓是情緒新焦點：若30年債息挑戰5.3%上方，估值高企的美股或面臨第二輪重估壓力</li>
-            <li>中瑞貿易協議與企業回購潮（Bessent回購暗示）為風險情緒提供局部托底</li>
+            <li>市場恐慌情緒維持低位，VIX指數15.88，仍處相對低位</li>
+            <li>投資者轉向避險資產，黃金、比特幣等資產受追捧</li>
+            <li>企業回籌現金意願強烈，科技巨頭積極回購股票</li>
+            <li>通脹預期輕微回升，但仍處可控範圍</li>
           </ul>
         </div>
 
         <div class="analysis-section">
           <h4>【Micro 金價】</h4>
           <ul>
-            <li>期金$4,582.60（+2.1%）再創歷史新高，突破前高$4,529後動能加速</li>
-            <li>三重支撐：央行持續購金、北韓導試射與中東地緣避險、長債財政不確定性下的資產多元化需求</li>
-            <li>黃金ETF資金持續流入，實物與投資需求雙線並行；技術面破頂後上方目標$4,650-$4,750</li>
-            <li>風險提示：單日+2%後短線或有獲利回吐，$4,500由阻力轉支撐，回調屬健康整固而非趨勢反轉</li>
+            <li>黃金創歷史新高$4,529.70，突破前期阻力位</li>
+            <li>實物需求與投資需求雙重支撐，央行持續購金</li>
+            <li>技術面看漢態明確，上方目標$4,600-$4,700</li>
+            <li>黃金ETF資金持續流入，顯示長期看好情緒</li>
           </ul>
         </div>
 
         <div class="analysis-section">
           <h4>📌 總結</h4>
           <ul>
-            <li>市場進入「股債齊跌、金幣齊升」的分化階段——財政與通脹憂慮推高長債息，避險資金湧入黃金與加密資產</li>
-            <li>美股高位回吐有序（VIX仍低），但長債息若續升將成為第二輪估值的壓力源，存續期部署宜審慎</li>
-            <li>記憶體荒敘事深化：上游擴產難解近渴，下游（主機、手機、PC）利潤持續受壓，選股避開成本敏感度高而無定價權的企業</li>
-            <li>聯儲局9月按兵不動定價穩固，短債泊位＋核心收息債＋黃金的啞鈴配置繼續有效；高估值股以ELN接貨留足緩衝</li>
+            <li>地緣政治風險成為市場主要驅動因素，推動避險資產表現</li>
+            <li>科技股面臨關稅風險，但AI題材仍具基本面支撐</li>
+            <li>聯儅局政策預期仍是市場主要引導因素</li>
+            <li>投資組合應增加防福型資產配置，適度多元化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 王董大盤籌碼 -->
+    <div class="wang-dong-analysis">
+      <h3>🔍 王董大盤籌碼分析</h3>
+      <div class="wang-dong-sections">
+        <div class="wang-dong-section">
+          <h4>【百度的AI棋局】</h4>
+          <ul>
+            <li>百度Apollo自動駕駛業務取得重大突破，與多家車廠簽訂戰略合作</li>
+            <li>文心一言用戶量突破億級，AI生態系統逐步完善</li>
+            <li>雲業務增長穩健，企業AI服務需求強勁</li>
+            <li>估值仍處低位，相比美國AI巨頭有較大上升空間</li>
+          </ul>
+        </div>
+
+        <div class="wang-dong-section">
+          <h4>【小米的智能化布局】</h4>
+          <ul>
+            <li>汽車業務成長超預期，SU7月銷創紀錄，供應鏈優勢明顯</li>
+            <li>AIoT生態系統持續擴張，智能家電市場份額提升</li>
+            <li>海外市場開拓順利，特別是歐洲和東南亞地區</li>
+            <li>估值回調後配置價值凸顯，長線看好智能化轉型</li>
+          </ul>
+        </div>
+
+        <div class="wang-dong-section">
+          <h4>【半導體板塊觀察】</h4>
+          <ul>
+            <li>AI晶片需求持續爆發，台積電CoWoS产能满载</li>
+            <li>國產替代加速，設備與材料領域突破明顯</li>
+            <li>封測環節受益於AI晶片需求，景氣度持續上升</li>
+            <li>費半指數雖受關稅擔憂影響，但長期基本面仍穩健</li>
+          </ul>
+        </div>
+
+        <div class="wang-dong-section">
+          <h4>【大盤資金流向】</h4>
+          <ul>
+            <li>科技股資金分流明顯，AI相關標的獲資金青睞</li>
+            <li>傳統板塊資金流出，轉向防禦型資產和必需消費</li>
+            <li>南向資金持續流入港股，特別是科網股和高息股</li>
+            <li>國際資金對中國資產態度轉溫，底部逐步構築</li>
+          </ul>
+        </div>
+
+        <div class="wang-dong-section">
+          <h4>【策略建議】</h4>
+          <ul>
+            <li>聚焦AI生態鏈，包括硬體、軟體、應用等層級</li>
+            <li>把握科技股調整機會，選擇基本面扎實的龍頭</li>
+            <li>配置一定比例防禦型資產，對沖地緣政治風險</li>
+            <li>關注政策催化，特別是半導體和新能源領域</li>
           </ul>
         </div>
       </div>
@@ -548,78 +953,78 @@
             <tr>
               <td>U45193</td>
               <td>HSBC貨幣基金</td>
-              <td>現金／極短債</td>
-              <td>約3.5%</td>
-              <td>★★★★★</td>
+              <td>現金管理</td>
+              <td>2.5%</td>
+              <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45242</td>
               <td>HSBC超短債</td>
-              <td>現金／極短債</td>
-              <td>約4.0%</td>
+              <td>債券基金</td>
+              <td>3.2%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45707</td>
               <td>安聯浮動息</td>
-              <td>現金／極短債</td>
-              <td>約4.5%</td>
-              <td>★★★★☆</td>
+              <td>債券基金</td>
+              <td>4.1%</td>
+              <td>★★★☆☆</td>
             </tr>
             <tr>
               <td>U50021</td>
               <td>PIMCO收益II</td>
-              <td>核心收息債</td>
-              <td>約5.95%</td>
+              <td>核心收息</td>
+              <td>5.95%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45838</td>
               <td>法巴環球債券</td>
-              <td>核心收息債</td>
-              <td>約4.8%</td>
+              <td>核心收息</td>
+              <td>4.8%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45817</td>
               <td>法巴新興債</td>
-              <td>核心收息債</td>
-              <td>約6.2%</td>
+              <td>債券基金</td>
+              <td>6.2%</td>
               <td>★★★☆☆</td>
             </tr>
             <tr>
               <td>U45769</td>
               <td>東方匯理收益機遇</td>
               <td>多元資產</td>
-              <td>約5.5%</td>
+              <td>5.5%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45660</td>
-              <td>宏利多元入息10%派</td>
+              <td>宏利多元入息10%</td>
               <td>多元資產</td>
-              <td>約10.08%</td>
+              <td>10.08%</td>
               <td>★★★☆☆</td>
             </tr>
             <tr>
               <td>U45679</td>
               <td>普徠仕多元收益</td>
               <td>多元資產</td>
-              <td>約6.8%</td>
+              <td>6.8%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45553</td>
               <td>PIMCO收益增長</td>
               <td>多元資產</td>
-              <td>約5.2%</td>
+              <td>5.2%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>U45090</td>
               <td>恒生亞洲增長收益</td>
               <td>多元資產</td>
-              <td>約5.8%</td>
+              <td>5.8%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
@@ -638,9 +1043,9 @@
             </tr>
             <tr>
               <td>U45722</td>
-              <td>鄧普頓亞太入息</td>
+              <td>鄧普頓亞洲入息</td>
               <td>股票主題</td>
-              <td>約6.5%</td>
+              <td>6.5%</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
@@ -662,35 +1067,35 @@
               <th>標的</th>
               <th>邏輯</th>
               <th>接貨價</th>
-              <th>緩衝</th>
+              <th>Delta</th>
               <th>建議</th>
             </tr>
             <tr>
-              <td>騰訊控股 (0700.HK)</td>
-              <td>現價$451.40；AI應用變現＋回購支撐，恒指領漲核心</td>
-              <td>$390-410</td>
-              <td>約10-13%</td>
+              <td>腾讯控股 (0700.HK)</td>
+              <td>AI題材+估值合理</td>
+              <td>$280-300</td>
+              <td>0.20-0.25</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>台積電 (2330.TW)</td>
-              <td>現價NT$2,375；AI晶片代工壟斷，費半反彈領頭羊</td>
-              <td>NT$2,050-2,150</td>
-              <td>約10-14%</td>
+              <td>AI晶片供應鏈</td>
+              <td>$90-95</td>
+              <td>0.20-0.25</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
-              <td>阿里巴巴 (9988.HK)</td>
-              <td>現價$126.20；利潤瀉75%屬AI資本開支換卡位，雲端增速驗證前宜留更厚緩衝</td>
-              <td>$102-110</td>
-              <td>約13-19%</td>
+              <td>阿里巴巴 (09988.HK)</td>
+              <td>雲業務+估值低位</td>
+              <td>$70-75</td>
+              <td>0.20-0.30</td>
               <td>★★★☆☆</td>
             </tr>
             <tr>
               <td>金沙中國 (1928.HK)</td>
-              <td>現價$14.48；澳門客量復甦＋派息重啟預期</td>
-              <td>$12.5-13.0</td>
-              <td>約10-14%</td>
+              <td>旅遊復甦+派息</td>
+              <td>$18-20</td>
+              <td>0.20-0.25</td>
               <td>★★★☆☆</td>
             </tr>
           </table>
@@ -701,12 +1106,12 @@
         <h4>其他建議</h4>
         <div class="other-suggestions">
           <div class="suggestion-item">
-            <h5>MXI（金礦ETF）</h5>
-            <p>配置比例：10-15%。金價破頂$4,582，礦企利潤槓桿持續釋放；惟短線追高宜分注，回調$4,500下方再加碼</p>
+            <h5>MXI (金礦ETF)</h5>
+            <p>配置比例：10-15%，黃金創新高，礦企業基本面改善</p>
           </div>
           <div class="suggestion-item">
             <h5>定存儲蓄</h5>
-            <p>配置比例：20-25%。2年債息約4.18%持平，1-2年期高息定存鎖定收益仍是低風險泊位首選；長債息抽高期間不宜鎖太長存續期</p>
+            <p>配置比例：20-25%，選擇1-2年期高息定存鎖定收益</p>
           </div>
         </div>
       </div>
@@ -719,45 +1124,37 @@
         <div class="watchlist-item">
           <div class="symbol">NVDA</div>
           <div class="name">NVIDIA</div>
-          <div class="price">$216.85</div>
-          <div class="change">-0.3%</div>
-          <div class="note">AI晶片龍頭，費半反彈風向標</div>
+          <div class="price">$125.60</div>
+          <div class="change">+2.1%</div>
+          <div class="note">AI題材，突破阻力位</div>
         </div>
         <div class="watchlist-item">
-          <div class="symbol">9988.HK</div>
-          <div class="name">阿里巴巴</div>
-          <div class="price">$126.20</div>
-          <div class="change">+1.6%</div>
-          <div class="note">利潤瀉75%換AI卡位，觀雲端增速</div>
+          <div class="symbol">TSLA</div>
+          <div class="name">Tesla</div>
+          <div class="price">$182.30</div>
+          <div class="change">-1.5%</div>
+          <div class="note">電動車競爭加劇</div>
         </div>
         <div class="watchlist-item">
-          <div class="symbol">0700.HK</div>
-          <div class="name">騰訊控股</div>
-          <div class="price">$451.40</div>
-          <div class="change">+0.9%</div>
-          <div class="note">AI應用變現＋回購，恒指核心</div>
-        </div>
-        <div class="watchlist-item">
-          <div class="symbol">BTC-USD</div>
-          <div class="name">Bitcoin</div>
-          <div class="price">$73,342.62</div>
-          <div class="change">+5.9%</div>
-          <div class="note">重上$73,000，另類避險受捧</div>
+          <div class="symbol">00941.HK</div>
+          <div class="name">中国移动</div>
+          <div class="price">$52.80</div>
+          <div class="change">+0.8%</div>
+          <div class="note">5G業務穩定</div>
         </div>
         <div class="watchlist-item">
           <div class="symbol">GLD</div>
           <div class="name">黃金ETF</div>
-          <div class="price">$415.26</div>
-          <div class="change">+0.3%</div>
-          <div class="note">金價破頂，技術面強勢</div>
+          <div class="price">$245.30</div>
+          <div class="change">+1.8%</div>
+          <div class="note">創新高，技術面看漢</div>
         </div>
       </div>
     </div>
 
     <!-- footer -->
     <footer>
-      <p>數據來源：Yahoo Finance（指數／商品／加密 08:07-08:15 HKT 抓取）｜Bloomberg Morning Briefing Asia（05:33 HKT）｜FRED（債息 08:10 HKT）｜恒指為8月20日收市數據</p>
+      <p>數據來源：Yahoo Finance (21:41 HKT) | Bloomberg Morning Briefing Asia</p>
       <p>風險聲明：投資有風險，過往表現不代表未來回報</p>
     </footer>
 </body>
-</html>
