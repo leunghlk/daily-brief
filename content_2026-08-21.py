@@ -30,7 +30,7 @@ def generate_content():
     new_body = f'''
     <body>
     <!-- date badge -->
-    <div class="date-badge">📅 {current_date} 星期三 更新時間 {current_time}</div>
+    <div class="date-badge">📅 {current_date} 星期五 更新時間 {current_time}</div>
 
     <!-- 五格摘要 -->
     <div class="summary-grid">

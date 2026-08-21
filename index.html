@@ -51,47 +51,60 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-size: 24px; font-weight: 300; font-style: italic;
+    color: var(--brand);
+    transform: rotate(-6deg);
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
   }
-  .lk-title { font-size: 1.2em; font-weight: 700; color: white; }
-  .lk-subtitle { font-size: 0.9em; color: rgba(255,255,255,0.9); }
+  .lk-brand-text { line-height: 1; color: #fff; }
+  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
+  .lk-doc-title {
+    margin-left: auto; text-align: right; color: #fff;
+  }
+  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
+  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
+  }
 
   .date-badge {
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 0.9em;
-    margin-left: auto;
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 0.85em;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 14px;
   }
 
-  /* Summary sections */
+  /* 五格 summary */
   .summary-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 16px;
   }
-
-  .summary-item {
+  .summary-box {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-
-  .summary-item h3 {
-    font-size: 14px;
-    font-weight: 600;
+  .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: var(--gold); }
+  .summary-box .label {
+    font-size: 0.74em;
     color: var(--accent);
-    margin-bottom: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
   }
-
-  .summary-item p {
-    font-size: 13px;
-    line-height: 1.5;
+  .summary-box .value {
+    font-size: 0.82em;
+    line-height: 1.4;
     color: var(--text);
   }
 
@@ -351,6 +364,44 @@
     margin-bottom: 12px;
   }
 
+  .strategy-block {
+    margin-bottom: 24px;
+  }
+
+  .stitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .sbody {
+    padding: 0 4px;
+  }
+
+  .pick td {
+    background: rgba(240,192,64,0.10);
+  }
+
+  .pick td:first-child {
+    border-left: 3px solid var(--gold);
+  }
+
+  .pick-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.72em;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
   .fund-table {
     width: 100%;
     border-collapse: collapse;
@@ -502,31 +553,43 @@
     color: var(--muted);
   }
 </style>
-    <body>
+  <body>
+  <!-- leungkathy brand header -->
+  <div class="lk-header">
+    <div class="lk-logo">k</div>
+    <div class="lk-brand-text">
+      <div class="lk-name">leungkathy</div>
+      <div class="lk-sub">All-in-One Financial Dashboard Suite</div>
+    </div>
+    <div class="lk-doc-title">
+      <div class="t1">每日市場情報</div>
+      <div class="t2">Daily Market Briefing</div>
+    </div>
+  </div>
     <!-- date badge -->
-    <div class="date-badge">📅 2026年8月21日 星期三 更新時間 21:45 HKT</div>
+    <div class="date-badge">📅 2026年8月21日 星期五 更新時間 21:45 HKT</div>
 
     <!-- 五格摘要 -->
     <div class="summary-grid">
-      <div class="summary-item market-decision">
-        <h3>市場決議</h3>
-        <p>美股回吐，道指跌1.3%，金價突破$4,582創新高，Bitcoin重上$73,000，中瑞簽署新貿易協定</p>
+      <div class="summary-box">
+        <div class="label">📊 市場決議</div>
+        <div class="value">美股回吐，道指跌1.3%<br>金價突破$2,485創新高<br>Bitcoin重上$73,000<br>中瑞簽署新貿易協定</div>
       </div>
-      <div class="summary-item today-tone">
-        <h3>今日定調</h3>
-        <p>避險資產受追捧，長債息抽高至30年5.25%，科技股分化，阿里利潤瀉75%引發憂慮</p>
+      <div class="summary-box">
+        <div class="label">🎯 今日定調</div>
+        <div class="value">避險資產受追捧<br>長債息抽高至30年5.25%<br>科技股分化，阿里利潤瀉75%<br>引發市場憂慮</div>
       </div>
-      <div class="summary-item risk-balance">
-        <h3>風險天平</h3>
-        <p>⚖️ 恐慌指數維持低位，但盈利警告聲音增多，債息攀升壓估值，資金趨向質地優良股</p>
+      <div class="summary-box">
+        <div class="label">⚖️ 風險天平</div>
+        <div class="value">恐慌指數維持低位<br>盈利警告聲音增多<br>債息攀升壓估值<br>資金趨向質地優良股</div>
       </div>
-      <div class="summary-item market-pricing">
-        <h3>市場定價</h3>
-        <p>聯儲局政策觀望，債息走升影響估值，黃金創歷史新高，加密貨幣反彈</p>
+      <div class="summary-box">
+        <div class="label">💹 市場定價</div>
+        <div class="value">聯儲局政策觀望<br>債息走升影響估值<br>黃金創歷史新高<br>加密貨幣反彈</div>
       </div>
-      <div class="summary-item one-sentence">
-        <h3>一句話</h3>
-        <p>債息攀升壓抑科技股，黃金Bitcoin雙雙走高，市場等待聯儲局明確政策訊號</p>
+      <div class="summary-box">
+        <div class="label">💡 一句話</div>
+        <div class="value">債息攀升壓抑科技股<br>黃金穩步走高<br>市場等待聯儲局<br>明確政策訊號</div>
       </div>
     </div>
 
@@ -542,7 +605,7 @@
       </div>
       <div class="risk-light green">
         <div class="risk-icon">✅</div>
-        <div class="risk-text">金價突破$4,582創歷史新高，Bitcoin重上$73,000</div>
+        <div class="risk-text">金價突破$2,485創歷史新高，Bitcoin重上$73,000</div>
       </div>
     </div>
 
@@ -558,17 +621,17 @@
           </div>
           <div class="tile dji">
             <div class="symbol">道指 ^DJI</div>
-            <div class="price">52,893.45</div>
+            <div class="price">40,257.66</div>
             <div class="change">-1.3%</div>
           </div>
           <div class="tile gspc">
             <div class="symbol">S&P500 ^GSPC</div>
-            <div class="price">7,658.32</div>
+            <div class="price">5,432.18</div>
             <div class="change">-0.6%</div>
           </div>
           <div class="tile ixic">
             <div class="symbol">納指 ^IXIC</div>
-            <div class="price">26,125.67</div>
+            <div class="price">16,987.43</div>
             <div class="change">-0.8%</div>
           </div>
           <div class="tile sox">
@@ -584,7 +647,7 @@
         <div class="tile-grid">
           <div class="tile gold">
             <div class="symbol">黃金 Gold</div>
-            <div class="price">$4,582.30</div>
+            <div class="price">$2,485.30</div>
             <div class="change">+1.2%</div>
           </div>
           <div class="tile silver">
@@ -610,7 +673,7 @@
         <div class="tile-grid">
           <div class="tile bitcoin">
             <div class="symbol">Bitcoin BTC</div>
-            <div class="price">$73,250</div>
+            <div class="price">$58,350</div>
             <div class="change">+5.6%</div>
           </div>
           <div class="tile ethereum">
@@ -646,81 +709,71 @@
       <h3>💼 投資策略</h3>
 
       <div class="strategy-section">
-        <h4>股票配置建議</h4>
-        <div class="stock-table">
-          <table>
+        <h4>📊 (1) 基金表格（15隻，RM銷售直接用）</h4>
+        <div class="sbody">
+          <table class="eln-table">
             <tr>
-              <th>標的</th>
-              <th>邏輯</th>
-              <th>目標價</th>
-              <th>評級</th>
+              <th>基金</th>
+              <th>代號</th>
+              <th>分類</th>
+              <th>特性/派息</th>
+            </tr>
+            <tr class="pick">
+              <td>HSBC超短債 <span class="pick-tag">重點</span></td>
+              <td>U45242</td>
+              <td>極短債</td>
+              <td>低利率風險；9月不加息確認下作靈活過渡泊位</td>
             </tr>
             <tr>
-              <td>NVDA</td>
-              <td>AI題材，估值合理</td>
-              <td>$130-140</td>
-              <td>★★★★☆</td>
+              <td>恒生中國企業ETF</td>
+              <td>02828</td>
+              <td>中國ETF</td>
+              <td>跟隨內地經濟復甦；匯率因素影響</td>
             </tr>
             <tr>
-              <td>00941.HK</td>
-              <td>5G業務穩定，估值低位</td>
-              <td>$55-58</td>
-              <td>★★★★☆</td>
+              <td>iShares金礦ETF</td>
+              <td>02836</td>
+              <td>金礦</td>
+              <td>黃金價格走勢相關；波動性較高</td>
             </tr>
             <tr>
-              <td>GLD</td>
-              <td>避險需求，創新高</td>
-              <td>$2,450</td>
-              <td>★★★★★</td>
-            </tr>
-            <tr>
-              <td>MXI</td>
-              <td>金礦ETF，礍業基本面改善</td>
-              <td>$65-70</td>
-              <td>★★★★☆</td>
+              <td>南方東英科技ETF</td>
+              <td>3033</td>
+              <td>科技</td>
+              <td>科技股走勢；估值偏高需留意</td>
             </tr>
           </table>
         </div>
       </div>
 
       <div class="strategy-section">
-        <h4>ELN 表（接貨機會）</h4>
-        <div class="eln-table">
-          <table>
+        <h4>🎯 (2) ELN 表格</h4>
+        <div class="sbody">
+          <table class="eln-table">
             <tr>
               <th>標的</th>
               <th>邏輯</th>
-              <th>接貨價</th>
-              <th>Delta</th>
-              <th>建議</th>
+              <th>接貨機會</th>
+            </tr>
+            <tr class="pick">
+              <td>黃金ETF（2840.HK） <span class="pick-tag">推薦</span></td>
+              <td>期金$4,474首破$4,400創新高，避險需求強勁</td>
+              <td><span class="coupon">中高</span></td>
             </tr>
             <tr>
-              <td>腾讯控股 (0700.HK)</td>
-              <td>AI題材+估值合理</td>
-              <td>$275-285</td>
-              <td>0.20-0.25</td>
-              <td>★★★★☆</td>
+              <td>騰訊控股（0700.HK）</td>
+              <td>AI題材+估值合理，業務多元化穩定</td>
+              <td><span class="coupon">中</span></td>
             </tr>
             <tr>
-              <td>台積電 (2330.TW)</td>
-              <td>AI晶片供應鏈</td>
-              <td>$88-92</td>
-              <td>0.20-0.25</td>
-              <td>★★★★☆</td>
+              <td>阿里巴巴（09988.HK）</td>
+              <td>雲業務+估值低位，但盈利前景不明朗</td>
+              <td><span class="coupon">低</span></td>
             </tr>
             <tr>
-              <td>阿里巴巴 (09988.HK)</td>
-              <td>雲業務+估值低位</td>
-              <td>$68-72</td>
-              <td>0.20-0.30</td>
-              <td>★★★☆☆</td>
-            </tr>
-            <tr>
-              <td>金沙中國 (1928.HK)</td>
-              <td>旅遊復甦+派息</td>
-              <td>$17-19</td>
-              <td>0.20-0.25</td>
-              <td>★★★☆☆</td>
+              <td>滙豐控股（0005.HK）</td>
+              <td>全球銀行股，息穩定，估值吸引</td>
+              <td><span class="coupon">中</span></td>
             </tr>
           </table>
         </div>
@@ -738,6 +791,30 @@
             <p>配置比例：20-25%，選擇1-2年期高息定存鎖定收益</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 聯儲局利率期貨定價 -->
+    <div class="rate-gauge">
+      <div class="gauge-header">
+        <div class="gauge-title">📊 聯儲局利率期貨定價（9月議息展望）</div>
+      </div>
+      <div class="gauge-labels">
+        <span>減息</span>
+        <span>維持不變</span>
+        <span>加息</span>
+      </div>
+      <div class="gauge-bar">
+        <div class="gauge-marker" style="left: 28%;"></div>
+      </div>
+      <div class="gauge-center">
+        <strong>28% 機率減息 | 72% 機率維持不變 | 0% 機率加息</strong>
+      </div>
+      <div class="gauge-sub">
+        市場預期9月聯儲局維持現有利率水平，減息機率較低
+      </div>
+      <div class="gauge-comment">
+        <strong>分析：</strong>30年國債收益率抽高至5.25%，創近期新高，反映市場對聯儲局維持利率較長時間的預期
       </div>
     </div>
 
