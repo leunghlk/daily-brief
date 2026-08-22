@@ -1,561 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日市場情報 · leungkathy</title>
-<style>
-  :root {
-    --bg: #f4f1ea;
-    --gold: #b8860b;
-    --text: #2d2419;
-    --muted: #7a6f5a;
-    --card: #ffffff;
-    --border: #d9cfb8;
-    --up: #d12b2b;      /* 紅=升（港式） */
-    --down: #1a9e6f;    /* 綠=跌（港式） */
-    --amber: #c8701a;   /* 橙=警示/中性 */
-    --accent: #8a6d3b;  /* subheader 高亮色 */
-    --eln-bg: #fff8e8;
-    --eln-border: #d4a017;
-    --eln-head: #a0781f;
-    /* leungkathy brand bar */
-    --brand: #1a73e8;
-    --brand-dark: #1557b0;
-    --brand-light: #e8f0fe;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
-    line-height: 1.6;
-    padding: 20px;
-    max-width: 960px;
-    margin: 0 auto;
-    font-size: 15px;
-  }
-
-  /* ── leungkathy brand top bar (matches all-in-one suite) ── */
-  .lk-header {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
-    padding: 16px 22px;
-    margin: -20px -20px 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  .lk-logo {
-    width: 40px; height: 40px;
-    background: #fff; border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px; font-weight: 300; font-style: italic;
-    color: var(--brand);
-    transform: rotate(-6deg);
-    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-  }
-  .lk-brand-text { line-height: 1; color: #fff; }
-  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
-  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
-  .lk-doc-title {
-    margin-left: auto; text-align: right; color: #fff;
-  }
-  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
-  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
-  @media (max-width: 600px) {
-    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
-  }
-
-  .date-badge {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--bg);
-    font-weight: 800;
-    font-size: 0.85em;
-    padding: 4px 14px;
-    border-radius: 14px;
-    margin-bottom: 14px;
-  }
-
-  /* 五格 summary */
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .summary-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 8px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: var(--gold); }
-  .summary-box .label {
-    font-size: 0.74em;
-    color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-  }
-  .summary-box .value {
-    font-size: 0.82em;
-    line-height: 1.4;
-    color: var(--text);
-  }
-
-  /* Risk lights */
-  .risk-lights {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .risk-light {
-    flex: 1;
-    border-radius: 8px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .risk-light.red {
-    background: #fee;
-    border: 1px solid #fcc;
-  }
-
-  .risk-light.yellow {
-    background: #fff8e8;
-    border: 1px solid #ffd8a6;
-  }
-
-  .risk-light.green {
-    background: #efe;
-    border: 1px solid #c8e6c9;
-  }
-
-  .risk-icon {
-    font-size: 20px;
-  }
-
-  .risk-text {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* Market tiles */
-  .market-tiles {
-    margin-bottom: 32px;
-  }
-
-  .tile-group {
-    margin-bottom: 24px;
-  }
-
-  .tile-group h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .tile-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-
-  .tile {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-
-  .tile .symbol {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-
-  .tile .price {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .tile .change {
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  .tile .change.positive {
-    color: var(--up);
-  }
-
-  .tile .change.negative {
-    color: var(--down);
-  }
-
-  /* Rate hike gauge */
-  .rate-gauge {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-
-  .gauge-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-
-  .gauge-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  .gauge-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .gauge-bar {
-    height: 20px;
-    background: linear-gradient(to right,
-      var(--down) 0%,
-      var(--down) 33%,
-      var(--amber) 33%,
-      var(--amber) 66%,
-      var(--up) 66%,
-      var(--up) 100%);
-    border-radius: 10px;
-    position: relative;
-    margin-bottom: 12px;
-  }
-
-  .gauge-marker {
-    position: absolute;
-    top: -5px;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
-    background: var(--brand);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-
-  .gauge-center {
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
-
-  .gauge-sub {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
-
-  .gauge-comment {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
-    padding: 12px;
-    background: var(--bg);
-    border-radius: 8px;
-  }
-
-  /* Market analysis */
-  .market-analysis {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-
-  .analysis-sections {
-    display: grid;
-    gap: 20px;
-  }
-
-  .analysis-section h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  .analysis-section h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .analysis-section p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .analysis-section ul {
-    margin-top: 8px;
-    padding-left: 20px;
-  }
-
-  .analysis-section li {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  /* Strategy section */
-  .strategy-section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-
-  .strategy-section h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-
-  .strategy-section h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  .strategy-block {
-    margin-bottom: 24px;
-  }
-
-  .stitle {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 12px;
-    padding: 8px 12px;
-    background: var(--bg);
-    border-radius: 6px;
-    border-left: 3px solid var(--gold);
-  }
-
-  .sbody {
-    padding: 0 4px;
-  }
-
-  .pick td {
-    background: rgba(240,192,64,0.10);
-  }
-
-  .pick td:first-child {
-    border-left: 3px solid var(--gold);
-  }
-
-  .pick-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--bg);
-    font-size: 0.72em;
-    padding: 2px 6px;
-    border-radius: 10px;
-    font-weight: 600;
-    margin-left: 6px;
-  }
-
-  .fund-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-
-  .fund-table th {
-    background: var(--bg);
-    padding: 8px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .fund-table td {
-    padding: 8px;
-    text-align: left;
-    font-size: 13px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .fund-table tr:hover td {
-    background: rgba(240,192,64,0.06);
-  }
-
-  .eln-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-
-  .eln-table th {
-    background: var(--eln-bg);
-    color: var(--eln-head);
-    padding: 7px 9px;
-    text-align: left;
-    border-bottom: 2px solid var(--eln-border);
-    font-weight: 600;
-  }
-
-  .eln-table td {
-    padding: 7px 9px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .eln-table tr:hover td {
-    background: rgba(240,192,64,0.06);
-  }
-
-  .eln-table .coupon {
-    color: var(--down);
-    font-weight: 600;
-  }
-
-  .pick td {
-    background: rgba(240,192,64,0.10);
-  }
-
-  .pick td:first-child {
-    border-left: 3px solid var(--gold);
-  }
-
-  .pick-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--bg);
-    font-size: 0.72em;
-    padding: 2px 6px;
-    border-radius: 10px;
-    font-weight: 600;
-  }
-
-  .other-suggestions {
-    margin-top: 20px;
-  }
-
-  .suggestion-item {
-    display: flex;
-    align-items: start;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .suggestion-item h5 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 0;
-  }
-
-  .suggestion-item p {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--text);
-    margin: 0;
-  }
-
-  /* Watchlist */
-  .watchlist {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-  }
-
-  .watchlist h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-
-  .watchlist-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-  }
-
-  .watchlist-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    background: var(--bg);
-    border-radius: 6px;
-    border: 1px solid var(--border);
-  }
-
-  .watchlist-item .symbol {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  .watchlist-item .price {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 24px;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--muted);
-  }
-</style>
+#!/usr/bin/env python3
+"""
+Daily Brief Content Generator
+2026-08-22
+"""
+
+import re
+from datetime import datetime
+
+def generate_content():
+    """Generate the daily brief content for 2026-08-22"""
+
+    current_date = "2026年8月22日"
+    current_time = "17:15 HKT"
+
+    # Read existing HTML file and keep everything before <body>
+    with open('/Users/leungkathy/daily-brief/index.html', 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Find where content starts (after </style>)
+    content_end = content.find('</style>')
+    if content_end == -1:
+        print("Error: Could not find </style> tag")
+        return
+
+    # Keep everything including the style
+    header = content[:content_end + 8]  # Include </style>
+
+    # Start new body content
+    new_body = f'''
     <body>
     <!-- date badge -->
-    <div class="date-badge">📅 2026年8月22日 星期六 更新時間 17:15 HKT</div>
+    <div class="date-badge">📅 {current_date} 星期六 更新時間 {current_time}</div>
 
     <!-- 五格摘要 -->
     <div class="summary-grid">
@@ -934,4 +409,30 @@
       <p>數據來源：Yahoo Finance (17:15 HKT) | Bloomberg Morning Briefing | Finviz Chart Analysis</p>
       <p>風險聲明：投資有風險，過往表現不代表未來回報</p>
     </footer>
-  </body>
+  </body>'''
+
+    # Combine header and new body
+    full_content = header + new_body
+
+    # Validate before writing
+    if full_content.startswith('<!DOCTYPE html>') and '2026年8月22日' in full_content:
+        with open('/Users/leungkathy/daily-brief/index.html', 'w', encoding='utf-8') as f:
+            f.write(full_content)
+        print("✅ Daily brief updated successfully")
+
+        # Verify file size
+        file_size = len(full_content)
+        print(f"📊 File size: {file_size:,} bytes")
+
+        # Check for fabricated prices
+        if re.search(r'99999|100000|0\.00|\$0\.00', full_content):
+            print("❌ Found fabricated prices!")
+            return False
+
+        return True
+    else:
+        print("❌ Validation failed!")
+        return False
+
+if __name__ == "__main__":
+    generate_content()
