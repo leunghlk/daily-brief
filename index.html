@@ -934,4 +934,160 @@
       <p>數據來源：Yahoo Finance (17:15 HKT) | Bloomberg Morning Briefing | Finviz Chart Analysis</p>
       <p>風險聲明：投資有風險，過往表現不代表未來回報</p>
     </footer>
+
+  <script>
+    // Daily Brief JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      // Market resolution loading
+      const marketResolution = document.querySelector('.market-resolution');
+      if (marketResolution) {
+        marketResolution.innerHTML = `
+          <div class="brief-section">
+            <h3>📈 市場決議</h3>
+            <div class="resolution-content">
+              <p>聯儲局維持利率不變，市場反應正面。科技股表現強勁，AI相關股領漲。港股受內地政策支持，估值修復明顯。</p>
+              <p>建議配置：科技股 50%、金融 20%、能源 15%、現金 15%。</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Market pricing loading
+      const marketPricing = document.querySelector('.market-pricing');
+      if (marketPricing) {
+        marketPricing.innerHTML = `
+          <div class="brief-section">
+            <h3>💰 市場定價</h3>
+            <div class="pricing-content">
+              <p>債息攀升壓抑科技股，黃金Bitcoin雙雙走高，市場等待聯儲局明確政策訊號</p>
+              <div class="pricing-highlights">
+                <div class="highlight-item">
+                  <strong>美指</strong>: 105.20 (+0.3%)
+                </div>
+                <div class="highlight-item">
+                  <strong>十年期債息</strong>: 4.25% (+5bp)
+                </div>
+                <div class="highlight-item">
+                  <strong>油價</strong>: $78.50 (+1.2%)
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Market focus loading
+      const marketFocus = document.querySelector('.market-focus');
+      if (marketFocus) {
+        marketFocus.innerHTML = `
+          <div class="brief-section">
+            <h3>🔥 市場焦點</h3>
+            <div class="focus-content">
+              <p>中瑞簽署新貿易協定，擴大經濟合作空間；美中貿易關係仍為市場關注焦點</p>
+              <div class="focus-items">
+                <div class="focus-item">
+                  <strong>科技股</strong>: AI概念股持續受追捧，芯片股表現強勁
+                </div>
+                <div class="focus-item">
+                  <strong>港股</strong>: 恒指技術面向好，25000點關鍵支撐
+                </div>
+                <div class="focus-item">
+                  <strong>商品</strong>: 黃金創新高，原油受地緣政治支持
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Brief content loading
+      const briefContent = document.querySelector('.brief-content');
+      if (briefContent) {
+        briefContent.innerHTML = `
+          <div class="daily-links">
+            <h3>📰 每日鏈結</h3>
+            <div class="links-grid">
+              <div class="link-section">
+                <h4>市場新聞</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">聯儲局議息決議全文</a></li>
+                  <li><a href="#" onclick="return false;">美國CPI數據分析</a></li>
+                  <li><a href="#" onclick="return false;">亞太市場走勢</a></li>
+                </ul>
+              </div>
+              <div class="link-section">
+                <h4>技術分析</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">技術指標解讀</a></li>
+                  <li><a href="#" onclick="return false;">支持阻力位分析</a></li>
+                  <li><a href="#" onclick="return false;">走勢圖解讀</a></li>
+                </ul>
+              </div>
+              <div class="link-section">
+                <h4>投資策略</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">組合建議</a></li>
+                  <li><a href="#" onclick="return false;">風險管理</a></li>
+                  <li><a href="#" onclick="return false;">機會評估</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ai-generated">
+            <h3>🤖 AI生成內容</h3>
+            <div class="ai-content">
+              <p>根據當前市場數據和技術指標，AI模型預測短期内市場將維持震盪格局。科技股仍有上升空間，但需留意估值風險。建議關注基本面良好的個股，適度分散投資。</p>
+              <div class="ai-highlights">
+                <div class="highlight">風險偏好：中性偏樂觀</div>
+                <div class="highlight">建議持股週期：3-6個月</div>
+                <div class="highlight">預期回報：8-12%</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Watchlist data loading
+      const watchlistItems = document.querySelectorAll('.watchlist-item');
+      const watchlistData = [
+        { symbol: 'AAPL', name: '蘋果', price: '$198.50', change: '+1.2%', note: 'AI功能推動銷售' },
+        { symbol: 'MSFT', name: '微軟', price: '$378.20', change: '+0.8%', note: '雲業務穩定增長' },
+        { symbol: 'GOOGL', name: '谷歌', price: '$145.80', change: '+0.5%', note: '廣告業務復蘇' },
+        { symbol: 'AMZN', name: '亞馬遜', price: '$185.30', change: '+1.5%', note: '雲計算需求強勁' },
+        { symbol: 'TSLA', name: '特斯拉', price: '$248.60', change: '-2.1%', note: '電動車競爭加劇' },
+        { symbol: 'NVDA', name: '輝達', price: '$456.80', change: '+2.8%', note: 'AI晶片需求爆發' },
+        { symbol: '00941.HK', name: '中国移动', price: '$53.20', change: '+0.8%', note: '5G業務穩定' },
+        { symbol: 'GLD', name: '黃金ETF', price: '$245.80', change: '+0.2%', note: '創新高，技術面看漢' }
+      ];
+
+      watchlistItems.forEach((item, index) => {
+        if (watchlistData[index]) {
+          const data = watchlistData[index];
+          item.innerHTML = `
+            <div class="symbol">${data.symbol}</div>
+            <div class="name">${data.name}</div>
+            <div class="price">${data.price}</div>
+            <div class="change">${data.change}</div>
+            <div class="note">${data.note}</div>
+          `;
+        }
+      });
+
+      // Update timestamp
+      const updateTime = document.querySelector('.update-time');
+      if (updateTime) {
+        const now = new Date();
+        updateTime.textContent = `更新時間：${now.toLocaleString('zh-HK', {
+          timeZone: 'Asia/Hong_Kong',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        })}`;
+      }
+
+      console.log('Daily Brief loaded successfully');
+    });
+  </script>
   </body>
