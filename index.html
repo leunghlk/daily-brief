@@ -51,47 +51,60 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-size: 24px; font-weight: 300; font-style: italic;
+    color: var(--brand);
+    transform: rotate(-6deg);
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
   }
-  .lk-title { font-size: 1.2em; font-weight: 700; color: white; }
-  .lk-subtitle { font-size: 0.9em; color: rgba(255,255,255,0.9); }
+  .lk-brand-text { line-height: 1; color: #fff; }
+  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
+  .lk-doc-title {
+    margin-left: auto; text-align: right; color: #fff;
+  }
+  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
+  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
+  }
 
   .date-badge {
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 0.9em;
-    margin-left: auto;
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 0.85em;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 14px;
   }
 
-  /* Summary sections */
+  /* 五格 summary */
   .summary-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 16px;
   }
-
-  .summary-item {
+  .summary-box {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-
-  .summary-item h3 {
-    font-size: 14px;
-    font-weight: 600;
+  .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: var(--gold); }
+  .summary-box .label {
+    font-size: 0.74em;
     color: var(--accent);
-    margin-bottom: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
   }
-
-  .summary-item p {
-    font-size: 13px;
-    line-height: 1.5;
+  .summary-box .value {
+    font-size: 0.82em;
+    line-height: 1.4;
     color: var(--text);
   }
 
@@ -351,6 +364,44 @@
     margin-bottom: 12px;
   }
 
+  .strategy-block {
+    margin-bottom: 24px;
+  }
+
+  .stitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .sbody {
+    padding: 0 4px;
+  }
+
+  .pick td {
+    background: rgba(240,192,64,0.10);
+  }
+
+  .pick td:first-child {
+    border-left: 3px solid var(--gold);
+  }
+
+  .pick-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.72em;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
   .fund-table {
     width: 100%;
     border-collapse: collapse;
@@ -504,45 +555,45 @@
 </style>
     <body>
     <!-- date badge -->
-    <div class="date-badge">📅 2026年8月21日 星期三 更新時間 21:45 HKT</div>
+    <div class="date-badge">📅 2026年8月22日 星期六 更新時間 17:15 HKT</div>
 
     <!-- 五格摘要 -->
     <div class="summary-grid">
       <div class="summary-item market-decision">
         <h3>市場決議</h3>
-        <p>美股回吐，道指跌1.3%，金價突破$4,582創新高，Bitcoin重上$73,000，中瑞簽署新貿易協定</p>
+        <p>美股大幅走強，道指升2.1%，納指突破27,000創新高，中概股普升，人民幣匯率穩定</p>
       </div>
       <div class="summary-item today-tone">
         <h3>今日定調</h3>
-        <p>避險資產受追捧，長債息抽高至30年5.25%，科技股分化，阿里利潤瀉75%引發憂慮</p>
+        <p>科技股領漲，納指創歷史新高，債息回落至5.10%，市場聯儲局政策樂觀預期</p>
       </div>
       <div class="summary-item risk-balance">
         <h3>風險天平</h3>
-        <p>⚖️ 恐慌指數維持低位，但盈利警告聲音增多，債息攀升壓估值，資金趨向質地優良股</p>
+        <p>⚖️ 恐慌指數維持低位，債息回落缓解估值压力，科技股盈利預期改善，市場風險偏好提升</p>
       </div>
       <div class="summary-item market-pricing">
         <h3>市場定價</h3>
-        <p>聯儲局政策觀望，債息走升影響估值，黃金創歷史新高，加密貨幣反彈</p>
+        <p>聯儲局政策預期改善，債息走低支撐估值，科技股估值修復，避險資產相對靜默</p>
       </div>
       <div class="summary-item one-sentence">
         <h3>一句話</h3>
-        <p>債息攀升壓抑科技股，黃金Bitcoin雙雙走高，市場等待聯儲局明確政策訊號</p>
+        <p>科技股創新高領走市場，債息回落提供支撐，市場對聯儲局政策預期轉向樂觀</p>
       </div>
     </div>
 
     <!-- 風險燈 -->
     <div class="risk-lights">
-      <div class="risk-light red">
-        <div class="risk-icon">🚨</div>
-        <div class="risk-text">阿里利潤大瀉75%，科技股盈利警告聲音增多</div>
+      <div class="risk-light green">
+        <div class="risk-icon">✅</div>
+        <div class="risk-text">納指突破27,000創歷史新高，科技股盈利預期改善</div>
       </div>
       <div class="risk-light yellow">
         <div class="risk-icon">⚠️</div>
-        <div class="risk-text">30年債息抽高至5.25%，估值壓力上升</div>
+        <div class="risk-text">債息雖回落但仍處高位，估值壓力仍在</div>
       </div>
-      <div class="risk-light green">
-        <div class="risk-icon">✅</div>
-        <div class="risk-text">金價突破$4,582創歷史新高，Bitcoin重上$73,000</div>
+      <div class="risk-light yellow">
+        <div class="risk-icon">⚠️</div>
+        <div class="risk-text">中概股雖普升但估值修复未完成</div>
       </div>
     </div>
 
@@ -553,28 +604,29 @@
         <div class="tile-grid">
           <div class="tile hsi">
             <div class="symbol">恒指 ^HSI</div>
-            <div class="price">25,432.18</div>
-            <div class="change">-1.0%</div>
+            <div class="price">25,786.92</div>
+            <div class="change">+1.4%</div>
           </div>
           <div class="tile dji">
             <div class="symbol">道指 ^DJI</div>
-            <div class="price">52,893.45</div>
-            <div class="change">-1.3%</div>
+            <div class="price">54,032.18</div>
+            <div class="change">+2.1%</div>
           </div>
           <div class="tile gspc">
             <div class="symbol">S&P500 ^GSPC</div>
-            <div class="price">7,658.32</div>
-            <div class="change">-0.6%</div>
+            <div class="price">7,742.56</div>
+            <div class="change">+1.1%</div>
           </div>
           <div class="tile ixic">
             <div class="symbol">納指 ^IXIC</div>
-            <div class="price">26,125.67</div>
-            <div class="change">-0.8%</div>
+            <div class="price">27,125.89</div>
+            <div class="change">+1.8%</div>
           </div>
           <div class="tile sox">
             <div class="symbol">費半 ^SOX</div>
-            <div class="price">4,892.14</div>
-            <div class="change">-2.1%</div>
+            <div class="symbol">費半 ^SOX</div>
+            <div class="price">5,028.47</div>
+            <div class="change">+2.8%</div>
           </div>
         </div>
       </div>
@@ -584,23 +636,23 @@
         <div class="tile-grid">
           <div class="tile gold">
             <div class="symbol">黃金 Gold</div>
-            <div class="price">$4,582.30</div>
-            <div class="change">+1.2%</div>
+            <div class="price">$4,565.20</div>
+            <div class="change">-0.4%</div>
           </div>
           <div class="tile silver">
             <div class="symbol">白銀 Silver</div>
-            <div class="price">$29.85</div>
-            <div class="change">-0.5%</div>
+            <div class="price">$29.92</div>
+            <div class="change">+0.2%</div>
           </div>
           <div class="tile oil">
             <div class="symbol">原油 Oil</div>
-            <div class="price">$78.45</div>
-            <div class="change">+0.8%</div>
+            <div class="price">$77.88</div>
+            <div class="change">-0.7%</div>
           </div>
           <div class="tile copper">
             <div class="symbol">銅 Copper</div>
-            <div class="price">$4.12</div>
-            <div class="change">-0.3%</div>
+            <div class="price">$4.18</div>
+            <div class="change">+1.5%</div>
           </div>
         </div>
       </div>
@@ -610,13 +662,13 @@
         <div class="tile-grid">
           <div class="tile bitcoin">
             <div class="symbol">Bitcoin BTC</div>
-            <div class="price">$73,250</div>
-            <div class="change">+5.6%</div>
+            <div class="price">$74,120</div>
+            <div class="change">+1.2%</div>
           </div>
           <div class="tile ethereum">
             <div class="symbol">Ethereum ETH</div>
-            <div class="price">$2,485</div>
-            <div class="change">+9.7%</div>
+            <div class="price">$2,515</div>
+            <div class="change">+1.2%</div>
           </div>
         </div>
       </div>
@@ -627,16 +679,16 @@
       <h3>🔥 市場焦點</h3>
       <div class="focus-items">
         <div class="focus-item">
-          <h4>美中貿易動態</h4>
-          <p>中瑞簽署新貿易協定，擴大經濟合作空間；美中貿易關係仍為市場關注焦點</p>
+          <h4>科技股創新高</h4>
+          <p>納指突破27,000創歷史新高，費半指數升2.8%，科技股盈利預期改善</p>
         </div>
         <div class="focus-item">
-          <h4>科技公司業績</h4>
-          <p>阿里利潤瀉75%，引發科技股憂慮；費半指數跌2.1%，盈利警告聲音增多</p>
+          <h4>債市回穩</h4>
+          <p>10年期債息回落至5.10%，30年期債息回落至5.25%，市場預期聯儲局政策轉向</p>
         </div>
         <div class="focus-item">
-          <h4>債市動向</h4>
-          <p>30年債息抽高至5.25%，創近期新高；聯儲局政策觀望態度明確</p>
+          <h4>中概股表現</h4>
+          <p>中概股普升，阿里巴巴收升3.2%，騰訊控股收升2.1%，人民幣匯率相對穩定</p>
         </div>
       </div>
     </div>
@@ -657,9 +709,9 @@
             </tr>
             <tr>
               <td>NVDA</td>
-              <td>AI題材，估值合理</td>
-              <td>$130-140</td>
-              <td>★★★★☆</td>
+              <td>AI題材創新高，估值修復</td>
+              <td>$135-145</td>
+              <td>★★★★★</td>
             </tr>
             <tr>
               <td>00941.HK</td>
@@ -669,15 +721,15 @@
             </tr>
             <tr>
               <td>GLD</td>
-              <td>避險需求，創新高</td>
-              <td>$2,450</td>
-              <td>★★★★★</td>
+              <td>避險需求，價格回調</td>
+              <td>$2,460</td>
+              <td>★★★★☆</td>
             </tr>
             <tr>
-              <td>MXI</td>
-              <td>金礦ETF，礍業基本面改善</td>
-              <td>$65-70</td>
-              <td>★★★★☆</td>
+              <td>00700.HK</td>
+              <td>科技股領漲，盈利改善</td>
+              <td>$285-295</td>
+              <td>★★★★★</td>
             </tr>
           </table>
         </div>
@@ -696,29 +748,29 @@
             </tr>
             <tr>
               <td>腾讯控股 (0700.HK)</td>
-              <td>AI題材+估值合理</td>
-              <td>$275-285</td>
+              <td>科技股創新高，估值修復</td>
+              <td>$285-295</td>
               <td>0.20-0.25</td>
-              <td>★★★★☆</td>
+              <td>★★★★★</td>
             </tr>
             <tr>
               <td>台積電 (2330.TW)</td>
-              <td>AI晶片供應鏈</td>
-              <td>$88-92</td>
+              <td>AI晶片供應鏈，費半領漲</td>
+              <td>$95-100</td>
               <td>0.20-0.25</td>
               <td>★★★★☆</td>
             </tr>
             <tr>
               <td>阿里巴巴 (09988.HK)</td>
-              <td>雲業務+估值低位</td>
-              <td>$68-72</td>
+              <td>雲業務改善，估值低位</td>
+              <td>$70-75</td>
               <td>0.20-0.30</td>
-              <td>★★★☆☆</td>
+              <td>★★★★☆</td>
             </tr>
             <tr>
-              <td>金沙中國 (1928.HK)</td>
-              <td>旅遊復甦+派息</td>
-              <td>$17-19</td>
+              <td>小米集團 (1810.HK)</td>
+              <td>智能手機業務穩定，估值低</td>
+              <td>$18-20</td>
               <td>0.20-0.25</td>
               <td>★★★☆☆</td>
             </tr>
@@ -731,12 +783,31 @@
         <div class="other-suggestions">
           <div class="suggestion-item">
             <h5>MXI (金礦ETF)</h5>
-            <p>配置比例：10-15%，黃金創新高，礍業基本面改善</p>
+            <p>配置比例：5-10%，黃金回調，逢低布局</p>
           </div>
           <div class="suggestion-item">
             <h5>定存儲蓄</h5>
-            <p>配置比例：20-25%，選擇1-2年期高息定存鎖定收益</p>
+            <p>配置比例：15-20%，選擇1年期定存，平衡風險</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 今日焦點 -->
+    <div class="today-focus">
+      <h3>🎯 今日焦點</h3>
+      <div class="focus-items">
+        <div class="focus-item">
+          <h4>科技股創新高</h4>
+          <p>納指突破27,000創歷史新高，費半指數升2.8%，AI題材領漲，市場對科技股盈利預期樂觀</p>
+        </div>
+        <div class="focus-item">
+          <h4>債市回穩</h4>
+          <p>債息回落至5.10%，市場預期聯儲局政策轉向，估值壓力緩解</p>
+        </div>
+        <div class="focus-item">
+          <h4>中概股表現</h4>
+          <p>阿里巴巴收升3.2%，騰訊控股收升2.1%，中概股估值修復進行中</p>
         </div>
       </div>
     </div>
@@ -748,37 +819,275 @@
         <div class="watchlist-item">
           <div class="symbol">NVDA</div>
           <div class="name">NVIDIA</div>
-          <div class="price">$128.90</div>
-          <div class="change">+2.5%</div>
-          <div class="note">AI題材，技術面看漢</div>
+          <div class="price">$134.25</div>
+          <div class="change">+4.1%</div>
+          <div class="note">AI題材創新高，技術面看漢</div>
         </div>
         <div class="watchlist-item">
           <div class="symbol">TSLA</div>
           <div class="name">Tesla</div>
-          <div class="price">$178.50</div>
-          <div class="change">-2.1%</div>
-          <div class="note">電動車競爭加劇</div>
+          <div class="price">$182.75</div>
+          <div class="change">+2.4%</div>
+          <div class="note">電動車業務改善</div>
         </div>
         <div class="watchlist-item">
-          <div class="symbol">00941.HK</div>
-          <div class="name">中国移动</div>
-          <div class="price">$53.20</div>
-          <div class="change">+0.8%</div>
-          <div class="note">5G業務穩定</div>
+          <div class="symbol">00700.HK</div>
+          <div class="name">腾讯控股</div>
+          <div class="price">286.80</div>
+          <div class="change">+2.1%</div>
+          <div class="note">科技股領漲</div>
         </div>
         <div class="watchlist-item">
           <div class="symbol">GLD</div>
           <div class="name">黃金ETF</div>
-          <div class="price">$245.80</div>
-          <div class="change">+0.2%</div>
-          <div class="note">創新高，技術面看漢</div>
+          <div class="price">245.60</div>
+          <div class="change">-0.1%</div>
+          <div class="note">價格回調，逢低布局</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fund List (15 funds) -->
+    <div class="fund-list">
+      <h3>📊 基金列表</h3>
+      <div class="fund-grid">
+        <div class="fund-item">
+          <div class="fund-name">T. Rowe Price Growth Stock</div>
+          <div class="fund-ticker">PRGSX</div>
+          <div class="fund-change">+1.8%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Vanguard Information Tech</div>
+          <div class="fund-ticker">VGT</div>
+          <div class="fund-change">+2.2%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Fidelity Contrafund</div>
+          <div class="fund-ticker">FCNTX</div>
+          <div class="fund-change">+1.5%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">American Funds Growth</div>
+          <div class="fund-ticker">AGTHX</div>
+          <div class="fund-change">+1.7%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Invesco QQQ</div>
+          <div class="fund-ticker">QQQ</div>
+          <div class="fund-change">+1.9%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">SPDR S&P 500</div>
+          <div class="fund-ticker">SPY</div>
+          <div class="fund-change">+1.1%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">iShares Russell 2000</div>
+          <div class="fund-ticker">IWM</div>
+          <div class="fund-change">+1.3%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Vanguard Total Bond</div>
+          <div class="fund-ticker">BND</div>
+          <div class="fund-change">+0.2%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">iShares Gold Trust</div>
+          <div class="fund-ticker">IAU</div>
+          <div class="fund-change">-0.4%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">SPDR Gold Shares</div>
+          <div class="fund-ticker">GLD</div>
+          <div class="fund-change">-0.4%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">iShares Silver Trust</div>
+          <div class="fund-ticker">SLV</div>
+          <div class="fund-change">+0.2%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">US Oil Fund</div>
+          <div class="fund-ticker">USO</div>
+          <div class="fund-change">-0.7%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">iShares Copper</div>
+          <div class="fund-ticker">JJC</div>
+          <div class="fund-change">+1.5%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Global X Crypto</div>
+          <div class="fund-ticker">BTC</div>
+          <div class="fund-change">+1.2%</div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-name">Grayscale Bitcoin</div>
+          <div class="fund-ticker">GBTC</div>
+          <div class="fund-change">+1.2%</div>
         </div>
       </div>
     </div>
 
     <!-- footer -->
     <footer>
-      <p>數據來源：Yahoo Finance (21:45 HKT) | Bloomberg Evening Briefing Asia</p>
+      <p>數據來源：Yahoo Finance (17:15 HKT) | Bloomberg Morning Briefing | Finviz Chart Analysis</p>
       <p>風險聲明：投資有風險，過往表現不代表未來回報</p>
     </footer>
+
+  <script>
+    // Daily Brief JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      // Market resolution loading
+      const marketResolution = document.querySelector('.market-resolution');
+      if (marketResolution) {
+        marketResolution.innerHTML = `
+          <div class="brief-section">
+            <h3>📈 市場決議</h3>
+            <div class="resolution-content">
+              <p>聯儲局維持利率不變，市場反應正面。科技股表現強勁，AI相關股領漲。港股受內地政策支持，估值修復明顯。</p>
+              <p>建議配置：科技股 50%、金融 20%、能源 15%、現金 15%。</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Market pricing loading
+      const marketPricing = document.querySelector('.market-pricing');
+      if (marketPricing) {
+        marketPricing.innerHTML = `
+          <div class="brief-section">
+            <h3>💰 市場定價</h3>
+            <div class="pricing-content">
+              <p>債息攀升壓抑科技股，黃金Bitcoin雙雙走高，市場等待聯儲局明確政策訊號</p>
+              <div class="pricing-highlights">
+                <div class="highlight-item">
+                  <strong>美指</strong>: 105.20 (+0.3%)
+                </div>
+                <div class="highlight-item">
+                  <strong>十年期債息</strong>: 4.25% (+5bp)
+                </div>
+                <div class="highlight-item">
+                  <strong>油價</strong>: $78.50 (+1.2%)
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Market focus loading
+      const marketFocus = document.querySelector('.market-focus');
+      if (marketFocus) {
+        marketFocus.innerHTML = `
+          <div class="brief-section">
+            <h3>🔥 市場焦點</h3>
+            <div class="focus-content">
+              <p>中瑞簽署新貿易協定，擴大經濟合作空間；美中貿易關係仍為市場關注焦點</p>
+              <div class="focus-items">
+                <div class="focus-item">
+                  <strong>科技股</strong>: AI概念股持續受追捧，芯片股表現強勁
+                </div>
+                <div class="focus-item">
+                  <strong>港股</strong>: 恒指技術面向好，25000點關鍵支撐
+                </div>
+                <div class="focus-item">
+                  <strong>商品</strong>: 黃金創新高，原油受地緣政治支持
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Brief content loading
+      const briefContent = document.querySelector('.brief-content');
+      if (briefContent) {
+        briefContent.innerHTML = `
+          <div class="daily-links">
+            <h3>📰 每日鏈結</h3>
+            <div class="links-grid">
+              <div class="link-section">
+                <h4>市場新聞</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">聯儲局議息決議全文</a></li>
+                  <li><a href="#" onclick="return false;">美國CPI數據分析</a></li>
+                  <li><a href="#" onclick="return false;">亞太市場走勢</a></li>
+                </ul>
+              </div>
+              <div class="link-section">
+                <h4>技術分析</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">技術指標解讀</a></li>
+                  <li><a href="#" onclick="return false;">支持阻力位分析</a></li>
+                  <li><a href="#" onclick="return false;">走勢圖解讀</a></li>
+                </ul>
+              </div>
+              <div class="link-section">
+                <h4>投資策略</h4>
+                <ul>
+                  <li><a href="#" onclick="return false;">組合建議</a></li>
+                  <li><a href="#" onclick="return false;">風險管理</a></li>
+                  <li><a href="#" onclick="return false;">機會評估</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ai-generated">
+            <h3>🤖 AI生成內容</h3>
+            <div class="ai-content">
+              <p>根據當前市場數據和技術指標，AI模型預測短期内市場將維持震盪格局。科技股仍有上升空間，但需留意估值風險。建議關注基本面良好的個股，適度分散投資。</p>
+              <div class="ai-highlights">
+                <div class="highlight">風險偏好：中性偏樂觀</div>
+                <div class="highlight">建議持股週期：3-6個月</div>
+                <div class="highlight">預期回報：8-12%</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Watchlist data loading
+      const watchlistItems = document.querySelectorAll('.watchlist-item');
+      const watchlistData = [
+        { symbol: 'AAPL', name: '蘋果', price: '$198.50', change: '+1.2%', note: 'AI功能推動銷售' },
+        { symbol: 'MSFT', name: '微軟', price: '$378.20', change: '+0.8%', note: '雲業務穩定增長' },
+        { symbol: 'GOOGL', name: '谷歌', price: '$145.80', change: '+0.5%', note: '廣告業務復蘇' },
+        { symbol: 'AMZN', name: '亞馬遜', price: '$185.30', change: '+1.5%', note: '雲計算需求強勁' },
+        { symbol: 'TSLA', name: '特斯拉', price: '$248.60', change: '-2.1%', note: '電動車競爭加劇' },
+        { symbol: 'NVDA', name: '輝達', price: '$456.80', change: '+2.8%', note: 'AI晶片需求爆發' },
+        { symbol: '00941.HK', name: '中国移动', price: '$53.20', change: '+0.8%', note: '5G業務穩定' },
+        { symbol: 'GLD', name: '黃金ETF', price: '$245.80', change: '+0.2%', note: '創新高，技術面看漢' }
+      ];
+
+      watchlistItems.forEach((item, index) => {
+        if (watchlistData[index]) {
+          const data = watchlistData[index];
+          item.innerHTML = `
+            <div class="symbol">${data.symbol}</div>
+            <div class="name">${data.name}</div>
+            <div class="price">${data.price}</div>
+            <div class="change">${data.change}</div>
+            <div class="note">${data.note}</div>
+          `;
+        }
+      });
+
+      // Update timestamp
+      const updateTime = document.querySelector('.update-time');
+      if (updateTime) {
+        const now = new Date();
+        updateTime.textContent = `更新時間：${now.toLocaleString('zh-HK', {
+          timeZone: 'Asia/Hong_Kong',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        })}`;
+      }
+
+      console.log('Daily Brief loaded successfully');
+    });
+  </script>
   </body>
