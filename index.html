@@ -232,6 +232,7 @@
   .eln-table td { padding: 7px 9px; border-bottom: 1px solid var(--border); color: var(--text); }
   .eln-table tr:hover td { background: rgba(240,192,64,0.06); }
   .eln-table .coupon { color: var(--down); font-weight: 700; }
+  .eln-table.fund th:nth-child(3), .eln-table.fund td:nth-child(3) { white-space: nowrap; }
   .pick td { background: rgba(240,192,64,0.10); }
   .pick td:first-child { border-left: 3px solid var(--gold); }
   .pick-tag {
@@ -496,7 +497,7 @@
 <div class="strategy-block">
   <div class="stitle">📊 (1) 基金表格（17隻，RM銷售直接用）</div>
   <div class="sbody">
-    <table class="eln-table">
+    <table class="eln-table fund">
       <tr><th>基金</th><th>代號</th><th>分類</th><th>特性/派息</th></tr>
       <tr><td>HSBC貨幣</td><td>U45193</td><td>現金</td><td>流動性極高，現金管理首選</td></tr>
       <tr class="pick"><td>HSBC超短債 <span class="pick-tag">重點</span></td><td>U45242</td><td>極短債</td><td>低利率風險；9月不變定價下作靈活過渡泊位</td></tr>
