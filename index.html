@@ -83,6 +83,19 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin-bottom: 16px;
+    width: 100%;
+  }
+
+  /* Fallback for older browsers */
+  @supports not (display: grid) {
+    .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .summary-box {
+      flex: 1 0 calc(20% - 10px);
+      margin: 5px;
+    }
   }
   .summary-box {
     background: var(--card);
@@ -306,24 +319,24 @@
 
     <!-- 五格摘要 -->
     <div class="summary-grid">
-      <div class="summary-box market-decision">
-        <div class="label">📊 市場決議</div>
-        <div class="value">美股高位震盪，道指微跌0.2%，納指回調1.5%，中概股分化，人民幣匯率承壓</div>
+      <div class="summary-box market-decision" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
+        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">📊 市場決議</div>
+        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">美股高位震盪，道指微跌0.2%，納指回調1.5%，中概股分化，人民幣匯率承壓</div>
       </div>
-      <div class="summary-box today-tone">
-        <div class="label">🎯 今日定調</div>
-        <div class="value">科技股回調修正，債息重上5.15%，市場對聯儲局政策轉向存疑，風險偏好回落</div>
+      <div class="summary-box today-tone" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
+        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">🎯 今日定調</div>
+        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">科技股回調修正，債息重上5.15%，市場對聯儲局政策轉向存疑，風險偏好回落</div>
       </div>
-      <div class="summary-box risk-balance">
-        <div class="label">⚖️ 風險天平</div>
-        <div class="value">恐慌指數小幅上升，債息重上增加估值壓力，科技股獲利回吐，市場趨向保守</div>
+      <div class="summary-box risk-balance" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
+        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">⚖️ 風險天平</div>
+        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">恐慌指數小幅上升，債息重上增加估值壓力，科技股獲利回吐，市場趨向保守</div>
       </div>
-      <div class="summary-box market-pricing">
-        <div class="label">💹 市場定價</div>
-        <div class="value">科技股估值修復，債券收益率曲線平坦化，市場預期聯儲局9月降息機率降至60%</div>
+      <div class="summary-box market-pricing" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
+        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">💹 市場定價</div>
+        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">科技股估值修復，債券收益率曲線平坦化，市場預期聯儲局9月降息機率降至60%</div>
       </div>
-      <div class="summary-box key-metric">
-        <div class="label">📈 關鍵數據</div>
+      <div class="summary-box key-metric" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
+        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">📈 關鍵數據</div>
         <p>VIX 18.5 (+2.3)，滬綜指3,125 (-0.8%)，人民幣7.28 (+0.2%)，原油$82.5 (-1.2%)</p>
       </div>
     </div>
