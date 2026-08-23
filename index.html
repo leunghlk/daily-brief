@@ -83,19 +83,6 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin-bottom: 16px;
-    width: 100%;
-  }
-
-  /* Fallback for older browsers */
-  @supports not (display: grid) {
-    .summary-grid {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .summary-box {
-      flex: 1 0 calc(20% - 10px);
-      margin: 5px;
-    }
   }
   .summary-box {
     background: var(--card);
@@ -313,243 +300,271 @@
     .market-row { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
-    <body>
-    <!-- date badge -->
-    <div class="date-badge">📅 2026年8月23日 星期日 更新時間 17:15 HKT</div>
+</head>
 
-    <!-- 五格摘要 -->
-    <div class="summary-grid">
-      <div class="summary-box market-decision" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
-        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">📊 市場決議</div>
-        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">美股高位震盪，道指微跌0.2%，納指回調1.5%，中概股分化，人民幣匯率承壓</div>
-      </div>
-      <div class="summary-box today-tone" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
-        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">🎯 今日定調</div>
-        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">科技股回調修正，債息重上5.15%，市場對聯儲局政策轉向存疑，風險偏好回落</div>
-      </div>
-      <div class="summary-box risk-balance" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
-        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">⚖️ 風險天平</div>
-        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">恐慌指數小幅上升，債息重上增加估值壓力，科技股獲利回吐，市場趨向保守</div>
-      </div>
-      <div class="summary-box market-pricing" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
-        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">💹 市場定價</div>
-        <div class="value" style="font-size: 0.92em; color: #b8860b; font-weight: 700; line-height: 1.35;">科技股估值修復，債券收益率曲線平坦化，市場預期聯儲局9月降息機率降至60%</div>
-      </div>
-      <div class="summary-box key-metric" style="background: white; border: 1px solid #d9cfb8; border-radius: 10px; padding: 14px 8px; text-align: center; margin: 5px;">
-        <div class="label" style="font-size: 0.74em; color: #8a6d3b; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700;">📈 關鍵數據</div>
-        <p>VIX 18.5 (+2.3)，滬綜指3,125 (-0.8%)，人民幣7.28 (+0.2%)，原油$82.5 (-1.2%)</p>
-      </div>
+<body>
+<div class="lk-header">
+  <div class="lk-logo">k</div>
+  <div class="lk-brand-text">
+    <div class="lk-name">leungkathy</div>
+    <div class="lk-sub">All-in-One Financial Dashboard Suite</div>
+  </div>
+  <div class="lk-doc-title">
+    <div class="t1">每日市場情報</div>
+    <div class="t2">Daily Market Briefing</div>
+  </div>
+</div>
+<div style="text-align:center;"><span class="date-badge">2026年8月23日 星期日（週末更新）</span></div>
+<div style="text-align:center;font-size:0.78em;color:var(--muted);margin:4px 0 2px;">週日休市　數據沿用週五（8/21）收市　·　週日核實</div>
+
+<!-- 五格 -->
+<div class="summary-grid">
+  <div class="summary-box">
+    <div class="label">📊 市場決議</div>
+    <div class="value">金價$4,680再創歷史新高<br>美國國債首破$40萬億＋Nvidia洽Rebellions</div>
+  </div>
+  <div class="summary-box">
+    <div class="label">🎯 今日定調</div>
+    <div class="value">美股週五全線反彈　金價破頂<br>長債息高位　避險與風險偏好並存</div>
+  </div>
+  <div class="summary-box">
+    <div class="label">⚖️ 風險天平</div>
+    <div class="value">VIX 15.13回落-5.5%避險降溫<br>油金避險盤續強　30年債息5.25%高壓</div>
+  </div>
+  <div class="summary-box">
+    <div class="label">💹 市場定價</div>
+    <div class="value">標普7,674｜納指26,180｜費半11,740<br>布蘭特94.39｜期金4,680｜10年4.740%</div>
+    <div style="font-size:0.72em;color:var(--muted);margin-top:2px;">美元98.80｜日圓158.9｜比特幣76,447｜VIX 15.13</div>
+  </div>
+  <div class="summary-box">
+    <div class="label">📝 一句話</div>
+    <div class="value">美股反彈＋金價$4,680再破頂<br>美債$40萬億敲響長端利率警號</div>
+  </div>
+</div>
+
+<!-- 風險燈 -->
+<div class="risk-item risk-red">🔴 <strong>金價$4,680.60急升+3.64%再創歷史新高：</strong>週三破頂$4,582→週四回吐$4,516→週五再破頂——回調一日即創新高，動能強勁；財政赤字＋央行買金＋地緣三驅動，惟單日+3.6%後短線超買，獲利回吐風險升溫。</div>
+<div class="risk-item risk-red">🔴 <strong>美國國債總額首破$40萬億：</strong>利息負擔滾存推升「借更多→息更高」循環風險；30年債息5.25%高位、10年4.740%——財政供應為長債最大利空，存續期部署宜審慎。</div>
+<div class="risk-item risk-amber">🟡 <strong>費半-0.51%逆市回軟：</strong>大盤升而晶片獨跌，記憶體成本憂慮未散（Apple已加價、Switch 2銷量腰斬）；惟三星/SK海力士千億級股東回饋計劃為板塊托底。</div>
+<div class="risk-item risk-amber">🟡 <strong>比特幣$76,447與金價同步走強：</strong>週內由$69,000區域連升——「金幣齊升」格局延續，資金同步配置風險與避險，並非典型risk-off。</div>
+
+<!-- 市場數據 -->
+<div class="market-row">
+  <div class="market-item">
+    <div class="name">恒生指數</div>
+    <div class="val">26,009.46</div>
+    <div class="chg up">▲ +1.21%（+311點，週五8/21收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:60%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">道瓊斯</div>
+    <div class="val">53,277.01</div>
+    <div class="chg up">▲ +0.98%（+518點，週五8/21收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:58%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">S&amp;P 500</div>
+    <div class="val">7,674.37</div>
+    <div class="chg up">▲ +0.43%（+33點，週五8/21收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:54%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">納斯達克</div>
+    <div class="val">26,180.46</div>
+    <div class="chg up">▲ +0.43%（+113點，週五8/21收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:54%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">費城半導體</div>
+    <div class="val">11,740.37</div>
+    <div class="chg down">▼ -0.51%（-60點，記憶體成本憂慮）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:52%;background:var(--down);"></div></div>
+  </div>
+</div>
+<div class="market-row">
+  <div class="market-item">
+    <div class="name">布蘭特原油</div>
+    <div class="val">94.39</div>
+    <div class="chg up">▲ +0.65%（+$0.61，地緣溢價維持）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:56%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">黃金（期金）</div>
+    <div class="val">$4,680.60</div>
+    <div class="chg up">▲ +3.64%（+$164，再創歷史新高）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:76%;background:var(--up);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">美10年債息</div>
+    <div class="val">4.740%</div>
+    <div class="chg up">▲ +4點子（週五收；30年5.25%高位）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:52%;background:var(--down);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">美2年債息</div>
+    <div class="val">3.961%</div>
+    <div class="chg warn">─ 持平（9月不變定價穩固）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:42%;background:var(--amber);"></div></div>
+  </div>
+  <div class="market-item">
+    <div class="name">美元指數</div>
+    <div class="val">98.80</div>
+    <div class="chg down">▼ -0.10（弱勢支撐金價）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:48%;background:var(--down);"></div></div>
+  </div>
+</div>
+<div style="font-size:0.8em;color:var(--muted);margin-bottom:14px;text-align:center;">📡 美股週五8/21收市：道指53,277.01（+0.98%）｜標普7,674.37（+0.43%）｜納指26,180.46（+0.43%）｜費半11,740.37（-0.51%）｜VIX 15.13（-5.5%）｜恒指週五收26,009.46（+1.21%）｜布蘭特94.39（+0.65%）｜期金$4,680.60（+3.64%新高）｜2年3.961%／10年4.740%（30年5.25%）｜美元指數98.80｜日圓158.94｜比特幣76,447（週日即時）</div>
+
+<!-- 利率期貨 Gauge -->
+<div class="gauge-block">
+  <h2>📊 聯儲局利率期貨定價（9月議息展望）</h2>
+  <div class="gauge-wrap">
+    <div class="gauge-bar">
+      <div class="gauge-marker" style="left: 27%;"></div>
     </div>
-
-    <!-- 市場焦點 -->
-    <div class="market-focus">
-      <h3>🔥 市場焦點</h3>
-      <div class="focus-items">
-        <div class="focus-item">
-          <h4>科技股回調</h4>
-          <p>納指回調1.5%，費半指數下跌2.3%，科技股獲利回吐，AI相關股領跌</p>
-        </div>
-        <div class="focus-item">
-          <h4>債息重上</h4>
-          <p>10年期債息重上5.15%，30年期債息重上5.30%，市場對通脅憂慮重燃</p>
-        </div>
-        <div class="focus-item">
-          <h4>中概股分化</h4>
-          <p>阿里巴巴跌1.5%，騰訊控股漲0.8%，人民幣匯率承壓影響出口股表現</p>
-        </div>
-      </div>
+    <div class="gauge-labels">
+      <span>減息</span><span>維持不變</span><span>加息</span>
     </div>
-
-    <!-- 投資策略 -->
-    <div class="investment-strategy">
-      <h3>💼 投資策略</h3>
-
-      <div class="strategy-section">
-        <h4>股票配置建議</h4>
-        <div class="stock-table">
-          <table>
-            <tr>
-              <th>標的</th>
-              <th>邏輯</th>
-              <th>目標價</th>
-              <th>評級</th>
-            </tr>
-            <tr>
-              <td>AAPL</td>
-              <td>技術面調整，估值合理，股息率穩定</td>
-              <td>$190-200</td>
-              <td>★★★★☆</td>
-            </tr>
-            <tr>
-              <td>TSM</td>
-              <td>半導體週期轉折，供應鏈改善</td>
-              <td>$105-110</td>
-              <td>★★★★★</td>
-            </tr>
-            <tr>
-              <td>00700.HK</td>
-              <td>遊戲業務穩定，新遊戲發行催化</td>
-              <td>$320-340</td>
-              <td>★★★★☆</td>
-            </tr>
-            <tr>
-              <td>GLD</td>
-              <td>避險需求，通脅慮重燃</td>
-              <td>$2,450-2,550</td>
-              <td>★★★★☆</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="strategy-section">
-        <h4>債券策略</h4>
-        <div class="bond-strategy">
-          <div class="bond-item">
-            <h5>美債</h5>
-            <p>短期債券持有至9月，長期債券減倉，收益率曲線平坦化</p>
-          </div>
-          <div class="bond-item">
-            <h5>企業債</h5>
-            <p>投資級債券維持，高收益債券謹慎，信用利差走闊</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="strategy-section">
-        <h4>商品貨幣</h4>
-        <div class="commodity-currency">
-          <div class="item">
-            <h5>原油</h5>
-            <p>需求擔憂，維持看空，目標$80-85</p>
-          </div>
-          <div class="item">
-            <h5>黃金</h5>
-            <p>通脅慮支撑，維持看多，目標$2,500-2,600</p>
-          </div>
-          <div class="item">
-            <h5>人民幣</h5>
-            <p>承壕趨勢，逢高減倉，關鍵支撑7.30</p>
-          </div>
-        </div>
-      </div>
+    <div class="gauge-center">9月加息預期：<span style="color:var(--down);">「按兵不動」定價穩固</span>（2年債息3.961%）</div>
+    <div class="gauge-sub">通脹降溫定局未改，9月15-16日議息維持不變幾無懸念；惟國債$40萬億＋財政供應推高長端（30年5.25%）——政策利率不變、長端利率上行的「熊陡」格局，長債估值壓力與短債鎖息窗口並存。</div>
+    <div class="gauge-comment">
+      <span style="color:var(--down);">聯儲局現時利率3.50%-3.75%。2年債息3.961%持平顯示市場對短期政策路徑預期穩定；長短利差走闊反映的是財政供應溢價而非加息預期。資產含義：3-6個月美元定存仍可鎖近4厘息；長債基金存續期部署宜分段、審慎；利率敏感型成長股估值受長端利率牽制。</span>
     </div>
+  </div>
+</div>
 
-    <!-- 技術分析 -->
-    <div class="technical-analysis">
-      <h3>📈 技術分析</h3>
+<!-- 最新市況解讀 -->
+<div class="uncle-box">
+  <div class="tag">🗣 最新市況解讀（週五收市版）</div>
 
-      <div class="tech-section">
-        <h4>主要指數技術態勢</h4>
-        <div class="tech-grid">
-          <div class="tech-item">
-            <h5>道瓊指數</h5>
-            <p>⚠️ 阻力位 39,800，支撑位 38,500，MACD死叉，短期看跌</p>
-          </div>
-          <div class="tech-item">
-            <h5>納斯達克</h5>
-            <p>⚠️ 阻力位 27,500，支撑位 25,800，RSI超買，技術性回调</p>
-          </div>
-          <div class="tech-item">
-            <h5>滬深300</h5>
-            <p>⚠️ 阻力位 3,200，支撑位 3,000，量能萎縮，方向不明</p>
-          </div>
-        </div>
-      </div>
+  <div class="dim">【Macro】全球大盤與宏觀環境</div>
+  <ul>
+    <li><span class="hl-green">美股週五全線反彈：</span>道指+0.98%、標普+0.43%、納指+0.43%，VIX回落5.5%至15.13——週四回吐後風險偏好修復，成交有序，惟費半-0.51%獨軟。</li>
+    <li><span class="hl-red">金價$4,680.60再破頂+3.64%：</span>央行買金＋財政赤字避險＋地緣三驅動；美國國債首破$40萬億成為最新催化，黃金「去美元化」配置邏輯強化。</li>
+    <li><span class="hl-red">美國國債總額首破$40萬億（Bloomberg 8/22）：</span>利息負擔推升「借更多→息更高」循環風險；30年債息5.25%高位、10年4.740%（+4點子），財政供應主導長端。</li>
+    <li><span class="hl-green">恒指週五收26,009（+1.21%）：</span>週內由25,453連升至26,009；中國7月工業、消費、投資數據全遜預期，當局預告下半年推出新一輪財政支持措施。</li>
+    <li><span class="hl">比特幣$76,447（週日即時-0.83%）：</span>週內由$69,000區域連升至$76,000上方，與金價同步走強——另類避險屬性浮現。</li>
+  </ul>
 
-      <div class="tech-section">
-        <h4>關鍵技術信號</h4>
-        <div class="signal-list">
-          <div class="signal-item positive">
-            <h5>✅ 支撑信號</h5>
-            <p>VIX恐慌指數上升，市場恐懼情緒釋放</p>
-            <p>債息短期回落，聯儲局口風轉軟</p>
-          </div>
-          <div class="signal-item negative">
-            <h5>❌ 阻力信號</h5>
-            <p>科技股獲利回吐壓力大</p>
-            <p>原油價格下跌，商品股承壓</p>
-            <p>人民幣匯率走弱，出口股受影響</p>
-          </div>
-        </div>
-      </div>
+  <div class="dim">【Sector】關鍵板塊動態</div>
+  <ul>
+    <li><span class="hl-green">黃金/避險板塊最強：</span>期金週五再破頂$4,680.60，招金、紫金等黃金股順勢；黃金ETF資金持續流入，實物與投資需求雙線並行。</li>
+    <li><span class="hl-green">Korea AI/記憶體雙主線：</span>三星計劃年內回饋股東最多$790億、SK海力士宣佈$286億回購——惟資本開支同時激增（SK海力士今年≥$310億、+50%；三星>$730億），「派錢與燒錢並行」。</li>
+    <li><span class="hl-red">記憶體荒衝擊下游：</span>Apple已上調Mac/iPad/Vision Pro售價、Switch 2美國7月銷量按年腰斬——漲價週期由「上游受惠」轉化為「下游殺手」。</li>
+    <li><span class="hl">能源板塊高位整固：</span>布蘭特94.39（+0.65%），中東地緣溢價維持，油股（中海油、中石油）受惠惟波動加劇。</li>
+    <li><span class="hl">港股金融：</span>香港與新加坡競逐對沖基金稅務優惠——亞洲資管中心之爭升溫，利好港交所生態。</li>
+  </ul>
+
+  <div class="dim">【Company】關鍵個股與事件</div>
+  <ul>
+    <li><span class="hl">Nvidia：</span>與韓國AI晶片初創Rebellions初步洽談——技術夥伴、投資以至收購均在選項之列；黃仁勳本週於Santa Clara總部會晤其創辦人兼CEO。</li>
+    <li><span class="hl">三星/SK海力士：</span>三星年內股東回饋最多$790億；SK海力士淨現金估計超100萬億韓元；6月已承諾10年投資1,350萬億韓元（約$8,800億）於晶片與數據中心。</li>
+    <li><span class="hl">阿里巴巴（9988.HK）：</span>上季收入+9%惟利潤瀉逾75%、季內資本開支近$100億豪賭AI雲端（週內公佈）——中概ADR反升，市場解讀為「以利潤換AI卡位」。</li>
+    <li><span class="hl">Anthropic：</span>預期IPO規模追平或超越SpaceX的$750億紀錄——AI公司登陸公開市場邁入加速期。</li>
+    <li><span class="hl">恆大：</span>創辦人許家印被判終身監禁（週內）——內房出清週期延續，板塊迴避。</li>
+  </ul>
+
+  <div class="dim">【Sentiment】市場情緒</div>
+  <ul>
+    <li><span class="hl-green">VIX 15.13（-5.5%）回落：</span>週四16.01的避險升溫降溫，美股反彈確認回吐有序、未現恐慌性拋售。</li>
+    <li><span class="hl">「金幣齊升」格局延續：</span>金價破頂$4,680＋比特幣$76,447，資金同時配置風險與避險——並非典型risk-off，而是財政憂慮下的資產多元化。</li>
+    <li><span class="hl-red">長債賣壓是情緒新焦點：</span>30年債息5.25%若挑戰5.3%上方，高估值美股或面臨第二輪重估壓力。</li>
+    <li><span class="hl-green">港股風險偏好回暖：</span>恒指26,009週內連升，IPO題材（Shein籌備上市）與政策托底預期支撐。</li>
+  </ul>
+
+  <div class="dim">【Micro】金價解讀</div>
+  <ul>
+    <li>期金現價<span class="hl">$4,680.60（+3.64% vs 週四$4,516.30）</span>創歷史新高：週三破頂$4,582→週四回吐$4,516→週五再破頂——回調一日即創新高，上升動能強勁。</li>
+    <li>三大驅動：①<span class="hl">財政赤字憂慮</span>（美債$40萬億＋30年債息5.25%，資產多元化需求）；②<span class="hl">央行持續購金</span>；③<span class="hl">地緣避險</span>（中東溢價＋北韓月內第三次試射）。</li>
+    <li><span class="hl">技術面：</span>已觸及上方目標$4,650-4,750區間下沿；突破$4,750上望$4,850-4,900；回調首支持$4,580（前高轉支撐）、次支持$4,400。</li>
+    <li><span class="hl">機構觀點：</span>UBS維持長線$5,000目標——升浪有基本面支持，回調屬吸納機會而非趨勢反轉。</li>
+    <li><span class="hl">風險提示：</span>單日+3.6%後短線超買，獲利回吐隨時出現；美元指數98.80弱勢續支撐金價；若長債息急回（財政憂慮降溫），金價動能將減弱。</li>
+  </ul>
+
+  <div class="dim">📌 總結</div>
+  <ul>
+    <li><span class="hl">「股債分化、金幣齊升」延續：</span>美股週五反彈（道指+0.98%、VIX-5.5%）惟30年債息5.25%高壓；金價$4,680再創新高、比特幣$76,447。</li>
+    <li><span class="hl-red">美債$40萬億＋財政供應為長端核心利空：</span>存續期部署宜審慎，長債基金分段；短債/定存鎖息窗口仍在。</li>
+    <li><span class="hl">Korea AI/記憶體雙主線：</span>三星$790億回饋＋SK海力士$286億回購 vs 資本開支+50%——上游受惠、下游（消費電子）利潤受壓格局不變。</li>
+    <li><span class="hl-green">聯儲局9月按兵不動定價穩固（2年3.961%）：</span>短債泊位＋核心收息債＋黃金的啞鈴配置繼續有效；高估值股以ELN接貨留足緩衝。</li>
+    <li><span class="hl">RM部署：</span>收息債（PIMCO收益II U50021約5.95%、宏利多元入息U45660約10.08%）作核心泊位；黃金主題ETF順勢（$4,680新高，回調$4,580分段）；能源板塊受惠布蘭特94.39地緣溢價；3-6個月美元定存（~4厘）鎖息窗口仍在。</li>
+  </ul>
+  <div style="margin-top:12px;font-size:0.76em;color:var(--muted);border-top:1px dashed var(--border);padding-top:8px;">ℹ️ 來源：Yahoo Finance實時數據（週五8/21收市，週日核實）＋Bloomberg Evening Briefing Asia（8/21）＋Bloomberg Weekend（8/22）為最新可用批次；王董大盤籌碼FB、Finviz heatmap 週末暫缺。</div>
+</div>
+
+<!-- 今日策略 -->
+<div class="strategy-block">
+  <div class="stitle">📊 (1) 基金表格（15隻，RM銷售直接用）</div>
+  <div class="sbody">
+    <table class="eln-table">
+      <tr><th>基金</th><th>代號</th><th>分類</th><th>特性/派息</th></tr>
+      <tr><td>HSBC貨幣</td><td>U45193</td><td>現金</td><td>流動性極高，現金管理首選</td></tr>
+      <tr class="pick"><td>HSBC超短債 <span class="pick-tag">重點</span></td><td>U45242</td><td>極短債</td><td>低利率風險；9月不變定價下作靈活過渡泊位</td></tr>
+      <tr><td>安聯浮動息</td><td>U45707</td><td>浮息債</td><td>息率隨市場調整；長端供應壓力下浮息防禦性提升</td></tr>
+      <tr class="pick"><td>PIMCO收益II <span class="pick-tag">重點</span></td><td>U50021</td><td>核心收息</td><td>月派息約<span class="coupon">5.95%</span>；收息泊位首選</td></tr>
+      <tr class="pick"><td>法巴環球債券 <span class="pick-tag">重點</span></td><td>U45838</td><td>核心收息</td><td>環球投資級債；10年4.740%高位、30年5.25%下宜分段</td></tr>
+      <tr><td>法巴新興債</td><td>U45817</td><td>核心收息</td><td>新興市場高息；美元指數98.80弱勢利好新興資產</td></tr>
+      <tr><td>東方匯理收益機遇</td><td>U45769</td><td>多元資產</td><td>A2美元月派息，年率化約<span class="coupon">8.2%</span></td></tr>
+      <tr class="pick"><td>宏利多元入息10%派 <span class="pick-tag">重點</span></td><td>U45660</td><td>多元資產</td><td><span class="coupon">年化派息約10.08%</span>，收息客首選</td></tr>
+      <tr><td>普徠仕多元收益</td><td>U45679</td><td>多元資產</td><td>多元收益來源，分散風險</td></tr>
+      <tr><td>PIMCO收益增長</td><td>U45553</td><td>多元資產</td><td>收益＋增長並重</td></tr>
+      <tr><td>恒生亞洲增長收益</td><td>U45090</td><td>多元資產</td><td>聚焦亞洲，月派息約<span class="coupon">5.73%</span></td></tr>
+      <tr class="pick"><td>恒生高息股30 ETF <span class="pick-tag">重點</span></td><td>U45624</td><td>股票主題</td><td><span class="coupon">派息率約7.52%</span>，恒指26,009下高息藍籌較穩</td></tr>
+      <tr><td>貝萊德系統分析高息股</td><td>U44950</td><td>股票主題</td><td><span class="coupon">派息率約8-10%</span>＋期權增強</td></tr>
+      <tr><td>鄧普頓亞太入息</td><td>U45722</td><td>股票主題</td><td>亞太區入息策略；日圓158.9微貶利好日股、區內派息穩健</td></tr>
+      <tr><td>法巴科技創新</td><td>U45816</td><td>股票主題</td><td>科技創新主題；費半11,740回軟＋記憶體成本憂慮，高位分批、避免追高</td></tr>
+    </table>
+    <div style="margin-top:8px;font-size:0.85em;color:var(--muted);">💡 <span class="hl">RM切入</span>：9月按兵不動定價穩固→收息泊位續推<span class="hl">PIMCO收益II（U50021，5.95%）</span>與<span class="hl">宏利多元入息10%派（U45660，10.08%）</span>；過渡泊位<span class="hl">HSBC超短債（U45242）</span>；恒指26,009連升下<span class="hl">恒生高息股30（U45624，7.52%）</span>較穩；<span class="hl">法巴環球債券（U45838）</span>受30年5.25%長端壓力宜分段；科技基金（法巴科技創新）逢回吐分批；美元98.80弱勢利好<span class="hl">法巴新興債（U45817）</span>；<span class="hl">黃金主題</span>順勢（$4,680新高，回調首看$4,580）。</div>
+  </div>
+</div>
+
+<div class="strategy-block">
+  <div class="stitle">🎯 (2) ELN 表格</div>
+  <div class="sbody">
+    <table class="eln-table">
+      <tr><th>標的</th><th>邏輯</th><th>接貨機會</th></tr>
+      <tr class="pick"><td>標普500指數ELN <span class="pick-tag">留意</span></td><td>7,674反彈+0.43%、VIX 15.13回落；長債息5.25%高壓下接貨價宜留較大緩衝</td><td><span class="coupon">中低</span></td></tr>
+      <tr class="pick"><td>黃金ETF（2840.HK） <span class="pick-tag">推薦</span></td><td>期金$4,680.60再破頂、UBS長線$5,000；單日+3.6%超買，回吐$4,580/$4,400分段接貨</td><td><span class="coupon">中高</span></td></tr>
+      <tr class="pick"><td>費半／晶片相關 <span class="pick-tag">留意</span></td><td>費半11,740回軟-0.51%，三星/SK海力士千億回饋托底；高位不追、回吐分段接貨</td><td><span class="coupon">中高</span></td></tr>
+      <tr><td>美團（3690.HK）</td><td>高息避險屬性；90-95港元接貨後收息，恒指26,009連升下資金避風港</td><td>高</td></tr>
+      <tr class="pick"><td>匯豐（0005.HK） <span class="pick-tag">留意</span></td><td>高息藍籌避險；65-68港元接貨後收息，港新資管稅務競爭利好生態</td><td><span class="coupon">高</span></td></tr>
+      <tr><td>中國海洋石油（0883.HK）</td><td>布蘭特94.39地緣溢價維持；高息＋波動並存，接貨宜分段</td><td>中</td></tr>
+    </table>
+    <div style="margin-top:6px;font-size:0.82em;color:var(--muted);">⚠️ 金價單日+3.6%後掛黃金ELN宜短不宜長（超買回吐風險）；美債供應壓力推高息率環境，固定票息ELN吸引力上升；費半回軟但Korea AI回購潮托底，ELN回吐分段接貨；美團/匯豐高息避險屬性在長債息高壓市況尤為突出。</div>
+  </div>
+</div>
+
+<div class="strategy-block">
+  <div class="stitle">💴 (3) MXI / 定存建議</div>
+  <div class="sbody">
+    <div class="mxi-box" style="margin-bottom:8px;">
+      <span class="hl">美元定存</span>：3個月期約 <span class="coupon">4.0-4.2厘</span>，6個月期約 3.8-4.0厘（2年債息3.961%、10年4.740%，鎖息窗口仍在）<br>
+      <span class="hl">港元定存</span>：3個月期約 <span class="coupon">3.7-3.9厘</span><br>
+      <span class="hl">MXI結構性存款</span>：掛鉤黃金或油價指數，潛在年化回報 <span class="coupon">5-7%</span>
     </div>
+    <div style="font-size:0.88em;">💡 建議：聯儲局9月「按兵不動」幾乎確定——<span class="hl">3-6個月美元定存仍可鎖定近4厘、鎖息窗口仍在</span>；惟美債$40萬億＋30年債息5.25%，長端利率上行限制長債產品彈幅、宜分段；<span class="hl">黃金MXI可順勢參與$4,680破頂行情</span>，惟宜短不宜長、回調後部署更佳；美元指數98.80弱勢，外幣定存留意匯率風險；標普7,674反彈、指數掛鉤產品可小注跟進。</div>
+  </div>
+</div>
 
-    <!-- 風險警示 -->
-    <div class="risk-alert">
-      <h3>⚠️ 風險警示</h3>
-      <div class="risk-items">
-        <div class="risk-item high">
-          <h4>高度風險</h4>
-          <ul>
-            <li>科技股估值過高，技術性調整風險</li>
-            <li>債息重上傷害高估值股票</li>
-            <li>通脅慮重燃可能延遲聯儲局降息</li>
-          </ul>
-        </div>
-        <div class="risk-item medium">
-          <h4>中度風險</h4>
-          <ul>
-            <li>人民幣匯率波動影響出口股</li>
-            <li>原油價格下跌傷害能源股</li>
-            <li>中概股受政策不確定性影響</li>
-          </ul>
-        </div>
-        <div class="risk-item low">
-          <h4>低度風險</h4>
-          <ul>
-            <li>傳統股相對抗跌</li>
-            <li>債券收益率曲線平坦化</li>
-            <li>現金資產配置價值提升</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<!-- Watchlist -->
+<div class="watchlist">
+  <strong style="font-size:1.05em;">🔍 今日關注 Watchlist</strong><br>
+  <span class="wl-hot">金價$4,680.60再創新高──$4,750突破確認（回調首支持$4,580）</span>｜
+  <span class="wl-hot">美國國債首破$40萬億＋30年債息5.25%（財政供應＝長端核心變量）</span>｜
+  <span class="wl-hot">Nvidia洽韓國AI晶片初創Rebellions（技術夥伴/投資/收購）</span>｜
+  <span class="wl-hot">三星$790億股東回饋＋SK海力士$286億回購（Korea AI派錢潮 vs 資本開支+50%）</span>｜
+  <span class="wl-hot">中國下半年新一輪財政支持（7月工業/消費/投資全遜預期）</span>｜
+  <span class="wl-hot">恒指26,009週內連升──週一港股焦點（26,500壓力）</span>｜
+  <span class="wl-hot">VIX 15.13回落-5.5%（避險降溫、回吐有序）</span>｜
+  <span class="wl-hot">比特幣76,447（與金價同步的另類避險配置）</span>｜
+  <span class="wl-hot">日圓158.9微貶（遠離160干預線）</span>｜
+  <span>9月15-16日聯儲局議息「按兵不動」定價穩固（2年3.961%）</span>
+</div>
 
-    <!-- 操作建議 -->
-    <div class="action-plan">
-      <h3>🎯 操作建議</h3>
-      <div class="plan-section">
-        <h4>盤中操作</h4>
-        <div class="action-grid">
-          <div class="action-item buy">
-            <h5>逢低吸纳</h5>
-            <p>債券收益率回落時買入短期美債</p>
-            <p>科技股技術性回调至支撑位</p>
-          </div>
-          <div class="action-item sell">
-            <h5>減倉離場</h5>
-            <p>高估值科技股獲利了結</p>
-            <p>原油相關股逢高減倉</p>
-          </div>
-          <div class="action-item hold">
-            <h5>觀望持有</h5>
-            <p>傳統价值股繼續持有</p>
-            <p>現金資產等待時機</p>
-          </div>
-        </div>
-      </div>
+<div class="footer">
+  以上內容純屬市場情報整合，不構成投資建議。<br>
+  今日焦點：金價$4,680.60再創歷史新高（+3.64%）｜美國國債首破$40萬億、30年債息5.25%｜美股週五反彈（道指+0.98%、VIX-5.5%）｜Korea AI派錢潮（三星$790億回饋/SK海力士$286億回購）｜Nvidia洽Rebellions｜恒指26,009週內連升｜週日休市、數據沿用週五收<br>
+  <span style="color:var(--brand);font-weight:700;">leungkathy</span> · All-in-One Financial Dashboard Suite
+</div>
 
-      <div class="plan-section">
-        <h4>收市檢討</h4>
-        <div class="review-points">
-          <p>• 檢查科技股是否已回調至合理區間</p>
-          <p>• 觀察債息走势，確認聯儲局政策方向</p>
-          <p>• 評估人民幣匯率對組合的影響</p>
-          <p>• 準備應對週一市場開盤情況</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 每日金句 -->
-    <div class="daily-quote">
-      <h3>💡 每日金句</h3>
-      <blockquote>
-        "市場在恐懼中貪婪，在貪婪中恐懼。當所有人都看好時，準備撤退；當所有人都看淡時，準備布局。"
-      </blockquote>
-      <p class="quote-author">— 華倫·巴菲特</p>
-    </div>
-
-    </body>
-    </html>
-    
+</html>
