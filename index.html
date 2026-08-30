@@ -18,119 +18,95 @@
     --accent: #8a6d3b;  /* subheader 高亮色 */
     --eln-bg: #fff8e8;
     --eln-border: #d4a017;
-    --brand: #007A3D;
-    --brand-light: rgba(0, 122, 61, 0.08);
+    --eln-head: #a0781f;
+    /* leungkathy brand bar */
+    --brand: #1a73e8;
+    --brand-dark: #1557b0;
+    --brand-light: #e8f0fe;
   }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background-color: var(--bg);
+    background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
     line-height: 1.6;
-    font-size: 0.92em;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 15px;
   }
-  
-  /* Header */
+
+  /* ── leungkathy brand top bar (matches all-in-one suite) ── */
   .lk-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: var(--card);
-    padding: 16px 20px;
-    margin-bottom: 10px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+    padding: 16px 22px;
+    margin: -20px -20px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
-  
   .lk-logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--brand) 0%, var(--gold) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 18px;
-  }
-  
-  .lk-brand-text {
-    flex: 1;
-  }
-  
-  .lk-name {
-    font-size: 1.1em;
-    font-weight: 700;
+    width: 40px; height: 40px;
+    background: #fff; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 300; font-style: italic;
     color: var(--brand);
-    margin-bottom: 2px;
+    transform: rotate(-6deg);
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
   }
-  
-  .lk-sub {
-    font-size: 0.8em;
-    color: var(--muted);
-  }
-  
+  .lk-brand-text { line-height: 1; color: #fff; }
+  .lk-brand-text .lk-name { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .lk-brand-text .lk-sub { font-size: 11.5px; opacity: 0.88; margin-top: 3px; }
   .lk-doc-title {
-    text-align: right;
+    margin-left: auto; text-align: right; color: #fff;
   }
-  
-  .t1 {
-    font-size: 1.05em;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 2px;
+  .lk-doc-title .t1 { font-size: 17px; font-weight: 700; }
+  .lk-doc-title .t2 { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .lk-doc-title { margin-left: 0; text-align: left; width: 100%; }
   }
-  
-  .t2 {
-    font-size: 0.75em;
-    color: var(--muted);
-    font-weight: 400;
-  }
-  
   .date-badge {
-    background: linear-gradient(135deg, var(--brand) 0%, var(--gold) 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
     display: inline-block;
-    margin: 8px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 0.85em;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 14px;
   }
-  
-  /* Summary grid */
+
+  /* 五格 summary */
   .summary-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin-bottom: 16px;
   }
-  
   .summary-box {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  
+  .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: var(--gold); }
   .summary-box .label {
-    font-size: 0.82em;
-    color: var(--muted);
+    font-size: 0.74em;
+    color: var(--accent);
+    letter-spacing: 1px;
     margin-bottom: 5px;
     font-weight: 700;
   }
-  
   .summary-box .value {
     font-size: 0.92em;
     color: var(--gold);
     font-weight: 700;
     line-height: 1.35;
   }
-  
+
   /* 風險燈 */
   .risk-item {
     border-radius: 8px;
@@ -145,7 +121,7 @@
   .risk-amber strong { color: var(--amber); }
   .risk-green { background: rgba(0,214,143,0.10); border: 1px solid rgba(0,214,143,0.35); color: #a0e8cf; }
   .risk-green strong { color: var(--down); }
-  
+
   /* 市場數據行 */
   .market-row {
     display: grid;
@@ -153,312 +129,180 @@
     gap: 10px;
     margin-bottom: 14px;
   }
-  
   .market-item {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 10px;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 0.86em;
     text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
   }
-  
-  .market-item .name {
-    font-size: 0.78em;
-    color: var(--muted);
-    margin-bottom: 4px;
-    font-weight: 600;
+  .market-item:hover { transform: translateY(-2px); border-color: var(--gold); }
+  .market-item .name { color: var(--accent); font-size: 0.75em; font-weight: 700; margin-bottom: 3px; }
+  .market-item .val { color: var(--gold); font-weight: 800; font-size: 1.08em; margin: 2px 0; }
+  .market-item .chg { font-size: 0.82em; font-weight: 700; }
+  .market-item .bar-wrap {
+    margin-top: 6px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 4px;
+    height: 5px;
+    overflow: hidden;
   }
-  
-  .market-item .val {
-    font-size: 1.05em;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  
-  .market-item .chg {
-    font-size: 0.72em;
-    font-weight: 600;
-    margin-bottom: 3px;
-  }
-  
+  .market-item .bar-fill { height: 100%; border-radius: 4px; }
   .up { color: var(--up); }
   .down { color: var(--down); }
   .warn { color: var(--amber); }
-  
-  .bar-wrap {
-    background: var(--border);
-    height: 4px;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  
-  .bar-fill {
-    height: 100%;
-    border-radius: 2px;
-  }
-  
-  /* 利率期貨 Gauge */
+
+  /* 利率期貨 gauge */
   .gauge-block {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
   }
-  
   .gauge-block h2 {
-    font-size: 1.05em;
-    font-weight: 700;
-    margin: 0 0 12px 0;
-    color: var(--text);
+    color: var(--gold);
+    font-size: 1.02em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
   }
-  
-  .gauge-wrap {
-    position: relative;
-  }
-  
+  .gauge-wrap { display: flex; flex-direction: column; align-items: center; padding: 10px 0; }
   .gauge-bar {
-    height: 8px;
-    background: var(--border);
-    border-radius: 4px;
-    margin-bottom: 8px;
+    width: 85%;
+    height: 30px;
+    background: linear-gradient(90deg, var(--down) 0%, var(--down) 15%, var(--gold) 15%, var(--gold) 80%, var(--up) 80%, var(--up) 100%);
+    border-radius: 15px;
     position: relative;
+    margin: 10px 0;
   }
-  
   .gauge-marker {
     position: absolute;
-    top: -2px;
-    width: 4px;
-    height: 12px;
-    background: var(--brand);
-    border-radius: 2px;
-    transform: translateX(-50%);
-  }
-  
-  .gauge-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75em;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  
-  .gauge-center {
-    text-align: center;
-    font-size: 0.88em;
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  
-  .gauge-sub {
-    font-size: 0.82em;
-    color: var(--text);
-    line-height: 1.6;
-    margin-bottom: 8px;
-  }
-  
-  .gauge-comment {
-    font-size: 0.82em;
-    color: var(--text);
-    line-height: 1.6;
-    background: var(--brand-light);
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 122, 61, 0.2);
-  }
-  
-  /* 最新市況解讀 */
-  .uncle-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  
-  .uncle-box .tag {
-    font-size: 1.05em;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--accent);
-  }
-  
-  .uncle-box .dim {
-    font-size: 0.88em;
-    font-weight: 700;
-    margin: 14px 0 6px 0;
-    color: var(--muted);
-  }
-  
-  .uncle-box ul {
-    margin: 0 0 12px 0;
-    padding-left: 18px;
-  }
-  
-  .uncle-box li {
-    margin-bottom: 4px;
-    font-size: 0.82em;
-    line-height: 1.5;
-  }
-  
-  .hl { font-weight: 600; }
-  .hl-red { color: var(--up); font-weight: 600; }
-  .hl-green { color: var(--down); font-weight: 600; }
-  
-  .coupon {
-    background: var(--brand-light);
-    padding: 1px 4px;
+    top: -8px;
+    width: 5px;
+    height: 46px;
+    background: #fff;
     border-radius: 3px;
-    font-weight: 700;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
   }
-  
-  /* 策略塊 */
+  .gauge-labels { display: flex; justify-content: space-between; width: 85%; font-size: 0.76em; color: var(--muted); }
+  .gauge-center { font-size: 1.05em; color: var(--gold); font-weight: 700; margin-top: 6px; }
+  .gauge-sub { font-size: 0.84em; color: var(--muted); margin-top: 2px; }
+  .gauge-comment { font-size: 0.82em; color: var(--text); margin-top: 6px; line-height: 1.6; text-align: center; }
+
+  /* 市況解讀 */
+  .uncle-box {
+    background: linear-gradient(135deg, #fdf6e3 0%, #f5e9c8 100%);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .uncle-box .tag { font-size: 0.78em; color: var(--gold); font-weight: 700; letter-spacing: 1px; }
+  .uncle-box .dim { color: var(--accent); font-weight: 700; font-size: 0.9em; margin-top: 12px; }
+  .uncle-box ul { padding-left: 20px; margin-top: 4px; }
+  .uncle-box li { color: var(--text); font-size: 0.88em; margin: 4px 0; line-height: 1.75; }
+  .hl { color: var(--gold); font-weight: 700; }
+  .hl-red { color: var(--up); font-weight: 700; }
+  .hl-green { color: var(--down); font-weight: 700; }
+
+  /* 策略 blocks */
   .strategy-block {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
   }
-  
-  .strategy-block .stitle {
-    font-size: 1.05em;
-    font-weight: 700;
-    margin: 0 0 12px 0;
+  .strategy-block .stitle { font-size: 1.0em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .strategy-block .sbody { color: var(--text); font-size: 0.88em; line-height: 1.7; }
+
+  .eln-table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 8px; }
+  .eln-table th {
+    background: #fdf6e3;
     color: var(--accent);
-  }
-  
-  .strategy-block .sbody {
-    font-size: 0.82em;
-    line-height: 1.5;
-  }
-  
-  .strategy-block table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 8px;
-  }
-  
-  .strategy-block th {
-    background: var(--brand-light);
-    padding: 6px 4px;
+    padding: 7px 9px;
     text-align: left;
-    font-weight: 600;
-    border: 1px solid var(--border);
-    font-size: 0.78em;
-    color: var(--muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 700;
   }
-  
-  .strategy-block td {
-    padding: 6px 4px;
-    border: 1px solid var(--border);
-    vertical-align: top;
-    font-size: 0.8em;
-  }
-  
-  .eln-table.fund td:nth-child(3) {
-    white-space: nowrap;
-  }
-  
-  .pick {
-    background: var(--brand-light);
-  }
-  
+  .eln-table td { padding: 7px 9px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .eln-table tr:hover td { background: rgba(240,192,64,0.06); }
+  .eln-table .coupon { color: var(--down); font-weight: 700; }
+  .eln-table.fund th:nth-child(3), .eln-table.fund td:nth-child(3) { white-space: nowrap; }
+  .pick td { background: rgba(240,192,64,0.10); }
+  .pick td:first-child { border-left: 3px solid var(--gold); }
   .pick-tag {
-    background: var(--amber);
-    color: white;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-size: 0.7em;
-    font-weight: 700;
-    margin-left: 4px;
-  }
-  
-  .mxi-box {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-  }
-  
-  .mxi-box span {
-    font-size: 0.85em;
-  }
-  
-  .mxi-box .hl {
-    font-weight: 600;
-  }
-  
-  .mxi-box .coupon {
-    background: var(--brand-light);
-    padding: 1px 4px;
-    border-radius: 3px;
-    font-weight: 700;
-  }
-  
-  /* Watchlist */
-  .watchlist {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  
-  .watchlist strong {
-    font-size: 1.05em;
-    font-weight: 700;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  .wl-hot {
     display: inline-block;
-    background: var(--brand-light);
-    border: 1px solid rgba(0, 122, 61, 0.2);
-    padding: 3px 6px;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.72em;
+    font-weight: 800;
     border-radius: 4px;
-    font-size: 0.76em;
-    margin: 2px;
-    line-height: 1.4;
+    padding: 1px 6px;
+    margin-left: 4px;
+    vertical-align: middle;
   }
-  
-  /* Footer */
+
+  .mxi-box {
+    background: linear-gradient(135deg, #fdf6e3, #f5e9c8);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+
+  .watchlist { font-size: 0.86em; color: var(--muted); margin-bottom: 8px; line-height: 2; }
+  .watchlist strong { color: var(--gold); }
+  .watchlist .wl-hot { color: var(--amber); }
+
+  /* Quant → ELN 專區 */
+  .eln-quant {
+    background: var(--eln-bg);
+    border: 1px solid var(--eln-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .eln-quant .eq-title {
+    color: var(--eln-head);
+    font-size: 1.0em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .eln-quant .eq-pick {
+    background: rgba(77,163,255,0.12);
+    border-left: 3px solid var(--eln-head);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.88em;
+  }
+  .eln-quant table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin-top: 6px; }
+  .eln-quant th { background: #fdf6e3; color: var(--eln-head); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--eln-border); font-weight: 700; }
+  .eln-quant td { padding: 6px 8px; border-bottom: 1px solid var(--eln-border); color: var(--text); }
+  .eln-quant .stars { color: var(--eln-head); letter-spacing: 1px; }
+  .eln-quant .avoid { color: var(--up); font-weight: 600; }
+
   .footer {
-    font-size: 0.8em;
-    color: var(--muted);
     text-align: center;
-    padding: 12px 0 8px 0;
+    color: var(--muted);
+    font-size: 0.74em;
     border-top: 1px solid var(--border);
-    margin-top: 16px;
+    padding-top: 8px;
+    margin-top: 12px;
   }
-  
-  @media (max-width: 768px) {
-    .lk-header {
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .lk-doc-title {
-      text-align: center;
-    }
-    
-    .summary-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .market-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
+
+  @media (max-width: 600px) {
+    .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    .market-row { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
+
 <body>
 <div class="lk-header">
   <div class="lk-logo">k</div>
@@ -472,7 +316,7 @@
   </div>
 </div>
 <div style="text-align:center;"><span class="date-badge">2026年8月30日 星期日（週末更新）</span></div>
-<div style="text-align:center;font-size:0.78em;color:var(--muted);margin:4px 0 2px;">週末環球股市休市　數據沿用週五（8/29）收市　·　比特幣／日圓為週末即時�　·　07:30核實</div>
+<div style="text-align:center;font-size:0.78em;color:var(--muted);margin:4px 0 2px;">週末環球股市休市　數據沿用週五（8/28）收市　·　比特幣／日圓為週末即時價　·　週日16:59核實</div>
 
 <!-- 五格 -->
 <div class="summary-grid">
@@ -486,12 +330,12 @@
   </div>
   <div class="summary-box">
     <div class="label">⚖️ 風險天平</div>
-    <div class="value">日圓160.04已升穿干預線｜美元指數99.68（+0.5%）｜10年債息4.72%（+5點子）<br>VIX 14.5仍低——再定價有序但尾部風險上升</div>
+    <div class="value">日圓160.04已升穿干預線｜美元指數99.68（+0.5%）｜10年債息4.72%（+5點子）<br>VIX 14.43仍低——再定價有序但尾部風險上升</div>
   </div>
   <div class="summary-box">
     <div class="label">💹 市場定價</div>
-    <div class="value">道指53,569｜標普7,731｜納指26,541｜費半11,882<br>布蘭特89.3｜期金4,478｜10年4.72%</div>
-    <div style="font-size:0.72em;color:var(--muted);margin-top:2px;">美元99.2｜日圓160.04｜比特幣78,177｜VIX 14.5</div>
+    <div class="value">道指53,560｜標普7,712｜納指26,402｜費半11,470<br>布蘭特88.3｜期金4,504｜10年4.72%</div>
+    <div style="font-size:0.72em;color:var(--muted);margin-top:2px;">美元99.68｜日圓160.04｜比特幣77,760｜VIX 14.43</div>
   </div>
   <div class="summary-box">
     <div class="label">📝 一句話</div>
@@ -509,47 +353,47 @@
 <div class="market-row">
   <div class="market-item">
     <div class="name">恒生指數</div>
-    <div class="val">25,565.7</div>
-    <div class="chg up">▲ +0.07%（+19點，週五8/29收）</div>
+    <div class="val">25,584.8</div>
+    <div class="chg up">▲ +0.07%（+19點，週五8/28收）</div>
     <div class="bar-wrap"><div class="bar-fill" style="width:51%;background:var(--up);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">道瓊斯</div>
-    <div class="val">53,569.4</div>
-    <div class="chg up">▲ +0.20%（+106點，週五8/29收）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:58%;background:var(--up);"></div></div>
+    <div class="val">53,559.99</div>
+    <div class="chg down">▼ -0.02%（-9點，週五8/28收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:49%;background:var(--down);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">S&amp;P 500</div>
-    <div class="val">7,731.0</div>
-    <div class="chg up">▲ +0.72%（+55點，週五8/29收）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:59%;background:var(--up);"></div></div>
+    <div class="val">7,711.76</div>
+    <div class="chg down">▼ -0.25%（-19點，週五8/28收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:48%;background:var(--down);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">納斯達克</div>
-    <div class="val">26,541.3</div>
-    <div class="chg up">▲ +1.57%（+411點，週五8/29收）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:67%;background:var(--up);"></div></div>
+    <div class="val">26,402.42</div>
+    <div class="chg down">▼ -0.52%（-139點，週五8/28收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:47%;background:var(--down);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">費城半導體</div>
-    <div class="val">11,882.2</div>
-    <div class="chg up">▲ +2.33%（+274點，週五8/29收）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:74%;background:var(--up);"></div></div>
+    <div class="val">11,469.66</div>
+    <div class="chg down">▼ -3.47%（-413點，週五8/28收）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:38%;background:var(--down);"></div></div>
   </div>
 </div>
 <div class="market-row">
   <div class="market-item">
     <div class="name">布蘭特原油</div>
-    <div class="val">89.3</div>
-    <div class="chg down">▼ -0.43%（週五結算，$88-90區間續拉鋸）</div>
+    <div class="val">88.29</div>
+    <div class="chg down">▼ -1.6%（週五結算，$86-92區間續拉鋸）</div>
     <div class="bar-wrap"><div class="bar-fill" style="width:47%;background:var(--down);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">黃金（期金）</div>
-    <div class="val">$4,478</div>
-    <div class="chg down">▼ -2.85%（鷹派＋美元反彈夾擊）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:41%;background:var(--down);"></div></div>
+    <div class="val">$4,504</div>
+    <div class="chg down">▼ -2.3%（鷹派＋美元反彈夾擊）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:42%;background:var(--down);"></div></div>
   </div>
   <div class="market-item">
     <div class="name">美10年債息</div>
@@ -565,12 +409,12 @@
   </div>
   <div class="market-item">
     <div class="name">美元指數</div>
-    <div class="val">99.2</div>
-    <div class="chg down">▼ -0.01%（週末流動性偏低，日圓走強）</div>
-    <div class="bar-wrap"><div class="bar-fill" style="width:48%;background:var(--down);"></div></div>
+    <div class="val">99.68</div>
+    <div class="chg up">▲ +0.52%（鷹派聯儲局撐美元，對金價構成壓力）</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:56%;background:var(--up);"></div></div>
   </div>
 </div>
-<div style="font-size:0.8em;color:var(--muted);margin-bottom:14px;text-align:center;">📡 美股週五8/29收市：道指53,569.4（+0.20%）｜標普7,731.0（+0.72%）｜納指26,541.3（+1.57%）｜費半11,882.2（+2.33%）｜VIX 14.5（-4.60%）｜NVDA 217.55（週四收）｜恒指週五收25,565.7（+0.07%）｜布蘭特89.3（週五結算）｜期金$4,478（週末即時）｜10年4.72%（週五收）｜美元指數99.2（週末即時）｜日圓160.04（週末即時）｜比特幣78,177（週末即時）</div>
+<div style="font-size:0.8em;color:var(--muted);margin-bottom:14px;text-align:center;">📡 美股週五8/28收市：道指53,559.99（-0.02%）｜標普7,711.76（-0.25%）｜納指26,402.42（-0.52%）｜費半11,469.66（-3.47%）｜VIX 14.43（-0.6%）｜NVDA 217.55（-4.6%）｜GOOGL 346.59（+1.7%）｜恒指週五收25,584.8（+0.07%）｜布蘭特88.29（-1.6%）｜期金$4,504（-2.3%）｜10年4.72%（+5點子）｜美元指數99.68｜日圓160.04｜比特幣78,065（週日16:59即時）</div>
 
 <!-- 利率期貨 Gauge -->
 <div class="gauge-block">
@@ -597,41 +441,42 @@
   <div class="dim">【Macro】全球大盤與宏觀環境</div>
   <ul>
     <li><span class="hl-red">Warsh首個Jackson Hole演說晒鷹派：</span>「通脹並無明顯放緩」，誓要回到2%目標（Bloomberg 8/28 22:15突發）——減息敘事被當頭棒喝，市場定價下月加息機會約34%（演說前口径）。</li>
-    <li><span class="hl">美股週五反彈：</span>道指+0.20%報53,569、標普+0.72%報7,731、納指+1.57%報26,541、費半+2.33%報11,882——週五企穩，屬有序輪動而非恐慌。</li>
-    <li><span class="hl">恒指週五收25,565.7（+0.07%，+19點）：</span>Jackson Hole演講前靜觀其變，全週大致橫行（25,500-25,650）；下週一關注鷹派餘波＋25,400-25,500支持、25,800-26,000阻力。</li>
+    <li><span class="hl">美股週五高位回吐：</span>道指-0.02%報53,560、標普-0.25%報7,712、納指-0.52%報26,402、費半-3.47%報11,470——週四AI狂歡一日回吐大半；VIX 14.43（-0.6%）仍低，屬有序再定價而非恐慌。</li>
+    <li><span class="hl">恒指週五收25,584.8（+0.07%，+19點）：</span>Jackson Hole演講前靜觀其變，全週大致橫行（25,500-25,650）；下週一關注鷹派餘波＋25,400-25,500支持、25,800-26,000阻力。</li>
     <li><span class="hl-red">亞洲通脹警示（Bloomberg Evening Briefing Asia）：</span>菲律賓連第三次加息、央行料通脹2028年前難回目標、Q2增長放緩至2.3%——布蘭特$90附近＋美國高利率夾擊，對印度、印尼等石油進口國係「煤礦中金絲雀」。</li>
-    <li><span class="hl">比特幣78,177（週末07:30即時，-2.59%）：</span>跌穿$80,000——鷹派利率環境下，流動性敏感資產同步再定價。</li>
+    <li><span class="hl">比特幣77,760（週六06:54即時，-3.1%）：</span>跌穿$80,000——鷹派利率環境下，流動性敏感資產同步再定價。</li>
   </ul>
 
   <div class="dim">【Sector】關鍵板塊動態</div>
   <ul>
-    <li><span class="hl">半導體週五企穩：</span>費半+2.33%報11,882——週五下跌後反彈，屬技術性修正；NVDA週四收217.55、週五反彈；鷹派利率環境下高估值AI硬件波動放大，分段部署勝過追。</li>
-    <li><span class="hl">油價週五結算89.3：</span>-0.43%——地緣溢價與需求憂慮角力，$86-92區間未破；亞洲石油進口國（菲／印／尼）通脹壓力因油價居高不下而持續。</li>
-    <li><span class="hl-red">黃金鷹派壓下回吐：</span>期金4,478（週末07:30即時，-2.85%）——美元反彈（99.2）＋加息定價重燃係主因；長線央行買金邏輯未變，短線$4,500係關鍵。</li>
-    <li><span class="hl-red">日圓160.04穿干預線：</span>+0.45%——日本財務省干預風險上升，套息平倉波動係下週主要尾部風險之一。</li>
+    <li><span class="hl-red">半導體一日逆轉：</span>費半-3.47%報11,470，由週四創高一日轉跌；NVDA -4.6%報$217.55，回吐業績升幅過半——鷹派利率＋獲利回吐，高估值AI硬件波動放大，分段部署勝過追。</li>
+    <li><span class="hl-green">Alphabet逆市反彈：</span>GOOGL +1.7%報$346.59，收復週四部分失地——「AI分化」市下資金唔係全面撤出巨頭，而係揀贏家。</li>
+    <li><span class="hl">油價續拉鋸：</span>布蘭特-1.6%報$88.29——地緣溢價與需求憂慮角力，$86-92區間未破；亞洲石油進口國（菲／印／尼）通脹壓力因油價居高不下而持續。</li>
+    <li><span class="hl-red">黃金鷹派壓力下回吐：</span>期金-2.3%報$4,504，週四$4,610反彈一日即回吐——美元反彈（99.68）＋加息定價重燃係主因；長線央行買金邏輯未變，短線$4,500係關鍵。</li>
+    <li><span class="hl-red">日圓升穿160干預線：</span>160.04（+0.45%）——日本財務省干預風險上升，套息平倉波動係下週主要尾部風險之一。</li>
   </ul>
 
   <div class="dim">【Company】關鍵個股與事件</div>
   <ul>
-    <li><span class="hl">Nvidia：</span>週四收$217.55——週四業績炸裂後週五反彈，市場對AI競賽仍肯畀機會；波動屬估值層面。</li>
-    <li><span class="hl">油價週五結算89.3：</span>-0.43%——地緣溢價與需求憂慮角力，$86-92區間未破。</li>
-    <li><span class="hl">萬科（週四消息沿用）：</span>上半年虧損擴大至149.5億人民幣（$22億），12月起境內債到期壓力湧至——中國地產債務壓力未解。</li>
+    <li><span class="hl-red">Nvidia：</span>$217.55（-4.6%）——週四業績炸裂＋8.7%一日回吐過半，反映鷹派利率對高估值股嘅即時殺傷；業績與指引本身未被推翻，波動屬估值層面。</li>
+    <li><span class="hl-green">Alphabet：</span>$346.59（+1.7%）——週四「蒸發$6,920億」後逆市反彈，市場對AI競賽贏家仍肯畀機會。</li>
+    <li><span class="hl-red">萬科（週四消息沿用）：</span>上半年虧損擴大至149.5億人民幣（$22億），12月起境內債到期壓力湧至——中國地產債務壓力未解。</li>
     <li><span class="hl">Shein（週四消息沿用）：</span>港股IPO定價$48.56、集資136億港元（$17億），估值略高於$260億——較四年前$1,000億大幅折讓，快時尚估值重設。</li>
     <li><span class="hl">Trump H-1B（週四消息沿用）：</span>DHS建議收費$103,265，測試收費授權法律邊界——人才流動成本上升，印度科企外判鏈受壓。</li>
   </ul>
 
   <div class="dim">【Sentiment】市場情緒</div>
   <ul>
-    <li><span class="hl">VIX 14.5（-4.60%）：</span>股跌而VIX唔升——再定價有序、未见恐慌盤；惟低VIX環境下，一旦日圓干預或9月議息超預期，殺傷力更大。</li>
-    <li><span class="hl">鷹派再定價＝牛市壓力測試：</span>費半週五企穩＋GOOGL週五反彈——資金由「齊升」轉「揀股」，高估值一方仍受支持。</li>
-    <li><span class="hl">美元99.2（-0.01%）、日圓160.04穿干預線：</span>套息交易壓力升至臨界點，日圓若急反轉將觸發平倉波動。</li>
-    <li><span class="hl">金與BTC齊跌：</span>期金4,478（週末07:30即時，-2.85%）、BTC 78,177（週末07:30即時，-2.59%）——鷹派利率下，避險與風險資產同步向下，「流動性充裕」敘事暫退場。</li>
+    <li><span class="hl">VIX 14.43（-0.6%）：</span>股跌而VIX唔升——再定價有序、未见恐慌盤；惟低VIX環境下，一旦日圓干預或9月議息超預期，殺傷力更大。</li>
+    <li><span class="hl-red">鷹派再定價＝牛市壓力測試：</span>費半-3.5%對GOOGL +1.7%——資金由「齊升」轉「揀股」，高估值一方首當其衝。</li>
+    <li><span class="hl-red">美元99.68（+0.5%）、日圓160.04穿干預線：</span>套息交易壓力升至臨界點，日圓若急反轉將觸發平倉波動。</li>
+    <li><span class="hl">金與BTC齊跌：</span>期金-2.3%、BTC -3.1%——鷹派利率下，避險與風險資產難得同步向下，「流動性充裕」敘事暫退場。</li>
   </ul>
 
   <div class="dim">【Micro 金價】</div>
   <ul>
-    <li>期金路徑：$4,638（8/25）→$4,598（8/26，-0.9%）→$4,610（8/27，+0.3%）→<span class="hl-red">$4,504（8/28，-2.3%）→$4,478（週末07:30即時，-2.85%）</span>——週四反彈一日即回吐，鷹派聯儲局係轉折點。</li>
-    <li>回吐驅動：①<span class="hl">Warsh鷹派</span>（通脹未放緩、誓回2%目標，加息定價重燃）；②<span class="hl">美元指數反彈</span>（99.68→99.2）；③<span class="hl">10年債息升5點子至4.72%</span>，實質利率壓力回歸。</li>
+    <li>期金路徑：$4,638（8/25）→$4,598（8/26，-0.9%）→$4,610（8/27，+0.3%）→<span class="hl-red">$4,504（8/28，-2.3%）</span>——週四反彈一日即回吐，鷹派聯儲局係轉折點。</li>
+    <li>回吐驅動：①<span class="hl">Warsh鷹派</span>（通脹未放緩、誓回2%目標，加息定價重燃）；②<span class="hl">美元指數反彈</span>（99.68，+0.5%）；③<span class="hl">10年債息升5點子至4.72%</span>，實質利率壓力回歸。</li>
     <li><span class="hl">技術面：</span>$4,500為關鍵心理關口兼首支持，失守下望$4,400；反彈首阻力$4,610（週四收市）、其上$4,662-$4,700，歷史高位$4,751。</li>
     <li><span class="hl">機構觀點：</span>UBS維持長線$5,000目標（此前簡報沿用）——短線鷹派回調與長線央行買金／財政赤字邏輯並存。</li>
     <li><span class="hl">風險提示：</span>下週一開市若加息定價進一步上升，金價或再試$4,400；分段吸納宜、一次性追高不宜，$4,500企穩前先觀望。</li>
@@ -639,13 +484,13 @@
 
   <div class="dim">📌 總結</div>
   <ul>
-    <li><span class="hl-red">鷹派現實日：</span>Warsh「通脹未放緩」＋加息定價約34%——週四AI狂歡一日回吐大半；週五企穩屬有序輪動。</li>
-    <li><span class="hl">VIX 14.5仍低：</span>屬有序輪動而非恐慌——但日圓160.04穿干預線＋9月議息鷹派尾部風險，下週波動隨時可以放大，分段進出係紀律而非選擇。</li>
-    <li><span class="hl">期金$4,478（週末07:30即時，-2.85%）：</span>$4,500係關鍵——企穩前先觀望，分段吸納優於接刀；長線$5,000機構目標未變。</li>
-    <li><span class="hl">恒指25,565.7（+0.07%）全週橫行：</span>鷹派餘波下高息藍籌續為資金避風港——下週一睇25,400-25,500支持、25,800-26,000阻力。</li>
+    <li><span class="hl-red">鷹派現實日：</span>Warsh「通脹未放緩」＋加息定價約34%——週四AI狂歡一日回吐大半；費半-3.5%、期金-2.3%、BTC -3.1%，高估值資產全面再定價。</li>
+    <li><span class="hl">VIX 14.43仍低：</span>屬有序輪動而非恐慌——但日圓160.04穿干預線＋9月議息鷹派尾部風險，下週波動隨時可以放大，分段進出係紀律而非選擇。</li>
+    <li><span class="hl">期金$4,504（-2.3%）：</span>$4,500係關鍵——企穩前先觀望，分段吸納優於接刀；長線$5,000機構目標未變。</li>
+    <li><span class="hl">恒指25,584.8（+0.07%）全週橫行：</span>鷹派餘波下高息藍籌續為資金避風港——下週一睇25,400-25,500支持、25,800-26,000阻力。</li>
     <li><span class="hl">RM部署：</span>鷹派推後減息→收息泊位價值升（PIMCO收益II U50021約5.95%、宏利多元入息U45660約10.08%、3-6個月美元定存鎖近4厘）；黃金主題等$4,500企穩再分段吸納；科技基金（法巴科技創新）等費半企穩再分批小注；憂慮波動嘅穩健客→施羅德靈活配置總回報（U45871，極端市況可轉持現金）；上落市收割期權金→摩根亞洲股票高息（U45501，8.08%）。</li>
   </ul>
-  <div style="margin-top:12px;font-size:0.76em;color:var(--muted);border-top:1px dashed var(--border);padding-top:8px;">ℹ️ 來源：Yahoo Finance實時數據（美股／恒指週五8/29收市、比特幣週末07:30即時核實）＋Bloomberg突發（Warsh Jackson Hole演說，8/28 22:15）＋Bloomberg Evening Briefing Asia（8/28 17:30）；王董大盤籌碼、Finviz heatmap 週末暫缺。</div>
+  <div style="margin-top:12px;font-size:0.76em;color:var(--muted);border-top:1px dashed var(--border);padding-top:8px;">ℹ️ 來源：Yahoo Finance實時數據（美股／恒指週五8/28收市、比特幣週日16:59即時核實）＋Bloomberg突發（Warsh Jackson Hole演說，8/28 22:15）＋Bloomberg Evening Briefing Asia（8/28 17:30）；王董大盤籌碼、Finviz heatmap 週末暫缺。</div>
 </div>
 
 <!-- 今日策略 -->
@@ -666,13 +511,13 @@
       <tr><td>PIMCO收益增長</td><td>U45553</td><td>多元資產</td><td>收益＋增長並重</td></tr>
       <tr><td>恒生亞洲增長收益</td><td>U45090</td><td>多元資產</td><td>聚焦亞洲，月派息約<span class="coupon">5.73%</span></td></tr>
       <tr><td>施羅德靈活配置總回報</td><td>U45871</td><td>多元資產</td><td><span class="coupon">月派約6%</span>；無基準限制靈活股債現金配置（Cash+3%絕對回報目標，YTD約8.8%），極端市況可大幅轉持現金避險——鷹派波動市下防禦＋靈活價值升</td></tr>
-      <tr class="pick"><td>恒生高息股30 ETF <span class="pick-tag">重點</span></td><td>U45624</td><td>股票主題</td><td><span class="coupon">派息率約7.52%</span>，恒指25,565全週橫行、鷹派市下高息藍籌較穩</td></tr>
+      <tr class="pick"><td>恒生高息股30 ETF <span class="pick-tag">重點</span></td><td>U45624</td><td>股票主題</td><td><span class="coupon">派息率約7.52%</span>，恒指25,585全週橫行、鷹派市下高息藍籌較穩</td></tr>
       <tr><td>貝萊德系統分析高息股</td><td>U44950</td><td>股票主題</td><td><span class="coupon">派息率約8-10%</span>＋期權增強</td></tr>
       <tr><td>鄧普頓亞太入息</td><td>U45722</td><td>股票主題</td><td>亞太區入息策略；區內通脹壓力分化，精選配置</td></tr>
-      <tr><td>法巴科技創新</td><td>U45816</td><td>股票主題</td><td>科技創新主題；費半11,882週五企穩，等企穩再分批小注、勿追高</td></tr>
+      <tr><td>法巴科技創新</td><td>U45816</td><td>股票主題</td><td>科技創新主題；費半11,470單日-3.5%，等企穩再分批小注、勿追高</td></tr>
       <tr><td>摩根亞洲股票高息</td><td>U45501</td><td>股票主題</td><td><span class="coupon">月派約8.08%</span>；重倉台/韓/中科技龍頭＋沽亞洲指數Call期權增強收益——鷹派上落市中期權金收入穩定</td></tr>
     </table>
-    <div style="margin-top:8px;font-size:0.85em;color:var(--muted);">💡 <span class="hl">RM切入</span>：Warsh鷹派＋加息定價約34%→減息窗口推後，收息泊位續推<span class="hl">PIMCO收益II（U50021，5.95%）</span>與<span class="hl">宏利多元入息10%派（U45660，10.08%）</span>；過渡泊位<span class="hl">HSBC超短債（U45242）</span>＋<span class="hl">安聯浮動息（U45707）</span>（加息定價重燃下浮息防禦性升）；恒指25,565全週橫行下<span class="hl">恒生高息股30（U45624，7.52%）</span>較穩；10年4.72%＋鷹派推高長端，<span class="hl">法巴環球債券（U45838）</span>宜分段推進；<span class="hl">黃金主題</span>等$4,500企穩再分段吸納；科技基金（法巴科技創新）等費半企穩再分批小注、勿追高；鷹派波動市下憂慮波動嘅穩健客→<span class="hl">施羅德靈活配置總回報（U45871，約6%月派，極端市況可轉持現金）</span>；上落市收割期權金→<span class="hl">摩根亞洲股票高息（U45501，8.08%）</span>。</div>
+    <div style="margin-top:8px;font-size:0.85em;color:var(--muted);">💡 <span class="hl">RM切入</span>：Warsh鷹派＋加息定價約34%→減息窗口推後，收息泊位續推<span class="hl">PIMCO收益II（U50021，5.95%）</span>與<span class="hl">宏利多元入息10%派（U45660，10.08%）</span>；過渡泊位<span class="hl">HSBC超短債（U45242）</span>＋<span class="hl">安聯浮動息（U45707）</span>（加息定價重燃下浮息防禦性升）；恒指25,585全週橫行下<span class="hl">恒生高息股30（U45624，7.52%）</span>較穩；10年4.72%＋鷹派推高長端，<span class="hl">法巴環球債券（U45838）</span>宜分段推進；<span class="hl">黃金主題</span>等$4,500企穩再分段吸納；科技基金（法巴科技創新）等費半企穩再分批小注、勿追高；鷹派波動市下憂慮巨頭波動的穩健客→<span class="hl">施羅德靈活配置總回報（U45871，約6%月派，極端市況可轉持現金）</span>；上落市收割期權金→<span class="hl">摩根亞洲股票高息（U45501，8.08%）</span>。</div>
   </div>
 </div>
 
@@ -681,12 +526,12 @@
   <div class="sbody">
     <table class="eln-table">
       <tr><th>標的</th><th>邏輯</th><th>接貨機會</th></tr>
-      <tr><td>標普500指數ELN</td><td>標普7,731高位區域＋鷹派再定價刚开始；接貨價宜留更大緩衝、年期宜短</td><td>中低</td></tr>
-      <tr class="pick"><td>黃金ETF（2840.HK） <span class="pick-tag">留意</span></td><td>金$4,478跌穿週四反彈位，$4,500關鍵關口——等企穩後$4,450／$4,400分段接貨、年期宜短不宜長</td><td><span class="coupon">中</span></td></tr>
-      <tr><td>費半／晶片相關</td><td>費半週五企穩+2.33%、NVDA技術性修正——鷹派利率下高估值晶片波動仍放大，行權價宜深、等企穩再分段部署</td><td>中低</td></tr>
+      <tr><td>標普500指數ELN</td><td>標普7,712高位區域＋鷹派再定價刚开始；接貨價宜留更大緩衝、年期宜短</td><td>中低</td></tr>
+      <tr class="pick"><td>黃金ETF（2840.HK） <span class="pick-tag">留意</span></td><td>金$4,504跌穿週四反彈位，$4,500關鍵關口——等企穩後$4,450／$4,400分段接貨、年期宜短不宜長</td><td><span class="coupon">中</span></td></tr>
+      <tr><td>費半／晶片相關</td><td>費半-3.5%單日逆轉、NVDA -4.6%——鷹派利率下高估值晶片波動放大，行權價宜深、等企穩再分段部署</td><td>中低</td></tr>
       <tr><td>美團（3690.HK）</td><td>高息避險屬性；90-95港元接貨後收息，鷹派市下高息股為資金避風港</td><td>高</td></tr>
       <tr class="pick"><td>匯豐（0005.HK） <span class="pick-tag">留意</span></td><td>高息藍籌避險；65-68港元接貨後收息，鷹派＋地緣風險下防禦屬性突出</td><td><span class="coupon">高</span></td></tr>
-      <tr><td>中國海洋石油（0883.HK）</td><td>布蘭特89.3（-0.43%）仍未站穩$90——等油價企穩再推，行權價宜深、分段部署</td><td>中低</td></tr>
+      <tr><td>中國海洋石油（0883.HK）</td><td>布蘭特88.29（-1.6%）仍未站穩$90——等油價企穩再推，行權價宜深、分段部署</td><td>中低</td></tr>
     </table>
     <div style="margin-top:6px;font-size:0.82em;color:var(--muted);">⚠️ Warsh鷹派＋加息定價重燃，所有掛鉤結構年期一律宜短不宜長；金價跌穿$4,500關鍵關口前先觀望、等企穩再分段接貨；晶片掛鉤ELN波動放大，行權價宜深；美團／匯豐高息避險屬性在鷹派市尤為突出。</div>
   </div>
@@ -700,7 +545,7 @@
       <span class="hl">港元定存</span>：3個月期約 <span class="coupon">3.7-3.9厘</span><br>
       <span class="hl">MXI結構性存款</span>：掛鉤黃金或指數，潛在年化回報 <span class="coupon">5-7%</span>
     </div>
-    <div style="font-size:0.88em;">💡 建議：Warsh鷹派＋下月加息定價約34%——減息窗口推後，<span class="hl">3-6個月美元定存鎖近4厘窗口更加穩固，宜趁週末後開市盡早鎖定</span>；10年4.72%＋鷹派推高長端，長債產品宜分段推進、勿一次性拉長存續期；<span class="hl">期金$4,478跌穿關鍵關口風險，黃金MXI等$4,500企穩再參與</span>、年期宜短；布蘭特89.3（-0.43%），油價掛鉤結構等企穩$90上方再推；美元指數99.2（週末即時），外幣定存留意匯率風險；標普7,731高位＋鷹派再定價，指數掛鉤產品等回調再小注跟進。</div>
+    <div style="font-size:0.88em;">💡 建議：Warsh鷹派＋下月加息定價約34%——減息窗口推後，<span class="hl">3-6個月美元定存鎖近4厘窗口更加穩固，宜趁週末後開市盡早鎖定</span>；10年4.72%＋鷹派推高長端，長債產品宜分段推進、勿一次性拉長存續期；<span class="hl">期金$4,504跌穿關鍵關口風險，黃金MXI等$4,500企穩再參與</span>、年期宜短；布蘭特88.29（-1.6%），油價掛鉤結構等企穩$90上方再推；美元指數反彈至99.68，外幣定存留意匯率風險；標普7,712高位＋鷹派再定價，指數掛鉤產品等回調再小注跟進。</div>
   </div>
 </div>
 
@@ -708,19 +553,21 @@
 <div class="watchlist">
   <strong style="font-size:1.05em;">🔍 週末關注 Watchlist</strong><br>
   <span class="wl-hot">Warsh首個Jackson Hole演說晒鷹派：「通脹並無明顯放緩」——下月加息定價約34%（演說前口径）</span>｜
-  <span class="wl-hot">費半週五企穩+2.33%報11,882——鷹派利率下高估值晶片波動仍放大</span>｜
-  <span class="wl-hot">期金$4,478跌穿$4,500關鍵關口——等企穩再分段吸納</span>｜
-  <span class="wl-hot">日圓160.04升穿干預線：美元指數99.2——日本財務省干預風險上升</span>｜
-  <span class="wl-hot">比特幣78,177跌穿$80,000：鷹派利率下流動性敏感資產再定價</span>｜
-  <span class="wl-hot">10年傑息4.72%（+5點子）：鷹派＋財政供應雙重壓力</span>｜
-  <span class="wl-hot">恒指週五收25,565.7（+0.07%）全週橫行——下週一睇25,400-25,500支持／25,800-26,000阻力</span>｜
+  <span class="wl-hot">費半-3.5%報11,470單日逆轉：NVDA -4.6%報$217.55，回吐週四業績升幅過半</span>｜
+  <span class="wl-hot">期金-2.3%報$4,504：$4,500關鍵關口，失守下望$4,400</span>｜
+  <span class="wl-hot">日圓160.04升穿干預線：美元指數99.68（+0.5%）——日本財務省干預風險上升</span>｜
+  <span class="wl-hot">比特幣77,760（-3.1%）跌穿$80,000：鷹派利率下流動性敏感資產再定價</span>｜
+  <span class="wl-hot">10年債息4.72%（+5點子）：鷹派＋財政供應雙重壓力</span>｜
+  <span class="wl-hot">GOOGL逆市+1.7%報$346.59：AI分化市下資金揀贏家</span>｜
+  <span class="wl-hot">菲律賓通脹警示（Bloomberg）：亞洲石油進口國加息困局——留意印度／印尼</span>｜
+  <span class="wl-hot">恒指週五收25,584.8（+0.07%）全週橫行——下週一睇25,400-25,500支持／25,800-26,000阻力</span>｜
   <span class="wl-hot">萬科虧損擴大＋Shein港股IPO定價$48.56（週四消息沿用）</span>｜
   <span>9月15-16日聯儲局議息：由「按兵不動穩固」轉「加息尾部風險約34%」——下週一開市重新核實定價</span>
 </div>
 
 <div class="footer">
   以上內容純屬市場情報整合，不構成投資建議。<br>
-  週末焦點：Warsh鷹派首秀「通脹未放緩」——費半週五企穩+2.33%、期金$4,478跌穿$4,500、BTC跌穿$78,000｜日圓160.04穿干預線｜10年4.72%（+5點子）｜恒指週五收25,565.7（+0.07%）全週橫行｜加息定價約34%——下週一開市重新核實｜高息藍籌＋美元定存續為鷹派市避風港<br>
+  週末焦點：Warsh鷹派首秀「通脹未放緩」——費半-3.5%、NVDA -4.6%、期金-2.3%報$4,504、BTC跌穿$78,000｜日圓160.04穿干預線｜10年4.72%（+5點子）｜恒指週五收25,584.8（+0.07%）全週橫行｜加息定價約34%——下週一開市重新核實｜高息藍籌＋美元定存續為鷹派市避風港<br>
   <span style="color:var(--brand);font-weight:700;">leungkathy</span> · All-in-One Financial Dashboard Suite
 </div>
 </body>
